@@ -165,7 +165,28 @@ async function injectOGImagesIntoHTML(outDir, siteConfig) {
       const imageFilename = slug.replace(/\//g, '-') + '.png';
       const ogImagePath = path.join(ogImagesDir, imageFilename);
       
-      // Check if OG image exists for this page
+      // Ensure OG image exists for this page (generate on demand if missing)
+      if (!fs.existsSync(ogImagePath)) {
+        // Try to derive title/description from existing meta tags
+        const titleMatch = html.match(/<meta[^>]*property="og:title"[^>]*content="([^"]+)"[^>]*>/i) ||
+                           html.match(/<title[^>]*>([^<]+)<\/title>/i);
+        const descMatch = html.match(/<meta[^>]*name="description"[^>]*content="([^"]+)"[^>]*>/i) ||
+                          html.match(/<meta[^>]*property="og:description"[^>]*content="([^"]+)"[^>]*>/i);
+
+        const title = titleMatch ? (titleMatch[1] || '').trim() : '';
+        const description = descMatch ? (descMatch[1] || '').trim() : '';
+
+        try {
+          await generateOGImage({
+            title: title || siteConfig.title,
+            description: description || siteConfig.tagline || '',
+            slug,
+            ogDir: ogImagesDir,
+            siteConfig,
+          });
+        } catch {}
+      }
+
       if (fs.existsSync(ogImagePath)) {
         const imageUrl = `${siteConfig.url}/img/og/${imageFilename}`;
         // Build canonical page URL for better social parsing
