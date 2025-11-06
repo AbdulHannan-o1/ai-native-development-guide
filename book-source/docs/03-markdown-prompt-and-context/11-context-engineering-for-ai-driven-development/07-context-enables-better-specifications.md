@@ -92,7 +92,7 @@ Let's compare two developers working on the same task.
 
 ```bash
 # Immediately jumps to asking AI
-claude prompt "Add password reset functionality to the auth system"
+claude "Add password reset functionality to the auth system"
 ```
 
 **AI's Response:**
@@ -127,7 +127,7 @@ Sure! I'll add password reset. Here's a basic implementation...
 
 ```bash
 # Step 1: Load context BEFORE asking
-claude prompt "I need to add password reset. Before we start, help me understand the existing auth system.
+claude "I need to add password reset. Before we start, help me understand the existing auth system.
 
 Read and summarize:
 1. src/auth/authentication.py (existing auth patterns)
@@ -170,7 +170,7 @@ Testing Patterns:
 **Now Developer B asks:**
 
 ```bash
-claude prompt "Perfect! Now let's design the password reset feature:
+claude "Perfect! Now let's design the password reset feature:
 
 Requirements:
 - Follow existing JWT pattern
@@ -191,7 +191,7 @@ Create a specification for this feature."
 
 **Developer B then:**
 ```bash
-claude prompt "Implement the specification you just wrote."
+claude "Implement the specification you just wrote."
 ```
 
 **What Developer B gets:**
@@ -484,16 +484,16 @@ For password reset, I need to understand:
 
 ```bash
 # Phase 1: Overview
-claude prompt "Give me a high-level overview of how authentication currently works in this project. Don't read all files yet, just analyze the directory structure and key file names."
+claude "Give me a high-level overview of how authentication currently works in this project. Don't read all files yet, just analyze the directory structure and key file names."
 
 # Phase 2: Key Files
-claude prompt "Now read these specific files and summarize the patterns:
+claude "Now read these specific files and summarize the patterns:
 1. src/auth/authentication.py
 2. src/services/token_service.py  
 3. src/models/user.py"
 
 # Phase 3: Deep Dive (if needed)
-claude prompt "I need to understand the token validation logic in detail. Read the validate_token method and explain the flow."
+claude "I need to understand the token validation logic in detail. Read the validate_token method and explain the flow."
 ```
 
 **Result:** You now have deep understanding without overloading context.
@@ -505,7 +505,7 @@ claude prompt "I need to understand the token validation logic in detail. Read t
 **Before writing the specification, test your understanding:**
 
 ```bash
-claude prompt "Based on what you've learned, answer these questions:
+claude "Based on what you've learned, answer these questions:
 
 1. What authentication approach does this project use?
 2. How are tokens currently generated and validated?
@@ -528,7 +528,7 @@ If you're unsure about any of these, tell me what additional context you need."
 **Now, with rich context, you can write a clear specification:**
 
 ```bash
-claude prompt "Based on the context we've loaded, create a detailed specification for the password reset feature.
+claude "Based on the context we've loaded, create a detailed specification for the password reset feature.
 
 Include:
 - How it integrates with existing auth system
@@ -555,7 +555,7 @@ Format as a markdown specification document."
 **Finally, implement:**
 
 ```bash
-claude prompt "Implement the specification you just created. Follow all patterns and conventions we identified."
+claude "Implement the specification you just created. Follow all patterns and conventions we identified."
 ```
 
 **Because you did Steps 1-4:**
@@ -620,7 +620,7 @@ class ServiceName:
 
 ```bash
 # For any new feature
-claude prompt "Read PROJECT_CONTEXT.md to understand project patterns.
+claude "Read PROJECT_CONTEXT.md to understand project patterns.
 
 Then create a specification for [new feature] following these patterns."
 ```
@@ -694,7 +694,7 @@ Practice the context-first mindset.
 ### Prompt 1: Analyze Context Needs
 
 ```bash
-claude prompt "I need to add a 'like' feature to a social media application. Users should be able to like posts and see how many likes a post has.
+claude "I need to add a 'like' feature to a social media application. Users should be able to like posts and see how many likes a post has.
 
 Before I write a specification, what context do I need to understand?
 
@@ -721,7 +721,7 @@ Format as a checklist I can use to gather context."
 ### Prompt 2: Context Before Specification
 
 ```bash
-claude prompt "Here's a specification someone wrote:
+claude "Here's a specification someone wrote:
 
 'Add user profiles. Users should have profiles.'
 
@@ -747,7 +747,7 @@ List:
 ### Prompt 3: Validate Specification Readiness
 
 ```bash
-claude prompt "I'm about to write a specification for adding payment processing to an e-commerce site. I've loaded this context:
+claude "I'm about to write a specification for adding payment processing to an e-commerce site. I've loaded this context:
 
 - How products are currently stored in database
 - How shopping cart works
