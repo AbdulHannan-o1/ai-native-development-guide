@@ -343,100 +343,222 @@ C) Done for now
 
 ## EXECUTION INSTRUCTIONS (For Claude Code)
 
-The command must implement this workflow with vertical intelligence:
+**CRITICAL**: This is an EXECUTABLE orchestration prompt, not documentation. Claude Code must:
+1. Follow this flow exactly, in this order
+2. Automatically invoke downstream commands WITHOUT asking for approval first
+3. Pass full context (AIDD principles, teaching patterns) to each command
+4. Respect approval gates ONLY between phases (not before first invocation)
 
-```python
-# MAIN EXECUTION FUNCTION
+### THE ORCHESTRATED WORKFLOW (EXECUTABLE)
 
-def sp_python_chapter(chapter_num):
-    # PHASE 0: Validation & Context Gathering
-    chapter_title = validate_and_read_chapter(chapter_num)  # 12-29
+#### PHASE 0: Validation & Context Gathering (Interactive)
 
-    user_context = ask_user_four_questions(chapter_num, chapter_title)
-    # Stores: audience, core_focus, outcome, context_materials
+1. **Read and validate chapter number**:
+   - Read: `specs/book/chapter-index.md`
+   - Extract chapter title for chapters 12-29 only
+   - Reject if chapter < 12 or > 29
+   - Store: `chapter_title`, `chapter_num`, `part_num` (derived from chapter)
 
-    # PHASE 1: Specification (AUTOMATED + INTELLIGENT)
-    spec_context = prepare_context(
-        chapter_num, chapter_title, user_context,
-        aidd_principles=True,
-        teaching_patterns=True,
-        cognitive_load_limits=True
-    )
+2. **Ask 4 clarifying questions** (Interactive user input):
+   ```
+   Q1: Who is the primary audience for Chapter [N]: [Title]?
+   Q2: What is the core focus for THIS chapter ONLY?
+   Q3: What should students be able to BUILD by the end?
+   Q4: How should this chapter emphasize AIDD principles?
+   ```
+   - Store all 4 answers in context
+   - Apply AIDD thinking: Specification-first means understanding WHO and WHAT before HOW
 
-    SlashCommand.invoke("/sp.specify", context=spec_context)
-    # → Creates: specs/part-5-chapter-{N}/spec.md
-    # → Applies: AIDD thinking, pedagogy, teaching patterns
+3. **Create feature branch** (Automatic, NO USER INTERACTION):
+   ```bash
+   git checkout -b [branch-name]
+   ```
+   Where `[branch-name]` = `[NN]-chapter-title-slug` (e.g., `013-introduction-to-python`)
 
-    print("📋 Spec created: specs/part-5-chapter-{N}/spec.md")
-    print("Please review and confirm: '✅ Spec approved' or feedback")
+---
 
-    wait_for_approval()  # Blocks until user confirms
+#### PHASE 1: Specification (Automated + Intelligent)
 
-    # PHASE 2: Planning (AUTOMATED + INTELLIGENT)
-    spec_content = Read(f"specs/part-5-chapter-{N}/spec.md")
-    plan_context = prepare_context(
-        chapter_num, chapter_title, spec_content,
-        proficiency_levels=True,
-        lesson_progression=True,
-        ai_prompts=True
-    )
+**THIS PHASE INVOKES `/sp.specify` AUTOMATICALLY WITH FULL CONTEXT**
 
-    SlashCommand.invoke("/sp.plan", context=plan_context)
-    # → Creates: specs/part-5-chapter-{N}/plan.md
-    # → Applies: CEFR levels, lesson structure, AI partnership
+1. **Prepare context** (Ruthless filtering applied):
+   - Gather user's 4 answers from PHASE 0
+   - Extract materials from `context/13_chap12_to_29_specs/` (if they exist)
+   - Apply ruthless filtering: Skip future chapters, skip advanced variations, skip tangential concepts
+   - Embed AIDD principles in the context
+   - Embed teaching patterns in the context
+   - Embed cognitive load limits (5 for beginner, 7 for intermediate, 10 for advanced)
 
-    print("📋 Plan created: specs/part-5-chapter-{N}/plan.md")
-    print("Please review and confirm: '✅ Plan approved' or feedback")
+2. **Invoke /sp.specify with full context**:
+   ```
+   /sp.specify [chapter-slug]
 
-    wait_for_approval()  # Blocks until user confirms
+   Write Chapter [N]: [Title] in Part [P]
 
-    # PHASE 3: Tasks (AUTOMATED + INTELLIGENT)
-    plan_content = Read(f"specs/part-5-chapter-{N}/plan.md")
-    tasks_context = prepare_context(
-        chapter_num, chapter_title, spec_content, plan_content,
-        acceptance_criteria=True,
-        validation_steps=True,
-        implementation_checklist=True
-    )
+   [Full AIDD context, user answers, teaching patterns, cognitive load rules, ruthlessly filtered context materials]
+   ```
 
-    SlashCommand.invoke("/sp.tasks", context=tasks_context)
-    # → Creates: specs/part-5-chapter-{N}/tasks.md
-    # → Applies: Testing, validation, completeness checks
+3. **Wait for /sp.specify completion**:
+   - ✅ `specs/part-[P]-chapter-[N]/spec.md` is created
+   - ✅ AIDD principles applied
+   - ✅ Teaching patterns specified
+   - ✅ Learning objectives aligned with evals
 
-    print("📋 Tasks created: specs/part-5-chapter-{N}/tasks.md")
-    print("Please review and confirm: '✅ Tasks approved' or feedback")
+4. **Output approval checkpoint**:
+   ```
+   ✅ PHASE 1 COMPLETE: Specification Created
 
-    wait_for_approval()  # Blocks until user confirms
+   📋 specs/part-[P]-chapter-[N]/spec.md
 
-    # PHASE 4: Implementation (OPTIONAL + INTELLIGENT)
-    print("\n✅ All 3 design artifacts complete!")
-    print(f"  - specs/part-5-chapter-{N}/spec.md")
-    print(f"  - specs/part-5-chapter-{N}/plan.md")
-    print(f"  - specs/part-5-chapter-{N}/tasks.md")
+   Please review and confirm:
+   - ✅ "Spec approved" to proceed to planning
+   - 📝 Feedback to revise specification
+   - ❓ Questions for clarification
+   ```
 
-    choice = ask_user([
-        "A) Implement with lesson-writer subagent",
-        "B) Manual implementation",
-        "C) Done for now"
-    ])
+5. **Wait for user approval**: Block here until user confirms "✅ Spec approved" OR provides feedback
 
-    if choice == "A":
-        tasks_content = Read(f"specs/part-5-chapter-{N}/tasks.md")
-        Task.invoke(
-            subagent_type="lesson-writer",
-            prompt=prepare_lesson_writer_prompt(
-                spec_content, plan_content, tasks_content,
-                aidd_teaching_pattern=True,
-                cefr_levels=True,
-                validation_first=True
-            )
-        )
-        # → Creates: docs/part-5/chapter-{N}/*-lesson-*.md
-        # → Applies: Full AIDD methodology, AI partnership approach
+---
 
-    # Final Report
-    report_completion(chapter_num)
-```
+#### PHASE 2: Planning (Automated + Intelligent) - Triggered After Spec Approval
+
+**THIS PHASE INVOKES `/sp.plan` AUTOMATICALLY WITH FULL CONTEXT**
+
+1. **Prepare context** (Read approved spec, add intelligence):
+   - Read: `specs/part-[P]-chapter-[N]/spec.md` (the approved specification)
+   - Extract: Learning objectives, key concepts, success criteria
+   - Add: CEFR proficiency levels (A1/A2/B1 based on audience)
+   - Add: Lesson progression rules (foundational → applied → why it matters)
+   - Add: AI prompts for each lesson (specification-first, validation-first)
+   - Add: Teaching pattern structure for every lesson
+
+2. **Invoke /sp.plan with full context**:
+   ```
+   /sp.plan [chapter-slug]
+
+   [Full context from spec, CEFR levels, lesson structure, AIDD teaching patterns]
+   ```
+
+3. **Wait for /sp.plan completion**:
+   - ✅ `specs/part-[P]-chapter-[N]/plan.md` is created
+   - ✅ Lessons broken down lesson-by-lesson
+   - ✅ CEFR proficiency levels assigned
+   - ✅ AI prompts specified
+
+4. **Output approval checkpoint**:
+   ```
+   ✅ PHASE 2 COMPLETE: Plan Created
+
+   📋 specs/part-[P]-chapter-[N]/plan.md
+
+   Please review and confirm:
+   - ✅ "Plan approved" to proceed to tasks
+   - 📝 Feedback to revise plan
+   - ❓ Questions for clarification
+   ```
+
+5. **Wait for user approval**: Block here until user confirms "✅ Plan approved" OR provides feedback
+
+---
+
+#### PHASE 3: Tasks (Automated + Intelligent) - Triggered After Plan Approval
+
+**THIS PHASE INVOKES `/sp.tasks` AUTOMATICALLY WITH FULL CONTEXT**
+
+1. **Prepare context** (Read approved spec + plan, add validation):
+   - Read: `specs/part-[P]-chapter-[N]/spec.md` (learning objectives)
+   - Read: `specs/part-[P]-chapter-[N]/plan.md` (lesson structure)
+   - Add: Acceptance criteria for each lesson
+   - Add: Validation steps (how to test understanding)
+   - Add: Implementation checklist (content requirements)
+
+2. **Invoke /sp.tasks with full context**:
+   ```
+   /sp.tasks [chapter-slug]
+
+   [Full context from spec + plan, acceptance criteria, validation steps]
+   ```
+
+3. **Wait for /sp.tasks completion**:
+   - ✅ `specs/part-[P]-chapter-[N]/tasks.md` is created
+   - ✅ Implementation checklist defined
+   - ✅ Validation steps specified
+
+4. **Output completion report**:
+   ```
+   ✅ ALL DESIGN ARTIFACTS COMPLETE
+
+   📋 specs/part-[P]-chapter-[N]/spec.md
+   📋 specs/part-[P]-chapter-[N]/plan.md
+   📋 specs/part-[P]-chapter-[N]/tasks.md
+   ```
+
+5. **Ask for next step**:
+   ```
+   Ready to implement?
+
+   A) Implement with lesson-writer subagent
+   B) Manual implementation (use tasks.md as checklist)
+   C) Done for now (keep designs, skip implementation)
+   ```
+
+---
+
+#### PHASE 4: Implementation (Optional) - Triggered Only If User Chooses A
+
+**THIS PHASE INVOKES lesson-writer subagent IF AND ONLY IF USER CHOOSES OPTION A**
+
+1. **Prepare context** (Read all 3 approved artifacts):
+   - Read: `specs/part-[P]-chapter-[N]/spec.md`
+   - Read: `specs/part-[P]-chapter-[N]/plan.md`
+   - Read: `specs/part-[P]-chapter-[N]/tasks.md`
+   - Add: AIDD teaching pattern (What it is → Code → Try → Why it matters)
+   - Add: CEFR levels for validation
+   - Add: Validation-first approach (test understanding before moving on)
+
+2. **Invoke lesson-writer subagent** (Only if user chose Option A):
+   ```
+   Task(
+       subagent_type="lesson-writer",
+       prompt=prepare_lesson_writer_prompt(
+           spec, plan, tasks,
+           aidd_teaching_pattern=True,
+           cefr_levels=True,
+           validation_first=True
+       )
+   )
+   ```
+
+3. **Wait for lesson-writer completion**:
+   - ✅ `docs/part-[P]/chapter-[N]/{01,02,03,04}-lesson-*.md` created
+   - ✅ Full AIDD methodology applied
+   - ✅ AI partnership approach emphasized
+
+4. **Final report**:
+   ```
+   ✅ CHAPTER [N] IMPLEMENTATION COMPLETE
+
+   📚 Lessons created in: docs/part-[P]/chapter-[N]/
+
+   Next steps:
+   - Test each lesson interactively
+   - Run technical-reviewer validation
+   - Prepare for publication
+   ```
+
+---
+
+### CRITICAL EXECUTION RULES
+
+1. **Sequential Invocation**: Phases execute in order (0 → 1 → 2 → 3 → 4), never out of order
+2. **Automatic Chaining**: Each phase automatically invokes the next command (no "ask user first")
+3. **Approval Gates Only Between Phases**: User approves AFTER each phase completes, BEFORE next phase starts
+4. **Context Preservation**: Each phase reads prior phase outputs and passes them forward
+5. **Vertical Intelligence Embedded**: EVERY command invocation includes AIDD principles, teaching patterns, cognitive load rules
+6. **Ruthless Filtering**: Materials from future chapters are SKIPPED, not extracted
+7. **No User Override**: User intent (audience, scope, outcome) is NEVER overridden, only honored
+8. **Feature Branch Creation**: Automatic checkout of feature branch in PHASE 0, before any other work
+9. **All 3 Artifacts Required**: Spec, Plan, and Tasks must exist before implementation can proceed
 
 ---
 
