@@ -5,419 +5,319 @@ lesson: 3
 duration_minutes: 50
 
 # HIDDEN SKILLS METADATA (Institutional Integration Layer)
-# Not visible to students; enables competency assessment and differentiation
 skills:
   - name: "Boolean Logic with and, or, not"
     proficiency_level: "A2-B1"
     category: "Technical"
     bloom_level: "Understand + Apply"
     digcomp_area: "Problem-Solving"
-    measurable_at_this_level: "Student can write `(x > 5) and (x < 10)`, predict True/False results, and explain when each operator returns True; combine multiple boolean conditions independently"
+    measurable_at_this_level: "Student can write (x > 5) and (x < 10), predict True/False results, explain when each operator returns True"
 
   - name: "Combining Comparisons into Complex Conditions"
     proficiency_level: "B1"
     category: "Technical"
     bloom_level: "Analyze"
     digcomp_area: "Problem-Solving"
-    measurable_at_this_level: "Student can analyze expressions like `not (x > 5 or y < 3)`, trace through evaluation step-by-step with AI support, and identify whether parentheses change the result"
+    measurable_at_this_level: "Student can analyze expression like not (x > 5 or y < 3) and trace evaluation step-by-step with AI support"
 
   - name: "Truth Tables and Logical Reasoning"
     proficiency_level: "A2"
     category: "Conceptual"
     bloom_level: "Understand"
     digcomp_area: "Problem-Solving"
-    measurable_at_this_level: "Student can explain 'and returns True only if BOTH are True' and 'or returns True if AT LEAST ONE is True'; predict boolean results without running code"
+    measurable_at_this_level: "Student can explain 'and returns True only if BOTH are True' and 'or returns True if AT LEAST ONE is True'"
 
 learning_objectives:
-  - objective: "Explain what the three logical operators (and, or, not) do in plain language without referencing examples"
+  - objective: "Understand what logical operators (and, or, not) do and when each returns True"
     proficiency_level: "A2"
     bloom_level: "Understand"
-    assessment_method: "Verbal or written explanation of each operator's truth conditions"
+    assessment_method: "Explanation of operators; truth table predictions"
 
-  - objective: "Combine comparison operators with logical operators to build complex conditions like (x > 5) and (x < 10)"
-    proficiency_level: "B1"
+  - objective: "Apply logical operators to combine comparisons and create complex conditions"
+    proficiency_level: "A2-B1"
     bloom_level: "Apply"
-    assessment_method: "Write expressions combining comparisons; predict and verify results"
-
-  - objective: "Analyze nested logical expressions and explain how parentheses control evaluation order"
-    proficiency_level: "B1"
-    bloom_level: "Analyze"
-    assessment_method: "Evaluate multi-operator expressions step-by-step; explain why parentheses change results"
+    assessment_method: "Write combined conditions; predict outcomes; verify with code"
 
 cognitive_load:
   new_concepts: 3
-  assessment: "3 new concepts (and operator, or operator, not operator) grouped as 'logical operators family' within A2-B1 limit of 7 concepts ✓. NOTE: This is the most cognitively demanding lesson in Chapter 15 because students must track multiple boolean values simultaneously (requires working memory). Limit to 3 core concepts."
+  assessment: "3 new concepts (and operator, or operator, not operator) representing fundamental boolean logic within A2-B1 limit of 7 ✓"
 
 differentiation:
-  extension_for_advanced: "Explore De Morgan's Laws with AI: 'not (a and b)' is equivalent to '(not a) or (not b)'. Research why these equivalences work. Test both forms with Python to verify they produce identical results. Analyze complex real-world conditions (insurance eligibility, loan approval) that combine 4+ conditions."
-  remedial_for_struggling: "Start with and/or only (defer not operator). Practice truth tables visually: Create a 4-row table for 'and' (T+T, T+F, F+T, F+F). Practice one operator at a time before combining them. Use concrete examples: 'You can play if you have permission AND you finished homework.' Build confidence before moving to 'not'."
+  extension_for_advanced: "Explore operator precedence (not > and > or); analyze complex nested conditions like not (a or b) and (c or d); investigate short-circuit evaluation"
+  remedial_for_struggling: "Start with truth tables for each operator in isolation; practice combining two simple comparisons before complex expressions; use concrete True/False values before variables"
 
 # Generation metadata
-generated_by: "lesson-writer v1.0"
+generated_by: "lesson-writer v3.0.0"
 source_spec: "specs/part-4-chapter-15/spec.md"
-source_plan: "specs/part-4-chapter-15/plan.md"
 created: "2025-11-08"
 last_modified: "2025-11-08"
 git_author: "Claude Code"
-workflow: "/sp.implement"
+workflow: "lesson-writer subagent"
 version: "1.0.0"
 ---
 
 # Logical Operators — Combining Conditions
 
-## What Are Logical Operators?
+You've learned to ask simple True/False questions with comparison operators. Now it's time to ask more complex questions. "Is this value between 5 and 10?" That's not one comparison—it's two comparisons combined: "Is it greater than 5 AND less than 10?"
 
-In Lesson 2, you learned about comparison operators. They answer questions: "Is x greater than 5?" (True or False). But what if you need to ask a **more complex question**? For example, "Is x greater than 5 AND less than 10?" That's where logical operators come in.
+Logical operators let you combine True/False values (or comparisons) into more sophisticated reasoning. They're the foundation for all decision-making in Chapter 17's control flow.
 
-Logical operators let you **combine boolean values** (True/False) to make more sophisticated decisions. They're the glue that joins multiple conditions together, and they're essential for the control flow we'll learn in Chapter 17. Think of them as the language of reasoning: "this AND that," "this OR that," "NOT that."
+## What It Is: Combining True/False Values
 
-Three logical operators unlock this power:
-- **`and`** — True only if BOTH conditions are True
-- **`or`** — True if AT LEAST ONE condition is True
-- **`not`** — Reverses a boolean value (True becomes False, False becomes True)
+A **logical operator** combines two True/False conditions into a single True/False result. There are three logical operators:
+
+- `and` — True only if **both** conditions are True
+- `or` — True if **at least one** condition is True
+- `not` — Reverses the value (True becomes False, False becomes True)
+
+With these three operators, you can express complex logic: "Is the user logged in AND has been a member for 7+ days?" or "Does the password have 8+ characters OR has the user verified their email?"
 
 ## The Three Logical Operators
 
-Let's start with truth tables. A truth table shows all possible combinations of boolean inputs and what each operator returns. This is where the logic becomes crystal clear:
-
-### The `and` Operator
-
-`and` returns True only when **BOTH** operands are True:
-
-| Condition 1 | Condition 2 | Result |
-|-------------|-------------|--------|
-| True | True | **True** |
-| True | False | False |
-| False | True | False |
-| False | False | False |
-
-**Real-world example**: You can withdraw money from your bank account if you have the correct PIN AND you have money in the account. Both must be true, or you can't withdraw.
-
-### The `or` Operator
-
-`or` returns True if **AT LEAST ONE** operand is True:
-
-| Condition 1 | Condition 2 | Result |
-|-------------|-------------|--------|
-| True | True | **True** |
-| True | False | **True** |
-| False | True | **True** |
-| False | False | False |
-
-**Real-world example**: You can watch a movie if you have a theater ticket OR you're a subscriber to a streaming service. You don't need both—either one is enough.
-
-### The `not` Operator
-
-`not` **reverses** a boolean value:
-
-| Input | Result |
-|-------|--------|
-| True | **False** |
-| False | **True** |
-
-**Real-world example**: If the statement "It is raining" is True, then "Not raining" is False. If "It is raining" is False, then "Not raining" is True.
-
-## Code Example 1: The Three Logical Operators
-
-Here's a program demonstrating all three operators working with boolean values:
+### AND: Both Conditions Must Be True
 
 ```python
-# The 3 logical operators with boolean values
+# AND operator: both must be True
 condition1: bool = True
 condition2: bool = False
 
-# AND: True only if BOTH are True
-and_result: bool = condition1 and condition2     # False (one is False)
-print(f"True and False = {and_result}")          # False
+and_result: bool = condition1 and condition2  # False (one is False)
+print(f"True and False = {and_result}")       # False
 
-# OR: True if AT LEAST ONE is True
-or_result: bool = condition1 or condition2       # True (at least one is True)
-print(f"True or False = {or_result}")            # True
+# Another example
+condition3: bool = True
+condition4: bool = True
 
-# NOT: Reverses the value
-not_result1: bool = not condition1               # False (True becomes False)
-print(f"not True = {not_result1}")               # False
-
-not_result2: bool = not condition2               # True (False becomes True)
-print(f"not False = {not_result2}")              # True
+and_result2: bool = condition3 and condition4  # True (both are True)
+print(f"True and True = {and_result2}")        # True
 
 # Truth table for AND
-print("\n--- AND Truth Table ---")
-print(f"True and True = {True and True}")        # True
-print(f"True and False = {True and False}")      # False
-print(f"False and True = {False and True}")      # False
-print(f"False and False = {False and False}")    # False
-
-# Truth table for OR
-print("\n--- OR Truth Table ---")
-print(f"True or True = {True or True}")          # True
-print(f"True or False = {True or False}")        # True
-print(f"False or True = {False or True}")        # True
-print(f"False or False = {False or False}")      # False
+print("AND Truth Table:")
+print(f"True and True = {True and True}")      # True
+print(f"True and False = {True and False}")    # False
+print(f"False and True = {False and True}")    # False
+print(f"False and False = {False and False}")  # False
 ```
 
-**Specification: Demonstrate all three logical operators with truth table behavior**
+The `and` operator has a simple rule: it returns True **only if both conditions are True**. If even one is False, the whole expression is False. This is useful for checking multiple requirements.
 
-**AI Prompt Used:**
-"Write Python code that shows all three logical operators (and, or, not) with type hints. Create truth tables showing all combinations of True and False for and/or. Include the not operator reversing values. Verify all results are bool type."
+#### 💬 AI Colearning Prompt
 
-**Generated Code Output:**
-The code above demonstrates all three operators systematically, showing truth tables that reveal the logic.
+> "Why does Python short-circuit evaluation with `and`? In other words, if the first condition is False, why does Python stop checking the second condition? What's the advantage?"
 
-**Validation Steps:**
-1. ✓ All three operators (and, or, not) present and correct
-2. ✓ Type hints show all results are bool
-3. ✓ Truth tables demonstrate all 4 combinations for and/or
-4. ✓ not operator correctly reverses True/False
-5. ✓ Code runs without errors
+This question digs into how Python optimizes logical evaluation—a valuable understanding for later performance considerations.
 
-## Code Example 2: Combining Comparisons with Logical Operators
-
-Now comes the power move: combining comparison operators (from Lesson 2) with logical operators. This is how you ask complex questions:
+### OR: At Least One Condition Must Be True
 
 ```python
-# Combining comparisons with logical operators
-x: int = 7
-
-# Is x between 5 and 10? (BOTH conditions must be True)
-in_range: bool = (x > 5) and (x < 10)            # True (both conditions met)
-print(f"Is {x} between 5 and 10? {in_range}")    # True
-
-# Is x outside the range [5, 10]? (EITHER condition can be True)
-out_of_range: bool = (x <= 5) or (x >= 10)      # False (neither condition met)
-print(f"Is {x} outside [5, 10]? {out_of_range}") # False
-
-# Is x NOT in range? (Reverse the result)
-not_in_range: bool = not ((x > 5) and (x < 10))  # False (it IS in range)
-print(f"Is {x} NOT in range? {not_in_range}")    # False
-
-# Real-world scenario: User access control
-print("\n--- User Access Control ---")
-is_logged_in: bool = True
-is_member_7_days: bool = True
-is_admin: bool = False
-
-# Can post? (logged in AND member 7+ days OR is admin)
-can_post: bool = (is_logged_in and is_member_7_days) or is_admin
-print(f"Can post? {can_post}")  # True (both logged_in and member conditions met)
-
-# Can delete comments? (admin only)
-can_delete: bool = is_admin and is_logged_in
-print(f"Can delete comments? {can_delete}")  # False (not admin)
-
-# Can view content? (logged in, regardless of other permissions)
-can_view: bool = is_logged_in
-print(f"Can view content? {can_view}")  # True (simply logged in)
-```
-
-**Specification: Combine comparison operators with logical operators to solve real-world conditions**
-
-**AI Prompt Used:**
-"Write Python code that combines comparisons (>, <, ==, !=) with logical operators (and, or, not). Show range checking (is x between 5 and 10?). Create a realistic permission-checking scenario with is_logged_in, is_member_7_days, and is_admin variables. Show how to write conditions for 'can post', 'can delete', and 'can view'."
-
-**Generated Code Output:**
-The code above demonstrates combining operators to solve real-world logic problems.
-
-**Validation Steps:**
-1. ✓ Comparisons (>, <) combined with and/or correctly
-2. ✓ Range check uses proper syntax: (x > 5) and (x < 10)
-3. ✓ Real-world permission logic works as expected
-4. ✓ All boolean results are accurate
-5. ✓ Code runs on Python 3.14+ without errors
-
-## Code Example 3: Evaluation Order and Parentheses
-
-When you combine multiple logical operators, **evaluation order matters**. Parentheses control which parts are evaluated first. This is like operator precedence in arithmetic — but for logic.
-
-```python
-# Understanding evaluation order with parentheses
-age: int = 25
-has_license: bool = True
-has_insurance: bool = False
-
-print("--- Evaluation Order ---")
-
-# Can drive? (age 18+ AND licensed AND insured)
-# All three must be True
-can_drive: bool = (age >= 18) and has_license and has_insurance
-print(f"Can drive (all 3)? {can_drive}")  # False (insurance is False)
-
-# Can drive OR is young adult with license?
-# Without parentheses, evaluation follows operator precedence
-is_adult: bool = age >= 18
-is_adult_with_license: bool = is_adult and has_license
-print(f"Adult with license? {is_adult_with_license}")  # True
-
-# Now add insurance requirement ONLY for non-adults
-can_take_car_v1: bool = (age >= 18) or (age < 18 and has_insurance)
-print(f"Can take car (v1)? {can_take_car_v1}")  # True (age >= 18 is True)
-
-# Different interpretation with different parentheses
-# Must be adult AND (have license OR have insurance)
-can_take_car_v2: bool = (age >= 18) and (has_license or has_insurance)
-print(f"Can take car (v2)? {can_take_car_v2}")  # True (adult AND license is True)
-
-# Compare to wrong parentheses
-can_take_car_v3: bool = age >= 18 and has_license or has_insurance
-print(f"Can take car (v3)? {can_take_car_v3}")  # True (different meaning!)
-
-print("\n--- Breaking Down Complex Expressions ---")
-
-# Let's trace through a complex expression step by step
+# OR operator: at least one must be True
 condition1: bool = True
 condition2: bool = False
-condition3: bool = True
 
-# Expression: (condition1 or condition2) and (not condition3)
-step1: bool = condition1 or condition2     # True or False = True
-step2: bool = not condition3               # not True = False
-result: bool = step1 and step2             # True and False = False
+or_result: bool = condition1 or condition2  # True (one is True)
+print(f"True or False = {or_result}")       # True
 
-print(f"(True or False) and (not True)")
-print(f"  = {step1} and {step2}")
-print(f"  = {result}")
+# Another example
+condition3: bool = False
+condition4: bool = False
 
-# Parentheses matter!
-result_alt: bool = condition1 or (condition2 and (not condition3))
-print(f"\nAlternative: True or (False and (not True))")
-print(f"  = {result_alt}")  # True (because condition1 is True, or short-circuits)
+or_result2: bool = condition3 or condition4  # False (both are False)
+print(f"False or False = {or_result2}")      # False
+
+# Truth table for OR
+print("OR Truth Table:")
+print(f"True or True = {True or True}")      # True
+print(f"True or False = {True or False}")    # True
+print(f"False or True = {False or True}")    # True
+print(f"False or False = {False or False}")  # False
 ```
 
-**Specification: Show how parentheses control evaluation order in logical expressions**
+The `or` operator returns True if **at least one condition is True**. It's False only when both are False. Use `or` when you want to check if any of multiple conditions is satisfied.
 
-**AI Prompt Used:**
-"Write Python code that demonstrates how parentheses change the meaning of logical expressions. Show an example where (A and B) or C gives a different result than A and (B or C). Include step-by-step evaluation showing what each part evaluates to. Use realistic variable names like age, has_license, has_insurance."
+#### 🎓 Instructor Commentary
 
-**Generated Code Output:**
-The code above shows parentheses controlling evaluation and step-by-step tracing.
+> In AI-native development, you don't memorize truth tables. You think about the real-world logic: "AND means both must be satisfied; OR means either one is enough." Once you have that mental model, the logic follows naturally. If you get confused, ask AI: "Should I use and or or here?" and explain your logic.
 
-**Validation Steps:**
-1. ✓ Multiple parentheses placements shown clearly
-2. ✓ Step-by-step evaluation demonstrates order
-3. ✓ Results show how parentheses change meaning
-4. ✓ Type hints throughout
-5. ✓ Code is educational and runnable
+### NOT: Reversing a Value
 
-## Why This Matters: Bridge to Chapter 17
-
-Lesson 3 is the most cognitively demanding lesson in Chapter 15 because you're tracking **multiple boolean values simultaneously**. That mental juggling is hard work. But notice this: you're learning **the exact logic** that powers if statements in Chapter 17.
-
-When you write:
 ```python
-if age >= 18 and has_license:
-    print("You can drive")
+# NOT operator: flips the value
+condition: bool = True
+not_result: bool = not condition     # False (True becomes False)
+print(f"not True = {not_result}")    # False
+
+condition2: bool = False
+not_result2: bool = not condition2   # True (False becomes True)
+print(f"not False = {not_result2}")  # True
+
+# Combining NOT with other operators
+is_admin: bool = False
+is_not_admin: bool = not is_admin    # True
+print(f"Is not admin: {is_not_admin}")  # True
 ```
 
-You're using the exact same logical operators you just learned. The `if` statement simply **acts on** the True/False result that `and` produces. By mastering logical operators now, Chapter 17 becomes straightforward—you already know how to reason about conditions.
+The `not` operator is the simplest: it just flips the value. If the condition is True, `not condition` is False. If it's False, `not condition` is True.
+
+#### 🚀 CoLearning Challenge
+
+Ask your AI Co-Teacher:
+
+> "Create a truth table showing all combinations of `and`, `or`, and `not` operators. Then explain: What's the relationship between `not (x and y)` and `(not x) or (not y)`? Why does this matter?"
+
+**Expected Outcome**: You'll see that logical operators follow mathematical laws (De Morgan's Laws); understand that different expressions can be logically equivalent; see how logic works systematically, not randomly.
+
+## Combining Comparisons with Logical Operators
+
+Now let's combine what you learned in Lesson 2 (comparisons) with logical operators.
+
+### Checking if a Value is in a Range
+
+```python
+# Is x between 5 and 10?
+x: int = 7
+
+in_range: bool = (x > 5) and (x < 10)  # True (both conditions are met)
+print(f"Is {x} between 5 and 10? {in_range}")  # True
+
+# Note: We use parentheses for clarity (not required, but helpful)
+
+# Is x OUTSIDE the range [5, 10]?
+out_of_range: bool = (x <= 5) or (x >= 10)  # False (neither condition is met)
+print(f"Is {x} outside [5, 10]? {out_of_range}")  # False
+
+# Is x NOT in the range?
+not_in_range: bool = not ((x > 5) and (x < 10))  # False (it IS in range)
+print(f"Is {x} NOT in range? {not_in_range}")  # False
+```
+
+These are the kinds of conditions you'll use constantly in Chapter 17 when writing `if` statements.
+
+### Real-World Permission Logic
+
+```python
+# Permission check: User can post if logged in AND account is verified
+is_logged_in: bool = True
+account_verified: bool = False
+
+can_post: bool = is_logged_in and account_verified  # False (verification missing)
+print(f"Can post: {can_post}")  # False
+
+# Alternative permission: Admin OR approved user
+is_admin: bool = False
+is_approved_user: bool = True
+
+can_manage: bool = is_admin or is_approved_user  # True (approved user is enough)
+print(f"Can manage content: {can_manage}")  # True
+
+# Complex condition: (Admin OR Moderator) AND Account Active
+is_moderator: bool = True
+account_active: bool = True
+
+can_moderate: bool = (is_admin or is_moderator) and account_active  # True
+print(f"Can moderate: {can_moderate}")  # True
+```
+
+Notice how parentheses control the order of evaluation. `(is_admin or is_moderator) and account_active` evaluates the OR part first, then checks if the account is active.
+
+#### ✨ Teaching Tip
+
+> Use your AI tool to explore operator precedence: "Evaluate this step-by-step: not (True or False) and True. What's the result? Show me the evaluation order and explain why not has higher precedence than and and or."
+
+## Evaluation Order Matters
+
+When you combine multiple logical operators, Python evaluates them in a specific order: `not` first, then `and`, then `or`.
+
+```python
+# Without explicit parentheses, Python follows operator precedence
+result: bool = True or False and False  # What's the result?
+# Python evaluates: (True or (False and False))
+# False and False = False
+# True or False = True
+print(f"True or False and False = {result}")  # True
+
+# With explicit parentheses, we control the order
+result2: bool = (True or False) and False  # Different result
+# (True or False) = True
+# True and False = False
+print(f"(True or False) and False = {result2}")  # False
+```
+
+This is why using parentheses is smart—even when not required, they make your intent clear to anyone reading your code (including yourself three months from now).
 
 ---
 
 ## Try With AI
 
-This section offers four progressive prompts to deepen your understanding of logical operators with AI assistance. Work through them in order, and don't skip the more challenging ones—that's where real learning happens.
+Now it's your turn to explore logical operators with an AI co-teacher. These prompts build from understanding to application to edge cases to synthesis.
 
-### Prompt 1: Concept Exploration
+**Tool Choice**: Use Claude Code, Gemini CLI, or ChatGPT web—whatever you have access to.
 
-**Tell your AI:**
+### Prompt 1: Concept Exploration (Understand)
 
-```
-I'm learning about logical operators and I'm confused about the differences.
-- When does `and` return True?
-- When does `or` return True?
-- Why do we need `not`?
+Copy and ask your AI:
 
-Give me simple examples that make the difference clear. Use the same operands (True and False) for all examples so I can see the pattern.
-```
+> "I'm learning logical operators in Python. I'm confused about and vs. or.
+> - When does `and` return True?
+> - When does `or` return True?
+> - What does `not` do?
+> - Why do we need all three operators?
+>
+> Give me clear examples for each that make the difference obvious."
 
-**Expected outcome:** You learn the truth conditions for each operator through clear examples. You understand that `and` requires both, `or` needs only one, and `not` reverses. You see the fundamental difference between AND logic (both required) and OR logic (either sufficient).
-
----
-
-### Prompt 2: Application — User Permissions
-
-**Tell your AI:**
-
-```
-Write Python code for a permission system:
-- A user can post if: they are logged in AND they've been a member for 7+ days
-- Exception: admins can always post
-
-Write the conditions for:
-1. can_post with both requirements
-2. can_post_as_admin (admin override)
-3. final_can_post that combines both
-
-Show me the code with type hints and explain when each condition is True.
-```
-
-**Expected outcome:** You apply logical operators to realistic permission logic. You understand the difference between `and` (both required) and `or` (either sufficient). You see how conditions scale to real-world scenarios. You practice writing conditions that mirror business rules.
-
-**What to validate:**
-1. Run the code the AI provides
-2. Test it: change is_logged_in to False and see can_post become False
-3. Change is_admin to True and verify can_post_as_admin becomes True
-4. Ask follow-up: "What if we wanted to require 7 days OR admin status? How would that code change?"
+**Expected Outcome**: You'll understand the truth conditions for each operator; see practical distinctions (and requires both, or needs only one, not reverses); grasp fundamental boolean logic.
 
 ---
 
-### Prompt 3: Edge Case Discovery — Complex Logic
+### Prompt 2: Application (Apply)
 
-**Tell your AI:**
+Copy and ask your AI:
 
-```
-Evaluate these boolean expressions step-by-step:
-1. True and False or True
-2. not (True or False)
-3. (True and False) or (True and True)
-4. True or False and False
+> "Write code for a permission system:
+> - A user can post to the forum if:
+>   - They are logged in AND they've been a member for 7+ days
+>
+> Write the comparison and logical operator logic.
+>
+> Then modify it: What if ANY of these are true?
+> - User is an admin, OR
+> - User is a member for 7+ days
+>
+> Show me both versions with clear variable names."
 
-For each one:
-- Tell me the step-by-step evaluation
-- Tell me the final result (True or False)
-- Explain operator precedence (which operations happen first)
-
-Which ones surprised you?
-```
-
-**Expected outcome:** You practice evaluating complex boolean expressions. You discover operator precedence rules (`not` > `and` > `or`). You learn that without parentheses, Python follows specific precedence rules. You see why parentheses matter for clarity and correctness.
-
-**What to validate:**
-1. Run each expression in Python yourself
-2. See the actual results
-3. Ask follow-up: "How do parentheses change the result? Show me (True and False or True) vs (True and (False or True))."
+**Expected Outcome**: You'll apply logical operators to realistic permission logic; understand difference between and (both required) and or (either sufficient); see practical value of combining operators.
 
 ---
 
-### Prompt 4: Synthesis — Connection to Chapter 17
+### Prompt 3: Edge Case Discovery (Explore)
 
-**Tell your AI:**
+Copy and ask your AI:
 
-```
-I understand how logical operators work now (and, or, not), but I don't see why we learned this in Chapter 15 when Chapter 17 teaches if statements.
+> "Evaluate these step-by-step and explain the result:
+> - True and False or True
+> - not (True or False)
+> - (True and False) or (True and True)
+> - not True and False
+>
+> Which ones are True? Which are False? Show the evaluation order for each one."
 
-Help me understand:
-1. How do logical operators connect to if statements?
-2. Show me an if statement that uses and/or/not
-3. How do logical operators enable complex decision-making?
-
-Connect the dots between Chapter 15 operators and Chapter 17 control flow.
-```
-
-**Expected outcome:** You understand that logical operators are the **foundation** for conditional statements. You see that `if age >= 18 and has_license:` uses the exact `and` operator you learned. You recognize that if statements simply **act on** the True/False results that logical operators produce. You appreciate the progression: Chapter 15 teaches the logic, Chapter 17 teaches control flow that uses that logic.
-
-**Key insight:** Logical operators are how you express human reasoning in code. When you say "I can go to the party if I'm invited AND I'm free," you're using AND logic. Python's `and` operator expresses that same reasoning.
+**Expected Outcome**: You'll practice evaluating complex boolean expressions; learn operator precedence (not > and > or); discover that parentheses matter; understand how to trace through logic systematically.
 
 ---
 
-### Safety & Verification Note
+### Prompt 4: Synthesis & Validation (Understand + Analyze)
 
-When experimenting with logical operators:
+Copy and ask your AI:
 
-- **✓ Do**: Test your predictions. Write conditions and verify they return what you expect
-- **✓ Do**: Use type() to verify results are always bool
-- **✓ Do**: Ask "What happens if I add parentheses?" to deepen understanding
-- **✓ Do**: Break complex expressions into steps, evaluating each part
-- **⚠️ Be aware**: Operator precedence (`not` > `and` > `or`) might surprise you without parentheses
-- **✓ Do**: Ask follow-up questions when results are unexpected
+> "I see how logical operators combine conditions. But why teach them in Chapter 15 when Chapter 17 teaches if statements?
+>
+> - How do logical operators prepare me for writing if statements like: `if age >= 18 and has_license:`
+> - Why not just teach 'if' statements directly and mention logical operators there?
+> - What's the benefit of learning operators separately?
+>
+> Connect logical operators to control flow in Chapter 17."
 
-Remember: Logical operators are tools for reasoning, not just syntax. When you write `age >= 18 and has_license`, you're expressing a **logical requirement** — both must be true. Mastering this thinking pattern now will make control flow and advanced programs click into place.
+**Expected Outcome**: You'll understand that logical operators (Boolean logic) are the foundation for conditional statements in Chapter 17; see that if statements use the exact same logic you're learning now; appreciate the learning progression (operators first, then control flow that uses them).
+
+---
+
+**Safety Note**: Logical operators are deterministic—once you understand the rules, you can predict results. If you get stuck on evaluation order, use parentheses liberally. Clear logic is better than clever logic.

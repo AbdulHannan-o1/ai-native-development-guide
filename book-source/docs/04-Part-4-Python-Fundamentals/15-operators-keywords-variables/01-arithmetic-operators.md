@@ -5,403 +5,382 @@ lesson: 1
 duration_minutes: 50
 
 # HIDDEN SKILLS METADATA (Institutional Integration Layer)
-# Not visible to students; enables competency assessment and differentiation
 skills:
   - name: "Arithmetic Operations with Type Safety"
     proficiency_level: "A1-A2"
     category: "Technical"
-    bloom_level: "Understand + Apply"
+    bloom_level: "Understand"
     digcomp_area: "Problem-Solving"
-    measurable_at_this_level: "Student can write arithmetic expressions with type hints and use type() to verify result types; perform all 7 arithmetic operations without referencing examples"
+    measurable_at_this_level: "Student can write `result: int = 5 + 3` and use `type(result)` to verify result type; perform all 7 arithmetic operations without referencing examples"
 
   - name: "Understanding Type Hint Feedback from Operations"
     proficiency_level: "A2"
     category: "Technical"
     bloom_level: "Understand"
     digcomp_area: "Digital Content Creation"
-    measurable_at_this_level: "Student can explain why int / int gives float and why int // int gives int using type validation; predict result types before running code"
+    measurable_at_this_level: "Student can explain 'Why does int / int give float?' and 'Why does int // int give int?' using type validation"
 
   - name: "AI-Driven Exploration of Edge Cases"
     proficiency_level: "A2"
     category: "Soft"
     bloom_level: "Apply"
     digcomp_area: "Communication & Collaboration"
-    measurable_at_this_level: "Student can formulate questions about operator behavior like 'What happens if I divide by zero?' and validate AI responses through code testing"
+    measurable_at_this_level: "Student can formulate questions like 'What happens if I divide by zero?' and validate AI responses through code testing"
 
 learning_objectives:
-  - objective: "Explain what each of the seven arithmetic operators (+, -, *, /, //, %, **) does in plain language"
+  - objective: "Understand what each of the seven arithmetic operators (+, -, *, /, //, %, **) does in plain language"
     proficiency_level: "A1"
     bloom_level: "Understand"
-    assessment_method: "Verbal or written explanation of each operator's purpose and typical use"
+    assessment_method: "Explanation of operators; code with type verification"
 
   - objective: "Apply arithmetic operators correctly to perform calculations using type hints and validation"
     proficiency_level: "A2"
     bloom_level: "Apply"
-    assessment_method: "Write expressions with all 7 operators, use type() to verify results, identify correct operations"
-
-  - objective: "Understand how operand types influence result types (int vs float, division behavior)"
-    proficiency_level: "A2"
-    bloom_level: "Understand"
-    assessment_method: "Predict and verify result types; explain why / produces float and // produces integer"
+    assessment_method: "Write arithmetic expressions without errors; use type() to verify results"
 
 cognitive_load:
   new_concepts: 5
-  assessment: "5 new concepts (addition, subtraction, multiplication/division/floor-division, modulus, exponentiation) grouped as 'arithmetic family' within A1-A2 limit of 5-7 ✓"
+  assessment: "5 new concepts (the 7 operators grouped as arithmetic family, type behavior with int/float, division differences, modulo for remainders, exponentiation) within A1-A2 limit of 5 ✓"
 
 differentiation:
-  extension_for_advanced: "Explore operator precedence with complex expressions: `result = 2 + 3 * 4 - (10 / 2)`. Predict the result, then verify with code. Ask AI why multiplication and division happen before addition and subtraction. Research PEMDAS/BODMAS order of operations."
-  remedial_for_struggling: "Start with just addition: `x: int = 5; y: int = 3; result: int = x + y; print(result)`. Run it, see the output. Change the numbers. Practice with subtraction. Build confidence with one operator before moving to the next."
+  extension_for_advanced: "Explore operator precedence with complex expressions; ask AI about edge cases like 0.1 + 0.2; investigate negative number behavior with modulo and floor division"
+  remedial_for_struggling: "Focus on first 4 operators (+, -, *, /); use concrete single-digit numbers; build confidence with simple expressions before advancing to //, %, **"
 
 # Generation metadata
-generated_by: "lesson-writer v1.0"
+generated_by: "lesson-writer v3.0.0"
 source_spec: "specs/part-4-chapter-15/spec.md"
-source_plan: "specs/part-4-chapter-15/plan.md"
 created: "2025-11-08"
 last_modified: "2025-11-08"
 git_author: "Claude Code"
-workflow: "/sp.implement"
+workflow: "lesson-writer subagent"
 version: "1.0.0"
 ---
 
 # Arithmetic Operators — Doing Math with Python
 
-## What Are Arithmetic Operators?
+You've been doing math your whole life. Five plus three equals eight. Ten minus four equals six. Now you're going to do the exact same math with Python—except Python calls them **operators** instead of just "math".
 
-Think of operators as **verbs** in Python. Just like verbs describe actions in English ("run," "jump," "calculate"), operators describe mathematical actions on data. An arithmetic operator performs a calculation on numbers.
+An **operator** is a symbol that tells Python to do something with values. In this lesson, you'll learn the seven arithmetic operators that let you perform calculations. You already know the concepts; Python just has its own symbols for them.
 
-In Chapter 14, you learned how to store numbers in variables using type hints. Now it's time to **do things** with those numbers. You'll learn seven operators that let you add, subtract, multiply, divide, find remainders, and raise numbers to powers.
+## What It Is: Operators as Verbs for Numbers
 
-Here's the key insight: **operators are the bridge between stored data and computed results**. When you write `10 + 3`, you're asking Python to compute `13`. That computation is what makes programs useful—they don't just store data, they **transform** it.
+Think of operators like verbs in English. Just like "run", "jump", and "walk" are actions, operators are actions you perform on numbers.
+
+Python has **seven arithmetic operators**:
+
+- `+` **Addition** — combines values
+- `-` **Subtraction** — finds the difference
+- `*` **Multiplication** — scales values
+- `/` **Division** — splits into parts
+- `//` **Floor division** — counts whole groups (no decimals)
+- `%` **Modulus** — finds the remainder
+- `**` **Exponentiation** — raises to a power
+
+All of these do exactly what you learned in math class. The difference is that Python needs to know what to do with types—and that's where it gets interesting.
 
 ## The Seven Arithmetic Operators
 
-Python has seven arithmetic operators that work on numeric types. Let's meet them:
+Let's see all seven operators in action. Each one takes two numbers (called **operands**) and produces a result.
 
-| Operator | Name | What It Does | Example | Result |
-|----------|------|--------------|---------|--------|
-| `+` | Addition | Adds two numbers | `10 + 3` | `13` |
-| `-` | Subtraction | Subtracts one number from another | `10 - 3` | `7` |
-| `*` | Multiplication | Multiplies two numbers | `10 * 3` | `30` |
-| `/` | Division | Divides one number by another (always float) | `10 / 3` | `3.333...` |
-| `//` | Floor Division | Divides and rounds down to nearest integer | `10 // 3` | `3` |
-| `%` | Modulus | Finds the remainder after division | `10 % 3` | `1` |
-| `**` | Exponentiation | Raises a number to a power | `10 ** 2` | `100` |
-
-Each operator takes two numbers (called **operands**) and produces a result. The result is always a number, but notice something important in the table: the `/` operator always produces a float, even if both operands are integers. We'll explore why in the next section.
-
-## Code Example 1: All Seven Operators
-
-Here's a program that demonstrates all seven arithmetic operators working together:
+### Addition and Subtraction: The Basics
 
 ```python
 # Arithmetic operators: doing math with Python
 x: int = 10
 y: int = 3
 
-# Perform all 7 arithmetic operations
-add_result: int = x + y          # 13 - addition
-sub_result: int = x - y          # 7 - subtraction
-mul_result: int = x * y          # 30 - multiplication
-div_result: float = x / y        # 3.333... - division (always float)
-floor_result: int = x // y       # 3 - floor division (integer result)
-mod_result: int = x % y          # 1 - modulus (remainder)
-exp_result: int = x ** 2         # 100 - exponentiation
+# Addition: combine values
+add_result: int = x + y
+print(f"{x} + {y} = {add_result}")  # 10 + 3 = 13
 
-# Display each result with its type
-print(f"Addition: {add_result}, type: {type(add_result)}")
-print(f"Subtraction: {sub_result}, type: {type(sub_result)}")
-print(f"Multiplication: {mul_result}, type: {type(mul_result)}")
-print(f"Division: {div_result}, type: {type(div_result)}")
-print(f"Floor Division: {floor_result}, type: {type(floor_result)}")
-print(f"Modulus: {mod_result}, type: {type(mod_result)}")
-print(f"Exponentiation: {exp_result}, type: {type(exp_result)}")
+# Subtraction: find the difference
+sub_result: int = x - y
+print(f"{x} - {y} = {sub_result}")  # 10 - 3 = 7
 ```
 
-**Specification: Demonstrate all seven arithmetic operators with type verification**
+Both addition and subtraction keep the type consistent. When you add two integers, you get an integer back. Same with subtraction.
 
-**AI Prompt Used:**
-"Write Python code that performs all 7 arithmetic operations on two integers (x=10, y=3). Include type hints for all variables and use type() to verify the result type for each operation. Explain why division gives a different type than floor division."
+#### 💬 AI Colearning Prompt
 
-**Generated Code Output:**
-The code above shows the specification and validated implementation.
+> "Python is designed to be helpful with numbers. But why does Python have both `/` and `//` for division when math just has one division symbol? Explain the difference and why this matters."
 
-**Validation Steps:**
-1. ✓ All seven operators present and correct
-2. ✓ Type hints included for all variables
-3. ✓ Division (/) produces float result
-4. ✓ Floor division (//) produces int result
-5. ✓ Results printed with type verification using type()
+Notice something: we're asking AI to explain the **design choice** behind operators, not just what they do. That's more useful than memorization.
 
-## Code Example 2: Understanding Division Behavior
-
-One of the most important insights in this lesson is understanding why Python has **two different division operators** (`/` and `//`). Let's explore this carefully:
+### Multiplication, Division, and Floor Division
 
 ```python
-# Why division and floor division are different
-num1: int = 10
-num2: int = 3
+# Multiplication: scaling
+mul_result: int = x * y
+print(f"{x} * {y} = {mul_result}")  # 10 * 3 = 30
 
-# Regular division - ALWAYS returns float
-regular_div: float = num1 / num2    # 3.3333... (always float)
-print(f"{num1} / {num2} = {regular_div}")
-print(f"Type: {type(regular_div)}")  # <class 'float'>
+# Division: splits into parts (always float)
+div_result: float = x / y
+print(f"{x} / {y} = {div_result}")  # 10 / 3 = 3.3333...
 
-# Floor division - returns integer
-floor_div: int = num1 // num2       # 3 (integer result)
-print(f"{num1} // {num2} = {floor_div}")
-print(f"Type: {type(floor_div)}")    # <class 'int'>
+# Floor division: counts whole groups (integer result)
+floor_result: int = x // y
+print(f"{x} // {y} = {floor_result}")  # 10 // 3 = 3
+```
 
-# Edge case: what if both operands are floats?
+Here's something important: **division with `/` always returns a float, even when both numbers are integers**. This surprises many beginners because they expect `10 / 5` to give `2` (an int), but it actually gives `2.0` (a float).
+
+Why? Because division often produces decimals, so Python designed `/` to always return float. If you want an integer result (discarding the decimal), you use `//` (floor division).
+
+#### 🎓 Instructor Commentary
+
+> In AI-native development, you don't memorize why Python made this choice. You understand what's happening (division produces floats, floor division gives integers) and use the right operator for your intent. Then you verify with `type()` to be sure.
+
+Let's verify this with `type()`:
+
+```python
+# Verify the types
+print(f"Type of 10 / 3: {type(div_result)}")    # <class 'float'>
+print(f"Type of 10 // 3: {type(floor_result)}")  # <class 'int'>
+
+# What if we use floor division with floats?
 f1: float = 10.5
 f2: float = 3.0
-
-floor_div_float: float = f1 // f2   # 3.0 (still float, not int!)
-print(f"\n{f1} // {f2} = {floor_div_float}")
-print(f"Type: {type(floor_div_float)}")  # <class 'float'>
+float_floor: float = f1 // f2
+print(f"Type of 10.5 // 3.0: {type(float_floor)}")  # <class 'float'> (not int!)
 ```
 
-**Key Insight**: Division `/` always returns a float, even if the operands are integers. Floor division `//` returns an integer when both operands are integers, but returns a float if either operand is a float.
+Notice: when you floor divide two floats, the result is still a float. Python follows this rule: **if either operand is a float, the result is a float**.
 
-**When do you use each?**
-
-- **Use `/` when you need the exact decimal result**: Calculating an average (`total / count`), dividing money between people, computing percentages
-- **Use `//` when you need a whole number result and want to discard the remainder**: Grouping items (10 apples split into groups of 3 = 3 groups), counting complete rounds
-
-## Code Example 3: Order of Operations
-
-In math, you learn that multiplication and division happen before addition and subtraction (PEMDAS/BODMAS). Python follows the same rules:
+### Modulus: The Remainder Operator
 
 ```python
-# Order of operations matters
-result1: int = 2 + 3 * 4         # 14, NOT 20
-print(f"2 + 3 * 4 = {result1}")  # Multiply 3*4 first (12), then add 2
+# Modulus: finds the remainder
+mod_result: int = x % y
+print(f"{x} % {y} = {mod_result}")  # 10 % 3 = 1
+# (10 divided by 3 is 3 with remainder 1)
+```
 
-# Use parentheses to change the order
-result2: int = (2 + 3) * 4       # 20
-print(f"(2 + 3) * 4 = {result2}")  # Add 2+3 first (5), then multiply by 4
+The modulus operator `%` is useful when you care about what's left over. For example:
+- Check if a number is even: `5 % 2` gives 1 (odd), `4 % 2` gives 0 (even)
+- Find the last digit: `234 % 10` gives 4
+- Cycle through values: `7 % 3` gives 1, `8 % 3` gives 2, `9 % 3` gives 0 (then it repeats)
 
-# Real-world example: calculating price with tax
-base_price: float = 100.0
+### Exponentiation: Raising to a Power
+
+```python
+# Exponentiation: raising to a power
+exp_result: int = x ** 2
+print(f"{x} ** 2 = {exp_result}")  # 10 ** 2 = 100
+
+# More examples
+print(f"2 ** 3 = {2 ** 3}")        # 8 (2 × 2 × 2)
+print(f"5 ** 0 = {5 ** 0}")        # 1 (anything to the 0th power is 1)
+print(f"2 ** 10 = {2 ** 10}")      # 1024 (exponents grow fast!)
+```
+
+Notice the symbol: `**` (two asterisks), not `^`. The caret symbol `^` does something different in Python (bitwise XOR), so don't use it for exponentiation.
+
+#### 🚀 CoLearning Challenge
+
+Ask your AI Co-Teacher:
+
+> "I understand that arithmetic operators in Python are +, -, *, /, //, %, **. But why does `/` always return a float even when dividing two integers? And when would I actually use `//` vs. `/`? Give me a concrete example where using the wrong one would cause a bug."
+
+**Expected Outcome**: You'll understand the design decisions behind Python's division operators and how they interact with types.
+
+## Type Behavior: Why Types Change
+
+Here's where it gets interesting. When you combine operands of different types, Python follows rules about what type the result is.
+
+```python
+# All integer operations
+int_add: int = 5 + 3           # 8 (int)
+int_mult: int = 5 * 3          # 15 (int)
+
+# Division always gives float
+int_div: float = 5 / 2         # 2.5 (float)
+
+# Mixing int and float
+mixed: float = 5 + 2.0         # 7.0 (float) - float "wins"
+mixed2: float = 5 * 2.5        # 12.5 (float)
+
+# Verify with type()
+print(type(int_add))           # <class 'int'>
+print(type(int_div))           # <class 'float'>
+print(type(mixed))             # <class 'float'>
+```
+
+**The pattern**: When you mix `int` and `float`, the result is always `float`. Python considers this safe because a float can represent any integer value (though with potential precision loss for very large numbers).
+
+#### ✨ Teaching Tip
+
+> Use your AI tool to explore edge cases: "What happens if I try to add an integer to a string? Show me the error and explain what `TypeError` means."
+
+## Operator Precedence: Order Matters
+
+Just like in math, operators have an **order of operations**. Multiplication happens before addition.
+
+```python
+# Wrong order: 2 + 3 * 4
+result1: int = 2 + 3 * 4
+print(result1)  # 14 (not 20!)
+# Python evaluates: 3 * 4 = 12, then 2 + 12 = 14
+
+# Use parentheses to control order
+result2: int = (2 + 3) * 4
+print(result2)  # 20 (addition happens first)
+```
+
+Python follows PEMDAS (Parentheses, Exponents, Multiplication/Division, Addition/Subtraction). But honestly, **the best practice is to use parentheses**. Make your intent clear.
+
+```python
+# Real-world example: calculating total with tax
+price: float = 100.0
 tax_rate: float = 0.08
-shipping_fee: float = 10.0
+fee: float = 10.0
 
-# Without parentheses: multiply first, then add
-total_with_tax_and_fee: float = base_price * (1 + tax_rate) + shipping_fee
-print(f"\nPrice with 8% tax and $10 shipping: ${total_with_tax_and_fee}")  # $118.00
+# Without parentheses, this is confusing
+total1: float = price * (1 + tax_rate) + fee  # 118.0 (tax then fee)
 
-# Compare with wrong order:
-total_wrong: float = base_price * 1 + tax_rate + shipping_fee
-print(f"Without parentheses: ${total_wrong}")  # $111.08 (incorrect)
+# The parentheses make it obvious: first multiply by (1 + 0.08), then add fee
+total2: float = (price * (1 + tax_rate)) + fee  # 118.0 (same result, clearer intent)
 ```
 
-**When to use parentheses**: Always use parentheses to make your intent clear, even if Python would calculate correctly without them. Future readers (and AI assistants) will understand your code faster.
+Parentheses aren't just for changing order—they're for **clarifying your intent** to anyone reading your code (including yourself a month from now).
 
-## Practice: Your Turn
+#### 💬 AI Colearning Prompt
 
-Let's apply what you've learned. Try these exercises in your Python environment:
+> "When I see `2 + 3 * 4`, how does Python know to do multiplication first? Explain operator precedence. And when should I use parentheses even if they're not required?"
 
-**Exercise 1: Basic Arithmetic**
+## Putting It Together: A Complete Example
 
-Create variables for the temperature in Celsius and Fahrenheit, then calculate the conversion using arithmetic operators:
+Let's see all seven operators working together:
 
 ```python
-# Convert Celsius to Fahrenheit: F = (C × 9/5) + 32
-celsius: int = 20
-fahrenheit: float = (celsius * 9 / 5) + 32
-print(f"{celsius}°C = {fahrenheit}°F")
+# Working with arithmetic operators
+x: int = 20
+y: int = 7
+
+# All seven operators
+print(f"Addition:       {x} + {y} = {x + y}")           # 27
+print(f"Subtraction:    {x} - {y} = {x - y}")           # 13
+print(f"Multiplication: {x} * {y} = {x * y}")           # 140
+print(f"Division:       {x} / {y} = {x / y}")           # 2.857...
+print(f"Floor division: {x} // {y} = {x // y}")         # 2
+print(f"Modulus:        {x} % {y} = {x % y}")           # 6 (remainder when 20 ÷ 7)
+print(f"Exponentiation: {x} ** 2 = {x ** 2}")           # 400 (20 squared)
+
+# Verify types
+print(f"\nType verification:")
+print(f"Type of {x} + {y}: {type(x + y)}")              # <class 'int'>
+print(f"Type of {x} / {y}: {type(x / y)}")              # <class 'float'>
+print(f"Type of {x} // {y}: {type(x // y)}")            # <class 'int'>
 ```
 
-Run this code. What is the result? What type is `fahrenheit`? Why float instead of int?
+This example shows:
+- All seven operators working
+- Different types in the results (int vs. float)
+- Type verification with `type()`
 
-**Exercise 2: Working with Modulus**
+#### 🎓 Instructor Commentary
 
-The modulus operator `%` is often overlooked, but it's incredibly useful. Try this:
+> In AI-native development, you don't memorize these operators—you understand them by using them, checking types, and asking AI when surprised. The moment you see an unexpected result (like `10 / 3` being `3.3333...`), you ask: "Why is this a float?" That question-asking habit is more valuable than memorization.
+
+## Common Mistakes (And Why They Happen)
+
+**Mistake 1: Expecting `5 / 2` to give `2`**
 
 ```python
-# Check if a number is even (divisible by 2)
-number: int = 17
-remainder: int = number % 2
-
-if remainder == 0:
-    print(f"{number} is even")
-else:
-    print(f"{number} is odd")
+result: float = 5 / 2   # Gives 2.5, not 2
+# Use // if you want an integer result
+result_int: int = 5 // 2  # Gives 2
 ```
 
-Run this with different numbers (18, 25, 100, 13). What pattern do you notice about the remainder?
-
-**Exercise 3: Type Awareness**
-
-This exercise builds your validation-first mindset:
+**Mistake 2: Forgetting that mixing int and float gives float**
 
 ```python
-# Prediction: What types will these results have?
-a: int = 8
-b: int = 2
-
-result1 = a + b         # Predict the type before looking
-result2 = a / b         # Predict the type before looking
-result3 = a // b        # Predict the type before looking
-result4 = a * b         # Predict the type before looking
-
-# Now verify your predictions
-print(f"a + b = {result1}, type: {type(result1)}")
-print(f"a / b = {result2}, type: {type(result2)}")
-print(f"a // b = {result3}, type: {type(result3)}")
-print(f"a * b = {result4}, type: {type(result4)}")
-
-# Were your predictions correct? Ask AI why if any surprised you.
+result: float = 5 + 2.0   # Result is 2.0, not an int
+# This often surprises people because 5 is an int, but the result is float
 ```
 
-## Common Pitfalls and How to Avoid Them
-
-**Pitfall 1: Expecting `/` to return an integer**
-
-Many beginners expect `10 / 3` to return `3` (integer), but it returns `3.333...` (float). If you need an integer result, use `//` instead.
-
-**Pitfall 2: Forgetting about order of operations**
-
-Writing `2 + 3 * 4` is not the same as `(2 + 3) * 4`. Python uses the same order of operations as math (PEMDAS). Use parentheses to be explicit.
-
-**Pitfall 3: Mixing int and float without realizing**
-
-When you perform arithmetic on mixed types (int and float), the result is float:
+**Mistake 3: Trying to use `/` for exponentiation**
 
 ```python
-int_value: int = 5
-float_value: float = 2.0
-result: float = int_value / float_value  # Result is float, not int
-```
+# WRONG: This is division by 2, not 2 to the power
+result = 5 / 2           # 2.5 (not what you want)
 
-**Pitfall 4: Misusing modulus**
-
-Modulus `%` is NOT for percentages. It returns the **remainder** after division:
-
-```python
-# ❌ Wrong: This gives the remainder, not 20% of 100
-percentage: int = 100 % 20  # Gives 0 (remainder of 100 ÷ 20)
-
-# ✓ Correct: To get 20% of 100, multiply by the decimal
-percentage_correct: float = 100 * 0.20  # Gives 20.0
+# CORRECT: Use ** for exponentiation
+result = 5 ** 2          # 25 (5 squared)
 ```
 
 ---
 
 ## Try With AI
 
-In this final section, you'll explore arithmetic operators with an AI partner. This is where you build your **specification skills** — learning to ask productive questions about operator behavior, then validating the answers by running code.
+Now it's your turn to explore arithmetic operators with an AI co-teacher. These prompts build from understanding to exploration to application.
 
-Your AI companion (Claude Code, Gemini CLI, or ChatGPT) is expert at explaining operator behavior, edge cases, and helping you understand why Python works the way it does. Your job is to **ask good questions** and **test the answers**.
+**Tool Choice**: Use Claude Code, Gemini CLI, or ChatGPT web—whatever you have access to.
 
-### Setup
+### Prompt 1: Concept Exploration (Understand)
 
-Open your preferred AI tool:
-- **Claude Code** (if installed): `claude-code`
-- **Gemini CLI** (if installed): `gemini`
-- **ChatGPT**: Visit [chat.openai.com](https://chat.openai.com) in your browser
-- **Or your preferred AI companion tool** from earlier lessons
+Copy and ask your AI:
 
-Have Python ready in another window so you can test AI responses immediately.
+> "I'm learning Python arithmetic operators. I understand +, -, *, but I'm confused about `/` vs. `//`.
+> - What's the difference between 10 / 3 and 10 // 3?
+> - Why does Python have both?
+> - Which one should I use and when?
+>
+> Show me examples with their types using `type()`."
 
-### Prompt Set (4 Progressive Prompts)
-
-#### Prompt 1: Concept Exploration
-
-**Tell your AI:**
-
-```
-I want to understand why Python has both / and // operators.
-- What does / do?
-- What does // do?
-- When would I use one instead of the other?
-```
-
-**Expected outcome:** You learn that `/` always returns float (exact division), while `//` returns integer (floor division that discards the decimal). You understand the use cases: `/` for precise calculations, `//` for counting in groups.
+**Expected Outcome**: You'll understand that `/` always returns float (division with decimals), while `//` returns integer (counting whole groups). You'll know when to use each based on what you need the result for.
 
 ---
 
-#### Prompt 2: Application to Real Problem
+### Prompt 2: Application (Apply)
 
-**Tell your AI:**
+Copy and ask your AI:
 
-```
-Write Python code that:
-- Takes two integers: price = 50, tax_rate = 0.08
-- Calculates total_price = price * (1 + tax_rate)
-- Uses type hints for all variables
-- Verifies result type with type()
+> "Write Python code that calculates:
+> - Total cost = $50 base price
+> - Tax = 8% (multiply by 1.08)
+> - Delivery fee = $10
+>
+> Write it with type hints for all variables. Use arithmetic operators to:
+> 1. Calculate total with tax
+> 2. Add the delivery fee
+> 3. Show the final total
+>
+> Then explain: why is the final total a float and not an int? Use `type()` to verify."
 
-Show me the code. Is total_price a float or int? Why?
-```
-
-**Expected outcome:** You apply arithmetic operators to a real problem (calculating price with tax). You observe that multiplying int by float gives float. You understand **why** result types change based on operand types.
-
-**What to validate:**
-1. Run the code the AI provides
-2. Check that total_price is indeed a float
-3. Ask follow-up: "What if I used integer math instead (without 0.08)? Would the type change?"
+**Expected Outcome**: You'll see arithmetic operators applied to a realistic problem. You'll understand why mixing integers and floats produces floats. You'll practice reading and understanding type hints.
 
 ---
 
-#### Prompt 3: Edge Case Discovery
+### Prompt 3: Edge Case Discovery (Explore)
 
-**Tell your AI:**
+Copy and ask your AI:
 
-```
-I'm experimenting with arithmetic operations. What happens if I try:
-- 10 / 0
-- 10.5 % 3
-- 2 ** 100
-- 0.1 + 0.2
+> "I want to understand what happens at the edges. Try these:
+> - 10 / 0 (divide by zero)
+> - 0.1 + 0.2 (floating point math)
+> - 10 % 0 (modulus by zero)
+> - 2 ** 100 (very large exponent)
+>
+> For each one: Does it work or error? What's the result or error message? Why?"
 
-Show me the results. Which ones cause errors? Which are surprising?
-```
-
-**Expected outcome:** You discover:
-- Division by zero causes `ZeroDivisionError` (normal error, not a Python failure)
-- Modulus works with floats (you can find remainder of 10.5 ÷ 3)
-- Exponentiation can produce very large numbers (2^100 is massive)
-- Floating point precision surprises students (0.1 + 0.2 ≠ 0.3 exactly)
-
-**What to validate:**
-1. Run each operation yourself
-2. See the error or result
-3. Ask follow-up: "Is ZeroDivisionError something to fear, or just a normal error to handle?"
+**Expected Outcome**: You'll discover that division by zero causes an error (expected), floating point numbers have precision issues (surprising!), and Python handles large exponents well. You'll see errors as learning opportunities, not failures.
 
 ---
 
-#### Prompt 4: Synthesis and Connection to Chapter 14
+### Prompt 4: Synthesis & Validation (Understand + Analyze)
 
-**Tell your AI:**
+Copy and ask your AI:
 
-```
-I learned in Chapter 14 that Python has different data types (int, float, str, bool).
-Now I see that operators interact with these types in interesting ways.
+> "I've learned that Python has 7 arithmetic operators. I remember from Chapter 14 that Python also has type hints. How do these connect?
+>
+> - When I write `result: int = 5 + 3`, what does the type hint `: int` tell me?
+> - Why does `result: int = 5 / 2` cause a problem? (Hint: 5 / 2 is a float, not int!)
+> - Should I always use type hints with arithmetic operators?
+>
+> Show me an example where the type hint helps catch a mistake."
 
-Help me understand:
-- Why does int / int give float?
-- What happens when I add int + float?
-- Should I always use type() after operations to verify what I got?
-
-Connect this to type hints from Chapter 14. How do type hints help me predict what operators will do?
-```
-
-**Expected outcome:** You synthesize understanding: operators **transform data types**. Type hints from Chapter 14 now serve a new purpose — they help you **predict** what an operation will produce. You recognize that validation with `type()` is a professional practice: don't assume, verify.
-
-**Key insight:** Type hints are specifications. `result: float = 10 / 3` says "I expect this to be float." When you validate with `type(result)`, you're testing your specification against reality.
+**Expected Outcome**: You'll understand that type hints are promises: you're saying "this variable will be an int" and Python checks if your code keeps that promise. You'll see how arithmetic operators interact with type hints from Chapter 14. You'll appreciate why type hints matter for catching bugs early.
 
 ---
 
-### Safety & Verification Note
-
-When testing AI-generated code:
-
-- **✓ Do**: Run code in your Python environment first before using it
-- **✓ Do**: Ask "What happens if I change this value?" to deepen understanding
-- **✓ Do**: Check result types with `type()` — this is verification practice
-- **⚠️ Be aware**: Division by zero and very large exponents can cause errors, but these are learning opportunities, not dangers
-- **✓ Do**: Ask follow-up questions to AI when results surprise you
-
-Remember: Errors are **not failures**. They're feedback from Python helping you learn. When your code produces a `ZeroDivisionError`, that's Python saying, "Division by zero isn't defined in math—let's talk about what you meant to do."
-
----
+**Safety Note**: AI-generated code may contain errors. Always run it, check the results with `type()`, and ask "Why?" when something surprises you. If division by zero error appears, that's normal—it's telling you something can't be done.

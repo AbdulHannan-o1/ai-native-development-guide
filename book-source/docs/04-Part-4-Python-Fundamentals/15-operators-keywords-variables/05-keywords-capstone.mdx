@@ -1,476 +1,484 @@
 ---
-title: "Keywords and Capstone Project — Bringing It All Together"
+title: "Keywords and Capstone: Building a Type-Safe Calculator"
 chapter: 15
 lesson: 5
 duration_minutes: 50
 
 # HIDDEN SKILLS METADATA (Institutional Integration Layer)
-# Not visible to students; enables competency assessment and differentiation
 skills:
   - name: "Recognizing Python Keywords"
     proficiency_level: "A1-A2"
     category: "Technical"
     bloom_level: "Remember + Understand"
     digcomp_area: "Foundation"
-    measurable_at_this_level: "Student can retrieve the Python keyword list using `import keyword; print(keyword.kwlist)`, recognize common keywords (if, for, while, def, class, return), use `keyword.iskeyword()` to check if a word is reserved, and avoid using keywords as variable names"
+    measurable_at_this_level: "Student can retrieve keyword list with import keyword, recognize common keywords (if,for,while,def,class,return), avoid using as variable names"
 
-  - name: "Understanding Why Keywords Are Reserved"
+  - name: "Understanding Why Keywords are Reserved"
     proficiency_level: "A2"
     category: "Conceptual"
     bloom_level: "Understand"
     digcomp_area: "Problem-Solving"
-    measurable_at_this_level: "Student can explain 'Keywords are reserved because Python needs them for control flow, function definitions, and language features' and provide examples (if, for, def, class)"
+    measurable_at_this_level: "Student can explain 'Keywords are reserved because Python needs them for control flow, functions, and language features' with examples"
 
-  - name: "Integrating All Four Operator Types in Real Programs"
+  - name: "Integrating All Operator Types in Realistic Code"
     proficiency_level: "A2-B1"
     category: "Technical"
     bloom_level: "Apply + Analyze"
     digcomp_area: "Digital Content Creation"
-    measurable_at_this_level: "Student can write a complete calculator program using arithmetic operators for calculations, comparison operators for validation, logical operators for safety checks, and assignment operators for result storage; validate all outputs with type()"
+    measurable_at_this_level: "Student can write Calculator project using all 4 operator types, validate output with type()"
 
   - name: "Validation-First Programming Practice"
     proficiency_level: "A2-B1"
     category: "Technical"
     bloom_level: "Apply"
     digcomp_area: "Safety"
-    measurable_at_this_level: "Student tests code with multiple inputs (positive numbers, negative numbers, zero), validates result types with type(), checks edge cases (division by zero), and asks AI about surprising results"
+    measurable_at_this_level: "Student tests code with multiple inputs, validates types, checks edge cases, asks AI about surprising results"
 
 learning_objectives:
-  - objective: "Recognize and retrieve Python keywords; understand why they cannot be used as variable names"
-    proficiency_level: "A2"
+  - objective: "Recognize and list Python keywords and understand why they're reserved"
+    proficiency_level: "A1-A2"
     bloom_level: "Remember + Understand"
-    assessment_method: "Identify keywords from a list; use keyword.iskeyword() to verify; explain keyword purposes (if, for, def, class, etc.)"
+    assessment_method: "Keyword list retrieval; explanation of why reserved"
 
-  - objective: "Integrate all four operator types (arithmetic, comparison, logical, assignment) in a cohesive calculator project"
+  - objective: "Apply all four operator types in an integrated capstone project"
     proficiency_level: "A2-B1"
     bloom_level: "Apply + Analyze"
-    assessment_method: "Write and test a calculator program demonstrating all operator types; identify where each operator type appears; explain how operators work together"
-
-  - objective: "Validate code with type() and verify edge case handling in real programs"
-    proficiency_level: "A2-B1"
-    bloom_level: "Apply"
-    assessment_method: "Run calculator with multiple test cases; check result types; identify and fix bugs related to division by zero; ask AI about surprising behaviors"
-
-  - objective: "Connect Chapter 15 operators to Chapter 17 control flow prerequisites"
-    proficiency_level: "A2"
-    bloom_level: "Understand"
-    assessment_method: "Explain how comparison and logical operators enable if/elif/else statements; preview Chapter 17 concepts"
+    assessment_method: "Calculator project completion; type validation; testing"
 
 cognitive_load:
   new_concepts: 2
-  assessment: "2 new concepts (keywords as reserved words + keyword checking) within A2 limit of 5-7. Integration project reinforces all 4 operator types without introducing new operator concepts. Capstone is application, not learning new syntax. ✓"
+  assessment: "2 new concepts (keywords, keyword checking) plus integration of 4 operator types (no new operator concepts) within A2-B1 limit of 10 ✓"
 
 differentiation:
-  extension_for_advanced: "Extend the calculator with additional features: currency conversion (multiply by exchange rate), percentage calculations, or statistical functions (average, max, min). Ask AI: 'How would I add [feature] to the calculator while keeping it beginner-friendly?'"
-  remedial_for_struggling: "Start with the simplified calculator version (without functions). Focus on one operator type at a time: First, just arithmetic (+). Next, add a comparison check (>). Then add assignment (+=). Build up gradually rather than implementing everything at once."
+  extension_for_advanced: "Add more calculator operations (%, //); implement error handling for invalid input; create a menu-driven calculator with multiple operation choices"
+  remedial_for_struggling: "Use simplified calculator without functions; focus on one operator type at a time; add explanation comments for each section"
 
 # Generation metadata
-generated_by: "lesson-writer v1.0"
+generated_by: "lesson-writer v3.0.0"
 source_spec: "specs/part-4-chapter-15/spec.md"
-source_plan: "specs/part-4-chapter-15/plan.md"
 created: "2025-11-08"
 last_modified: "2025-11-08"
 git_author: "Claude Code"
-workflow: "/sp.implement"
+workflow: "lesson-writer subagent"
 version: "1.0.0"
 ---
 
-# Keywords and Capstone Project — Bringing It All Together
+# Keywords and Capstone: Building a Type-Safe Calculator
 
-You've now learned all four operator types across Lessons 1-4:
+You've mastered four types of operators. Now it's time to learn one more important concept about Python's language structure: **keywords**. Keywords are reserved words that Python has claimed for itself. You can't use them as variable names because Python needs them for language features.
 
-- **Lesson 1**: Arithmetic operators (`+`, `-`, `*`, `/`, `//`, `%`, `**`) for calculations
-- **Lesson 2**: Comparison operators (`==`, `!=`, `>`, `<`, `>=`, `<=`) for true/false decisions
-- **Lesson 3**: Logical operators (`and`, `or`, `not`) for combining conditions
-- **Lesson 4**: Assignment operators (`=`, `+=`, `-=`, `*=`, `/=`) for efficient updates
+Then we'll bring everything together in a capstone project: a calculator that demonstrates all four operator types, combined with keyword awareness and type validation.
 
-In this final lesson, you'll learn about **Python keywords** (reserved words you cannot use as variable names), then **integrate all four operator types** into a capstone project: a calculator with type safety validation.
+## What It Is: Python's Reserved Words
 
-This lesson is where everything clicks together. You'll see how operators aren't isolated tools—they work **together** in real programs to solve problems.
+A **keyword** is a word that Python uses for language syntax. These words have special meaning and control how Python works. Because Python needs them for specific purposes, you can't use them as variable names.
 
-## What Are Python Keywords?
+Python has **35 keywords** (as of Python 3.14). You don't need to memorize them—you need to recognize common ones and know how to check if a word is reserved.
 
-**Keywords are reserved words in Python with special meaning.** Python uses them for language features like control flow, function definitions, and special values. Because keywords have special meaning, **you cannot use them as variable names**.
+### Discovering Python Keywords
 
-For example, if you tried this:
+Python provides a simple way to see all keywords:
 
 ```python
-# WRONG - this causes SyntaxError
-if = 5                  # 'if' is a keyword!
-```
-
-Python would give you a `SyntaxError: invalid syntax` because `if` is reserved for conditional statements (Chapter 17). You must use a different name like `if_count` or `conditional_check`.
-
-### How Many Keywords Are There?
-
-Python 3.14 has 35 keywords. You can see them yourself:
-
-```python
+# Import the keyword module
 import keyword
 
-# Print all Python keywords
+# See all Python keywords
 print("Python keywords:")
 print(keyword.kwlist)
 
+# Output (abbreviated):
+# ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await',
+#  'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except',
+#  'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is',
+#  'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try',
+#  'while', 'with', 'yield']
+
 # Count them
-print(f"\nTotal keywords: {len(keyword.kwlist)}")  # 35
+print(f"Total keywords: {len(keyword.kwlist)}")  # 35
+
+# Check if a specific word is a keyword
+print(keyword.iskeyword("for"))        # True (reserved)
+print(keyword.iskeyword("forloop"))    # False (not reserved)
+print(keyword.iskeyword("count"))      # False (not reserved)
 ```
 
-**Output:**
+These 35 keywords are Python's grammar. They define language structure: loops (`for`, `while`), conditionals (`if`, `else`), functions (`def`), classes (`class`), and more.
+
+#### 💬 AI Colearning Prompt
+
+> "Why can't I use keywords as variable names? What would happen to Python's design if `if`, `for`, or `def` weren't reserved? Explain the problem and why reservation is necessary."
+
+This question helps you understand language design—why certain words must be protected.
+
+### Why Keywords Are Reserved
+
+Let's see what happens when you try to use a keyword as a variable name:
+
+```python
+# WRONG: Trying to use 'for' as a variable
+# for = 5  # SyntaxError: invalid syntax (for is reserved!)
+
+# RIGHT: Use a descriptive alternative
+for_loop_count: int = 5      # Underscore makes it clear
+loop_count: int = 5          # Descriptive name
+iterations: int = 5          # Alternative name
+
+# Common keywords and what they do
+# if, elif, else — conditional logic (Chapter 17)
+# for, while — loops (Chapter 17)
+# def — define functions (Chapter 20)
+# class — define classes (Chapter 24)
+# import, from — import modules (Chapter 20)
+# return — return from function (Chapter 20)
+# try, except, finally — error handling (Chapter 21)
+# True, False, None — special values (Chapter 14)
+# and, or, not — logical operators (Lesson 3, this chapter!)
 ```
-Python keywords:
-['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break',
- 'class', 'continue', 'def', 'elif', 'else', 'except', 'finally', 'for',
- 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not',
- 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
 
-Total keywords: 35
-```
+The reason `for`, `if`, `def` are reserved is that Python needs them for language structure. If you could write `for = 5`, Python would get confused: "Is this the start of a for loop, or is this assigning 5 to the variable for?"
 
-You'll recognize many of these already:
+#### 🎓 Instructor Commentary
 
-- **`if`, `elif`, `else`** — Conditional logic (Chapter 17)
-- **`for`, `while`** — Loops (Chapter 17)
-- **`def`** — Function definition (Chapter 20)
-- **`class`** — Class definition (Chapter 24)
-- **`and`, `or`, `not`** — Logical operators (Lesson 3, this chapter!)
-- **`True`, `False`, `None`** — Special values (Chapter 14)
-- **`import`, `from`** — Module imports (Chapter 20)
-- **`return`** — Return from function (Chapter 20)
-- **`try`, `except`** — Error handling (Chapter 21)
+> In AI-native development, you don't memorize all 35 keywords. You develop a reflex: "If I get a SyntaxError when naming a variable, it might be a keyword. Let me check with `keyword.iskeyword()`." This defensive habit will save you debugging time.
 
-## Checking If a Word Is a Keyword
+### Checking if a Word is Reserved
 
-When you're naming variables and aren't sure if a word is reserved, use `keyword.iskeyword()`:
+A smart programming practice is to check before using a word as a variable name:
 
 ```python
 import keyword
 
-# Check if specific words are keywords
-print(keyword.iskeyword("for"))       # True (reserved!)
-print(keyword.iskeyword("forloop"))   # False (not reserved - safe to use)
-print(keyword.iskeyword("class"))     # True (reserved!)
-print(keyword.iskeyword("my_class"))  # False (safe to use)
+# Function to check if a name is valid (simplified)
+def is_valid_name(word: str) -> bool:
+    """Check if a word is not a keyword"""
+    return not keyword.iskeyword(word)
 
-# Practical example: defensive naming
-word: str = "while"
-if keyword.iskeyword(word):
-    print(f"'{word}' is RESERVED. Use '{word}_loop' instead.")
-else:
-    print(f"'{word}' is safe to use as a variable name.")
+# Test it
+potential_names: list[str] = ["count", "for", "result", "while", "data"]
+
+for name in potential_names:
+    if keyword.iskeyword(name):
+        print(f"  '{name}' is RESERVED - use '{name}_var' instead")
+    else:
+        print(f"  '{name}' is OK - can use as variable name")
+
+# Output:
+# count is OK
+# for is RESERVED - use for_var instead
+# result is OK
+# while is RESERVED - use while_var instead
+# data is OK
 ```
 
-**Output:**
-```
-for is a keyword. Use 'for_loop' instead.
-```
+This pattern—checking before using—is good defensive programming.
 
-**Pro tip**: When in doubt about a variable name, just run this check. It takes one line of code and saves debugging time later.
+#### 🚀 CoLearning Challenge
+
+Ask your AI Co-Teacher:
+
+> "Create a program that:
+> 1. Lists all 35 Python keywords
+> 2. Groups them by category (control flow, function definition, special values, etc.)
+> 3. Explains what each category does
+>
+> Then explain: Why do you think keywords are organized this way? What would happen if Python had no keywords?"
+
+**Expected Outcome**: You'll see that keywords follow logical categories; understand that language design requires structure; appreciate why Python protects certain words.
 
 ## Capstone Project: Calculator with Type Safety
 
-Now let's bring everything together. You'll build a calculator that uses **all four operator types** from Lessons 1-4.
+Now let's bring everything together. You'll create a calculator that demonstrates:
+- **Arithmetic operators** (Lesson 1): +, -, *, /, //, %
+- **Comparison operators** (Lesson 2): ==, !=, >, <, >=, <=
+- **Logical operators** (Lesson 3): and, or, not
+- **Assignment operators** (Lesson 4): =, +=, -=, *=, /=
+- **Type validation**: Using `type()` to verify results
+- **Keyword awareness**: Recognizing reserved words
 
-Here's a simplified version that doesn't require functions (functions are Chapter 20):
+### Simplified Calculator (Beginner-Friendly Version)
+
+If you haven't learned functions yet, here's a straightforward version:
 
 ```python
-"""
-Capstone Project: Calculator with Type Safety
-Demonstrates all 4 operator types in one program
-"""
+# Capstone Project: Simple Calculator with Type Safety
+# Demonstrates all 4 operator types + type validation + keyword awareness
 
 import keyword
 
-print("=== Calculator with Type Safety ===\n")
+print("=" * 50)
+print("SIMPLE CALCULATOR WITH TYPE SAFETY")
+print("=" * 50)
 
-# Get two numbers from user
-num1: float = float(input("Enter first number: "))
+# Input two numbers
+num1: float = float(input("\nEnter first number: "))
 num2: float = float(input("Enter second number: "))
 
-print("\n--- ARITHMETIC OPERATORS (Lesson 1) ---")
-
-# Arithmetic operators: +, -, *, /, //, %
+# Arithmetic operators (Lesson 1)
+print("\n--- ARITHMETIC OPERATORS ---")
 add_result: float = num1 + num2
-print(f"{num1} + {num2} = {add_result}")
+print(f"{num1} + {num2} = {add_result} (type: {type(add_result).__name__})")
 
 sub_result: float = num1 - num2
-print(f"{num1} - {num2} = {sub_result}")
+print(f"{num1} - {num2} = {sub_result} (type: {type(sub_result).__name__})")
 
 mul_result: float = num1 * num2
-print(f"{num1} * {num2} = {mul_result}")
+print(f"{num1} * {num2} = {mul_result} (type: {type(mul_result).__name__})")
 
-# Division safety: check for zero first
-print("\n--- COMPARISON OPERATORS (Lesson 2) ---")
+# Comparison operators (Lesson 2)
+print("\n--- COMPARISON OPERATORS ---")
+is_equal: bool = num1 == num2
+print(f"{num1} == {num2}: {is_equal} (type: {type(is_equal).__name__})")
 
-if num2 != 0:                           # Comparison operator: !=
+is_greater: bool = num1 > num2
+print(f"{num1} > {num2}: {is_greater} (type: {type(is_greater).__name__})")
+
+is_less: bool = num1 < num2
+print(f"{num1} < {num2}: {is_less} (type: {type(is_less).__name__})")
+
+# Logical operators (Lesson 3)
+print("\n--- LOGICAL OPERATORS ---")
+both_positive: bool = (num1 > 0) and (num2 > 0)
+print(f"Both positive: {both_positive} (type: {type(both_positive).__name__})")
+
+either_large: bool = (num1 > 10) or (num2 > 10)
+print(f"Either > 10: {either_large} (type: {type(either_large).__name__})")
+
+not_equal_result: bool = not (num1 == num2)
+print(f"Not equal: {not_equal_result} (type: {type(not_equal_result).__name__})")
+
+# Assignment operators (Lesson 4)
+print("\n--- ASSIGNMENT OPERATORS ---")
+total: float = 0.0
+total += add_result
+print(f"After adding result: total = {total}")
+
+total -= 5.0
+print(f"After subtracting 5: total = {total}")
+
+total *= 0.5
+print(f"After halving: total = {total} (type: {type(total).__name__})")
+
+# Keyword awareness
+print("\n--- KEYWORD AWARENESS ---")
+test_words: list[str] = ["count", "for", "result", "if", "my_var"]
+print("Checking variable names:")
+for word in test_words:
+    if keyword.iskeyword(word):
+        print(f"  '{word}' is RESERVED - don't use as variable name")
+    else:
+        print(f"  '{word}' is OK - can use as variable name")
+
+# Division with safety check
+print("\n--- SAFE DIVISION ---")
+if num2 != 0:
     div_result: float = num1 / num2
-    print(f"{num1} / {num2} = {div_result}")
-
-    floor_result: int = int(num1 // num2)
-    print(f"{num1} // {num2} = {floor_result}")
-
-    mod_result: int = int(num1 % num2)
-    print(f"{num1} % {num2} = {mod_result}")
+    print(f"{num1} / {num2} = {div_result} (type: {type(div_result).__name__})")
 else:
     print("Cannot divide by zero")
 
-# Exponentiation
-exp_result: float = num1 ** 2
-print(f"{num1} ** 2 = {exp_result}")
-
-print("\n--- LOGICAL OPERATORS (Lesson 3) ---")
-
-# Logical operators: and, or, not
-both_positive: bool = (num1 > 0) and (num2 > 0)  # AND
-print(f"Both positive: {both_positive}")
-
-either_large: bool = (num1 > 10) or (num2 > 10)  # OR
-print(f"Either greater than 10: {either_large}")
-
-is_equal: bool = (num1 == num2)
-not_equal: bool = not is_equal                    # NOT
-print(f"Numbers are not equal: {not_equal}")
-
-print("\n--- ASSIGNMENT OPERATORS (Lesson 4) ---")
-
-# Assignment operators: +=, -=, *=, /=
-total: float = 0.0
-total += add_result                     # Shorthand: total = total + add_result
-print(f"After adding results: total = {total}")
-
-total += sub_result
-print(f"After subtracting: total = {total}")
-
-total *= 0.5                            # Apply 50% reduction
-print(f"After 50% reduction: total = {total}")
-
-print("\n--- TYPE VALIDATION ---")
-
-# Verify types of all results
-print(f"num1 type: {type(num1).__name__}")
-print(f"add_result type: {type(add_result).__name__}")
-print(f"both_positive type: {type(both_positive).__name__}")
-print(f"total type: {type(total).__name__}")
-
-print("\n--- KEYWORD SAFETY CHECK ---")
-
-# Check some potential variable names
-potential_names: list[str] = ["if", "for", "result", "calculation", "count"]
-for name in potential_names:
-    if keyword.iskeyword(name):
-        print(f"  '{name}' is RESERVED — use '{name}_var' instead")
-    else:
-        print(f"  '{name}' is OK — can use as variable name")
+print("\n" + "=" * 50)
+print("Calculation complete!")
+print("=" * 50)
 ```
 
-**Sample Run** (with inputs 15 and 3):
-```
-=== Calculator with Type Safety ===
+#### ✨ Teaching Tip
 
-Enter first number: 15
-Enter second number: 3
+> Use your AI tool to extend the calculator: "Add more features to the calculator: modulus (%), floor division (//), exponentiation (**). Show the results for num1=10, num2=3."
 
---- ARITHMETIC OPERATORS (Lesson 1) ---
-15.0 + 3.0 = 18.0
-15.0 - 3.0 = 12.0
-15.0 * 3.0 = 45.0
-15.0 / 3.0 = 5.0
-15.0 // 3.0 = 5
-15.0 % 3.0 = 0
+### Advanced Version (With Functions and Error Handling)
 
---- COMPARISON OPERATORS (Lesson 2) ---
-Both positive: True
-Either greater than 10: True
-Numbers are not equal: True
-
---- ASSIGNMENT OPERATORS (Lesson 4) ---
-After adding results: total = 18.0
-After subtracting: total = 30.0
-After 50% reduction: total = 15.0
-
---- TYPE VALIDATION ---
-num1 type: float
-add_result type: float
-both_positive type: bool
-total type: float
-
---- KEYWORD SAFETY CHECK ---
-  'if' is RESERVED — use 'if_var' instead
-  'for' is RESERVED — use 'for_var' instead
-  'result' is OK — can use as variable name
-  'calculation' is OK — can use as variable name
-  'count' is OK — can use as variable name
-```
-
-### What's Happening in This Program?
-
-Let's trace through the four operator types:
-
-1. **Arithmetic Operators** (Lesson 1): Lines 12-21
-   - `num1 + num2`, `num1 - num2`, etc. perform calculations
-   - Results are stored in variables with type hints
-
-2. **Comparison Operators** (Lesson 2): Lines 23-24, 37-40
-   - `num2 != 0` checks if we can divide safely (prevents ZeroDivisionError)
-   - `num1 > 0` and `num1 > 10` compare values and return True/False
-   - `num1 == num2` tests equality
-
-3. **Logical Operators** (Lesson 3): Lines 37-40
-   - `and` — checks if BOTH conditions are true
-   - `or` — checks if AT LEAST ONE condition is true
-   - `not` — reverses a boolean value
-
-4. **Assignment Operators** (Lesson 4): Lines 43-46
-   - `total += add_result` updates the total efficiently
-   - `total *= 0.5` multiplies and updates in one step
-
-### Edge Cases and Validation
-
-Notice how we use **comparison operators to validate before arithmetic**:
+If you're comfortable with functions, here's a more advanced version:
 
 ```python
-if num2 != 0:               # Check first!
-    div_result = num1 / num2  # Then divide
+# Advanced Calculator with Functions and Validation
+import keyword
+
+def safe_number_input(prompt: str) -> float:
+    """Get a number from user, with validation"""
+    while True:
+        try:
+            user_input: str = input(prompt)
+            number: float = float(user_input)
+            return number
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+def demonstrate_operators(num1: float, num2: float) -> None:
+    """Show all operator types with num1 and num2"""
+    print("\n" + "=" * 50)
+    print("COMPREHENSIVE OPERATOR DEMONSTRATION")
+    print("=" * 50)
+
+    # Arithmetic
+    print("\n--- ARITHMETIC OPERATORS (Lesson 1) ---")
+    print(f"Addition:       {num1} + {num2} = {num1 + num2}")
+    print(f"Subtraction:    {num1} - {num2} = {num1 - num2}")
+    print(f"Multiplication: {num1} * {num2} = {num1 * num2}")
+    print(f"Division:       {num1} / {num2} = {num1 / num2}")
+    if num2 != 0:
+        print(f"Floor div:      {num1} // {num2} = {num1 // num2}")
+        print(f"Modulus:        {num1} % {num2} = {num1 % num2}")
+    print(f"Exponentiation: {num1} ** 2 = {num1 ** 2}")
+
+    # Comparison
+    print("\n--- COMPARISON OPERATORS (Lesson 2) ---")
+    print(f"{num1} == {num2}: {num1 == num2}")
+    print(f"{num1} != {num2}: {num1 != num2}")
+    print(f"{num1} > {num2}: {num1 > num2}")
+    print(f"{num1} < {num2}: {num1 < num2}")
+    print(f"{num1} >= {num2}: {num1 >= num2}")
+    print(f"{num1} <= {num2}: {num1 <= num2}")
+
+    # Logical
+    print("\n--- LOGICAL OPERATORS (Lesson 3) ---")
+    cond1: bool = num1 > 0
+    cond2: bool = num2 > 0
+    print(f"Both positive: ({num1} > 0) and ({num2} > 0) = {cond1 and cond2}")
+    print(f"Either positive: ({num1} > 0) or ({num2} > 0) = {cond1 or cond2}")
+    print(f"First not positive: not ({num1} > 0) = {not cond1}")
+
+    # Assignment
+    print("\n--- ASSIGNMENT OPERATORS (Lesson 4) ---")
+    total: float = num1
+    print(f"Start: total = {total}")
+    total += num2
+    print(f"After += {num2}: total = {total}")
+    total *= 0.5
+    print(f"After *= 0.5: total = {total}")
+
+    # Type validation
+    print("\n--- TYPE VALIDATION ---")
+    print(f"num1 type: {type(num1)}")
+    print(f"num2 type: {type(num2)}")
+    print(f"(num1 + num2) type: {type(num1 + num2)}")
+    print(f"(num1 == num2) type: {type(num1 == num2)}")
+
+def show_keyword_awareness() -> None:
+    """Demonstrate keyword awareness"""
+    print("\n--- KEYWORD AWARENESS ---")
+    print(f"Total Python keywords: {len(keyword.kwlist)}")
+    print(f"Examples: {keyword.kwlist[:10]}...")
+
+    test_names: list[str] = ["count", "for", "data", "while", "result"]
+    print("\nChecking variable names:")
+    for name in test_names:
+        status: str = "RESERVED" if keyword.iskeyword(name) else "OK"
+        print(f"  '{name}': {status}")
+
+# Run the calculator
+if __name__ == "__main__":
+    print("\n" + "=" * 50)
+    print("CALCULATOR WITH TYPE SAFETY")
+    print("Demonstrates all operator types from Chapter 15")
+    print("=" * 50)
+
+    num1: float = safe_number_input("\nEnter first number: ")
+    num2: float = safe_number_input("Enter second number: ")
+
+    demonstrate_operators(num1, num2)
+    show_keyword_awareness()
+
+    print("\n" + "=" * 50)
+    print("Demonstration complete!")
+    print("=" * 50)
 ```
 
-This is a professional practice: **validate before operations**. Don't assume your data is safe. Check it first.
-
-Also notice we use `type()` to verify results:
-
-```python
-print(f"add_result type: {type(add_result).__name__}")
-```
-
-This is **validation-first thinking**. We don't assume operations will produce the type we expect—we verify it.
-
-## How This Prepares for Chapter 17
-
-In Chapter 17 (Control Flow), you'll write programs with many `if` statements:
-
-```python
-# Chapter 17 preview
-if age >= 18:                           # Comparison operator
-    print("You can vote")
-elif age >= 16:                         # Chapter 15 comparison operator
-    print("You can drive soon")
-else:
-    print("Wait a few years")
-```
-
-The **comparison operators** and **logical operators** you learned in Lessons 2-3 are the foundation. The **assignment operators** you learned in Lesson 4 will update counters in loops.
-
-Chapter 15 is your foundation. Chapter 17 builds directly on it.
+Both versions demonstrate all four operator types plus validation and keyword awareness. Choose whichever matches your current comfort level.
 
 ---
 
 ## Try With AI
 
-Now it's time to explore keywords and integrate all four operator types with your AI companion.
+Now it's your turn to explore keywords and integrate all your operator knowledge with an AI co-teacher.
 
-### Prompt 1: Understanding Keywords
+**Tool Choice**: Use Claude Code, Gemini CLI, or ChatGPT web—whatever you have access to.
 
-**Tell your AI:**
+### Prompt 1: Concept Exploration (Understand)
 
-```
-I want to understand Python keywords.
-- What are they, and why does Python need them?
-- Can I use "For" (capitalized) instead of "for" as a variable name?
-- What error do I get if I try: `for = 5`?
-- Show me what `import keyword; print(keyword.kwlist)` outputs
-```
+Copy and ask your AI:
 
-**Expected outcome:** You understand that keywords are reserved words with special meaning in Python; you learn that Python is case-sensitive (For is valid, for is not); you see the SyntaxError that occurs when attempting to use a keyword as a variable; you understand Python's design rationale.
+> "I just learned about Python keywords. I ran:
+> ```
+> import keyword
+> print(keyword.kwlist)
+> ```
+>
+> - What are Python keywords and why does Python have them?
+> - Why can't I use 'if' or 'for' as variable names?
+> - Can I use 'For' or 'IF' (different capitalization)?
+> - Show me what error I get if I try to use 'def' as a variable name."
 
----
-
-### Prompt 2: Build a Simple Calculator
-
-**Tell your AI:**
-
-```
-Write Python code for a simple calculator that:
-1. Gets two numbers from the user
-2. Adds them (arithmetic operator: +)
-3. Checks if first > second (comparison operator)
-4. Calculates a running total using += (assignment operator)
-5. Uses type() to verify all result types
-
-Don't use functions yet—just straightforward code.
-The calculator should show all results clearly.
-```
-
-**Expected outcome:** You create a working calculator program that demonstrates all four operator types. You apply what you've learned in a realistic program. You observe that floats appear (division), booleans appear (comparison), and assignments update variables cleanly.
-
-**What to validate:**
-1. Run the calculator yourself with test inputs (15 and 3, for example)
-2. Verify results are mathematically correct
-3. Check that types match your expectations (floats for division, bools for comparisons)
-4. Test an edge case: What happens if you enter 0 as the second number?
+**Expected Outcome**: You'll understand keywords are reserved syntax elements; learn Python is case-sensitive (For is valid, for is not); see SyntaxError demonstration; grasp language design constraints.
 
 ---
 
-### Prompt 3: Edge Case Testing
+### Prompt 2: Application (Apply)
 
-**Tell your AI:**
+Copy and ask your AI:
 
-```
-I've built a calculator. Let me test it with tricky inputs:
-- What happens if I enter two positive numbers?
-- What if I enter zero and a positive?
-- What if I enter two negative numbers?
-- What if I enter text instead of a number?
+> "Write a simple calculator that:
+> 1. Gets two numbers from the user
+> 2. Adds them (arithmetic operator)
+> 3. Checks if first > second (comparison operator)
+> 4. Combines conditions: (num1 > 0) and (num2 > 0) (logical operators)
+> 5. Updates a total using += (assignment operator)
+> 6. Uses type() to verify result types
+>
+> You can skip function definitions - just write straightforward code. Show me the complete calculator."
 
-Which cases break the calculator? How would I fix them?
-Ask me: "What safety checks would you add?"
-```
-
-**Expected outcome:** You discover that entering zero might cause division errors; non-numeric input might crash the program; you learn to think about **input validation**. You see that professional programs must handle edge cases, not just happy paths. You practice defensive programming (checking before operating).
-
----
-
-### Prompt 4: Integration and Chapter Preview
-
-**Tell your AI:**
-
-```
-I've learned 4 operator types this chapter:
-- Arithmetic: do calculations
-- Comparison: ask true/false questions
-- Logical: combine conditions (and, or, not)
-- Assignment: update variables efficiently
-
-In my calculator:
-1. Where does each operator type appear?
-2. Why do I need all 4 types?
-3. How do comparison and logical operators prepare me for Chapter 17?
-4. What will `if` statements let me do that I can't do now?
-
-Help me see the big picture.
-```
-
-**Expected outcome:** You synthesize understanding of how the four operator types work together:
-- Arithmetic operators **calculate**
-- Assignment operators **store results**
-- Comparison operators **check conditions** (and validate before operations)
-- Logical operators **combine conditions** (which will control program flow in Chapter 17)
-
-You see that Chapter 15 operators are the **vocabulary** of programming. Chapter 17 control flow is the **grammar** that uses that vocabulary to make decisions. You understand the progression and feel prepared for the next chapter.
+**Expected Outcome**: You'll implement capstone project (or simplified version); apply all operator types; practice type validation; create working, testable code.
 
 ---
 
-### Safety & Verification Note
+### Prompt 3: Edge Case Discovery (Explore)
 
-When testing AI-generated code and exploring keywords:
+Copy and ask your AI:
 
-- **✓ Do**: Run code in your Python environment first before using it
-- **✓ Do**: Ask "What does this error mean?" when you encounter SyntaxError or ZeroDivisionError
-- **✓ Do**: Check result types with `type()` — especially after operations you're unsure about
-- **✓ Do**: Test edge cases (zero, negative numbers, invalid input) — this is professional practice
-- **✓ Do**: Ask follow-up questions to AI when results surprise you
-- **✓ Do**: Verify that the calculator works correctly before moving to Chapter 16
+> "Test your calculator with different inputs:
+> - Two positive numbers (10, 5)
+> - Two negative numbers (-10, -5)
+> - Zero and a positive (0, 5)
+> - Very large numbers (1000000, 2000000)
+>
+> Which inputs work well? Are there edge cases that break the calculator? How would you fix them? Show me the problematic outputs."
 
-Remember: This capstone project brings together everything from Chapter 15. If you're struggling with any operator type, return to that lesson (Lessons 1-4) before completing this capstone. Mastery of operators is essential for Chapter 17 (Control Flow) to make sense.
-
-Congratulations! You've completed Chapter 15. You now understand operators, keywords, and how they work together in real programs.
+**Expected Outcome**: You'll test edge cases (negative numbers, zero, large numbers); discover any type safety issues; learn defensive programming; ask AI about error handling for robustness.
 
 ---
+
+### Prompt 4: Synthesis & Validation (Understand + Analyze)
+
+Copy and ask your AI:
+
+> "I've now learned 4 different operator types:
+> - Arithmetic (Lesson 1): do math
+> - Comparison (Lesson 2): ask True/False
+> - Logical (Lesson 3): combine conditions
+> - Assignment (Lesson 4): update variables
+>
+> How do these fit together in a complete program?
+> - In the calculator, where does each operator type appear?
+> - Why do I need all 4 types?
+> - How does this prepare me for Chapter 17 (Control Flow with if/while/for)?
+> - What would Chapter 17 look like using these operators?
+>
+> Draw a connection map showing how the 4 operator types work together."
+
+**Expected Outcome**: You'll synthesize understanding: arithmetic operators perform calculations; assignment operators store results; comparison operators enable validation logic; logical operators would combine conditions in Chapter 17; see how all 4 types work together in real code; understand chapter progression toward control flow.
+
+---
+
+**Safety Note**: As you test the calculator, you might encounter ZeroDivisionError or TypeError. These are learning opportunities, not failures. Ask your AI: "What does this error mean and how do I prevent it?" Error handling will be taught in Chapter 21, but understanding errors now prepares you for that chapter.
+
+---
+
+## Chapter 15 Complete
+
+Congratulations! You've mastered all four operator types: arithmetic, comparison, logical, and assignment. You understand how to combine them, validate types, and recognize Python's language boundaries (keywords).
+
+**What's Next (Chapter 16)**: Strings and text manipulation—you'll see that operators work with strings too (concatenation with `+`, repetition with `*`).
+
+**Looking Ahead (Chapter 17)**: Control flow and loops—you'll use comparison and logical operators in `if` statements and loops, applying everything you learned here to make decisions and repeat code.
+
+Your foundation is solid. Keep this chapter's concepts close as you move forward.
