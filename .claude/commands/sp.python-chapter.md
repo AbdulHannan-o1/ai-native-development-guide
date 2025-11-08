@@ -6,17 +6,11 @@ description: Orchestrate full SpecKit Plus workflow for Python chapters (12-29).
 
 **Purpose**: Design a complete Python chapter (12-29) using AIDD principles with **automatic orchestration** of the full SpecKit Plus workflow (Spec → Plan → Tasks → optional Implementation). Students learn programming by applying AIDD thinking learned in Chapters 1-11.
 
-**Usage**:
-```
-/sp.python-chapter [chapter-number]
-```
+## User Input
 
-**Example**:
+```text
+$ARGUMENTS
 ```
-/sp.python-chapter 13
-```
-
----
 
 ## VERTICAL INTELLIGENCE: AIDD-Driven Python Teaching
 
@@ -773,7 +767,6 @@ Next: Share with technical-reviewer for validation
 - **Chapter Index**: `specs/book/chapter-index.md` (Part 5 Quick Lookup: Chapters 12-29)
 - **Constitution**: `.specify/memory/constitution.md` (AIDD principles, domain skills)
 - **Design Template**: `.specify/templates/book/PYTHON_CHAPTER_DESIGN_TEMPLATE.md` (Pedagogical rules + intelligence)
-- **Sample Input**: `.claude/commands/sp.python-chapter.SAMPLE_INPUT.md` (Example invocations)
 - **Context Materials**: `context/13_chap12_to_29_specs/` (Lesson files, teaching examples)
 
 ---
@@ -790,4 +783,30 @@ Run `/sp.python-chapter [N]` and the system:
 ✅ Validates quality (acceptance criteria at each gate)
 ✅ Optionally implements lessons with lesson-writer subagent
 
-**Result: Specification-first, validation-first, AIDD-centered Python chapters ready for AI-native development learning.**
+**Result: AIDD-centered Python chapters ready for AI-native development learning.**
+
+---
+
+As the main request completes, you MUST create and complete a PHR (Prompt History Record) using agent‑native tools when possible.
+
+1) Determine Stage
+   - Stage: constitution | spec | plan | tasks | red | green | refactor | explainer | misc | general
+
+2) Generate Title and Determine Routing:
+   - Generate Title: 3–7 words (slug for filename)
+   - Route is automatically determined by stage:
+     - `constitution` → `history/prompts/constitution/`
+     - Feature stages → `history/prompts/<feature-name>/` (spec, plan, tasks, red, green, refactor, explainer, misc)
+     - `general` → `history/prompts/general/`
+
+3) Create and Fill PHR (Shell first; fallback agent‑native)
+   - Run: `.specify/scripts/bash/create-phr.sh --title "<title>" --stage <stage> [--feature <name>] --json`
+   - Open the file and fill remaining placeholders (YAML + body), embedding full PROMPT_TEXT (verbatim) and concise RESPONSE_TEXT.
+   - If the script fails:
+     - Read `.specify/templates/phr-template.prompt.md` (or `templates/…`)
+     - Allocate an ID; compute the output path based on stage from step 2; write the file
+     - Fill placeholders and embed full PROMPT_TEXT and concise RESPONSE_TEXT
+
+4) Validate + report
+   - No unresolved placeholders; path under `history/prompts/` and matches stage; stage/title/date coherent; print ID + path + stage + title.
+   - On failure: warn, don't block. Skip only for `/sp.phr`.
