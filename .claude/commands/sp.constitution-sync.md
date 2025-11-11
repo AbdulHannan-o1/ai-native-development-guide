@@ -478,6 +478,31 @@ Look for:
 - **Natural** in placement (enhances, doesn't interrupt)
 - **Conversational** in tone (not preachy or mechanical)
 
+**Writing Style Guidelines** (apply to ALL CoLearning elements and content):
+
+**Punctuation & Emphasis**:
+- **Em-dash (—)**: Use ONLY for parenthetical asides or dramatic breaks, NOT to connect related clauses
+  - ✅ "The developer's role is changing—and it's happening faster than expected."
+  - ❌ "The job hasn't expanded arbitrarily—the technology landscape has integrated..." (use period)
+  - ❌ "Notice Marcus didn't start with mastery—he started with..." (use period or comma)
+- **Bold formatting**: Use sparingly, only for key terms needing definition or critical concepts
+  - ✅ "A **variable** stores data..." (new technical term)
+  - ✅ "The **primary skill** is specification-writing..." (critical concept)
+  - ❌ "started with a different **mental model**" (decorative, interrupts flow)
+  - ❌ Over-bolding: "Give me **realistic** scenarios for **my** situation"
+- **ALL CAPS**: Avoid completely; use italic or bold sparingly if emphasis truly needed
+  - ✅ "Give me realistic scenarios for my situation..."
+  - ✅ "Give me *realistic* scenarios for *my* situation..." (if emphasis needed)
+  - ❌ "Give me REALISTIC scenarios for MY situation..."
+- **Natural flow**: Prefer shorter sentences with natural punctuation over dramatic formatting
+  - ✅ "The job hasn't expanded arbitrarily. The technology landscape has integrated..."
+  - ❌ "The job hasn't expanded arbitrarily—the technology has integrated..."
+
+**Tone**:
+- Natural conversational language ("Help me understand" not "Ask your AI to explain")
+- Professional and respectful (no condescension, no gatekeeping terms)
+- Direct and clear (avoid overly dramatic or breathless phrasing)
+
 **Examples**:
 
 **💬 AI Colearning Prompt** (after introducing developer role evolution):
@@ -497,7 +522,7 @@ Look for:
 ```markdown
 #### 🎓 Expert Insight
 
-> Notice how this partnership is **bidirectional**: You specify what you need (AI learns your intent), AI suggests patterns you don't know yet (you learn from AI), and together you create what neither could alone. This isn't "using a tool"—it's co-creation.
+> Notice how this partnership is bidirectional. You specify what you need (AI learns your intent), AI suggests patterns you don't know yet (you learn from AI), and together you create what neither could alone. This isn't "using a tool"; it's co-creation.
 ```
 
 **Quality check**:

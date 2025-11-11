@@ -521,6 +521,25 @@ for item in empty:
 - **Direct Address**: Speak directly to the learner using "you" and "your"
 - **Engaging Tone**: Professional yet approachable, encouraging without being condescending
 
+**Punctuation & Emphasis Guidelines**:
+- **Em-dash (—) usage**: Use ONLY for parenthetical asides or dramatic breaks, NOT to connect related clauses
+  - ✅ "The developer's role is changing—and it's happening faster than expected."
+  - ✅ "Understanding intent (not memorizing syntax) is the new skill."
+  - ❌ "The job hasn't expanded arbitrarily—the technology landscape has integrated..." (use period or semicolon)
+  - ❌ "Notice Marcus didn't start with mastery—he started with..." (use period or comma)
+- **Bold formatting**: Use sparingly for key terms that need definition or special attention
+  - ✅ Bold new technical terms on first use: "A **variable** stores data..."
+  - ✅ Bold critical concepts: "The **primary skill** is specification-writing..."
+  - ❌ Decorative bold mid-sentence: "started with a different **mental model**"
+  - ❌ Over-bolding in prompts: "Give me **realistic** scenarios for **my** situation"
+- **ALL CAPS**: Avoid for emphasis; use italic or bold sparingly instead
+  - ✅ "Give me realistic scenarios for my situation..."
+  - ✅ "Give me *realistic* scenarios for *my* situation..." (if emphasis truly needed)
+  - ❌ "Give me REALISTIC scenarios for MY situation..."
+- **Natural flow**: Prefer shorter sentences and natural punctuation over dramatic formatting
+  - ✅ "The job hasn't expanded arbitrarily. The technology landscape has integrated these concerns..."
+  - ❌ "The job hasn't expanded arbitrarily—the technology landscape has integrated..."
+
 ### Formatting Guidelines
 
 - Use consistent markdown formatting throughout
