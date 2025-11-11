@@ -223,13 +223,13 @@ Consider an analogy: **Autonomous vehicles**. We have self-driving cars today th
 
 The same applies to autonomous coding agents. They'll handle implementation, but humans provide direction, judgment, and accountability.
 
-#### ✨ Teaching Tip
+#### 🎓 Expert Insight
 
-Autonomy doesn't mean unsupervised—it means self-executing within boundaries you define. Like cruise control: it maintains speed autonomously, but you still steer and choose the destination.
+> Autonomy doesn't mean unsupervised. It means self-executing within boundaries you define. Like cruise control: it maintains speed autonomously, but you still steer and choose the destination. The value is in defining good boundaries.
 
 ## Preparing for the Agent Era
 
-The good news: **You don't need to wait for the future to arrive.** The skills that will matter in the autonomous agent era are the same skills that matter today:
+The good news: You don't need to wait for the future to arrive. The skills that will matter in the autonomous agent era are the same skills that matter today:
 
 1. **Specification writing:** Agents are only as good as the goals you give them
 2. **Architecture thinking:** Agents implement your designs, not create them

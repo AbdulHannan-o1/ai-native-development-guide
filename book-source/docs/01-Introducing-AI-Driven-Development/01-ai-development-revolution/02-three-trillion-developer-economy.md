@@ -129,9 +129,9 @@ Previous platform shifts in software development took 10-15 years to reach major
 - Claude Code: announced 2024, hit $500 million run rate within months
 - Overall AI tool usage: 76% of developers using or planning to use AI assistants, with 62% already using them—up from 44% last year (Stack Overflow 2024)
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
-> This acceleration isn't just hype. Notice the pattern: PC revolution (12 years), Internet (10 years), Cloud (15 years), Mobile (8 years), AI coding (3 years). Each wave accelerates faster because infrastructure improves—internet speeds, cloud platforms, and now LLM APIs enable rapid adoption. You're entering during the **fastest technology transition in software history**.
+> This acceleration isn't just hype. Notice the pattern: PC revolution (12 years), Internet (10 years), Cloud (15 years), Mobile (8 years), AI coding (3 years). Each wave accelerates faster because infrastructure improves. Internet speeds, cloud platforms, and now LLM APIs enable rapid adoption. You're entering during the fastest technology transition in software history.
 
 ## The Acceleration Paradox
 
@@ -165,9 +165,9 @@ Paradoxically, as AI tools become more powerful, the number of people who identi
 
 The traditional gatekeepers to programming—memorizing syntax, understanding low-level implementation details, mastering complex toolchains—have been removed. The result is democratization, not displacement.
 
-#### ✨ Teaching Tip
+#### 🎓 Expert Insight
 
-AI doesn't shrink the developer market—it expands who can be a developer. Think: spreadsheets didn't eliminate accountants; they made financial analysis accessible to everyone, expanding the field.
+> AI doesn't shrink the developer market. It expands who can be a developer. Think about spreadsheets: they didn't eliminate accountants. They made financial analysis accessible to everyone, expanding the field. Same pattern here. Lower barriers mean more builders, not fewer.
 
 ## Historical Precedent: When Industries Disrupted Themselves
 
@@ -193,9 +193,11 @@ Whether you're a beginner, an experienced developer, or an educator, understandi
 
 4. **The skills that matter are changing.** If you're learning what AI tools are best at (syntax, boilerplate, standard patterns), you're competing with automation. If you're learning what humans uniquely provide (judgment, creativity, domain expertise, system design), you're positioning yourself for the transformed landscape.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-**Quick Reality Check**: Ask your AI: "The lesson claims AI is expanding the developer market, not shrinking it. Explain why this is true using one concrete example from history (like spreadsheets and accountants, or calculators and mathematicians)."
+Ask your AI: "The lesson claims AI is expanding the developer market, not shrinking it. Help me understand why this is true using one concrete example from history (like spreadsheets and accountants, or calculators and mathematicians). Then explain how this applies to my learning path."
+
+**What you're practicing**: Understanding market dynamics and positioning yourself in an expanding field, not a shrinking one.
 
 In the next section, we'll explore why this particular disruption—software disrupting itself—is fundamentally different from previous technology shifts, and why it's happening so fast.
 
