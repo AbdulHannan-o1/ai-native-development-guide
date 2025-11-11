@@ -185,9 +185,9 @@ Claude will:
 
 ---
 
-<Note>
+:::note
 Windows users: run hooks in WSL or Git Bash for best compatibility. If using PowerShell, replace `jq` with `ConvertFrom-Json`, skip `chmod`, and invoke scripts with `python path/to/script.py` instead of relying on POSIX executability.
-</Note>
+:::
 
 ## Understanding Permissions (Critical for Hooks)
 
