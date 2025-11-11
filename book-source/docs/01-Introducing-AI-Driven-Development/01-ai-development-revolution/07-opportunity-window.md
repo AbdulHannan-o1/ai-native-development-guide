@@ -293,7 +293,7 @@ The opportunity window is open. But windows don't stay open forever.
 
 #### 🤝 Practice Exercise
 
-> **Adoption Phase Check**: Ask your AI: "We're in the 'Early Majority' phase of AI coding adoption. Explain what this means: Am I too early (tools immature)? Too late (market saturated)? Or well-timed? Use the technology adoption curve to explain."
+> **Ask your AI**: "We're in the 'Early Majority' phase of AI coding adoption. Explain what this means: Am I too early (tools immature)? Too late (market saturated)? Or well-timed? Use the technology adoption curve to explain."
 
 **Goal**: Understand your timing advantage.
 

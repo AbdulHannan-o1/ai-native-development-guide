@@ -259,7 +259,7 @@ The solution isn't to abandon traditional education—it's to supplement it inte
 
 #### 🤝 Practice Exercise
 
-> **Gap Assessment**: Ask your AI: "List the 5 critical gaps from this lesson (AI collaboration, spec-driven development, agent orchestration, MCP, real-world problem solving). For a complete beginner, which ONE should I prioritize learning first and why?"
+> **Ask your AI**: "List the 5 critical gaps from this lesson (AI collaboration, spec-driven development, agent orchestration, MCP, real-world problem solving). For a complete beginner, which ONE should I prioritize learning first and why?"
 
 **Check**: Does the AI recommend starting with AI collaboration or spec-driven development—the foundational skills everything else builds on?
 

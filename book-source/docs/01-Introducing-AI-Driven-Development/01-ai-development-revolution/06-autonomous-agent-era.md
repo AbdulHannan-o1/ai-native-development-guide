@@ -251,7 +251,7 @@ The autonomous agent era is creating a similar opportunity window—and it's ope
 
 #### 🤝 Practice Exercise
 
-> **Generation Test**: Ask your AI: "Which generation of AI tool are you? Can you autonomously break down a goal like 'build user authentication,' execute multiple steps, run tests, and iterate until it works? Or do you need me to guide each step?"
+> **Ask your AI**: "Which generation of AI tool are you? Can you autonomously break down a goal like 'build user authentication,' execute multiple steps, run tests, and iterate until it works? Or do you need me to guide each step?"
 
 **Goal**: Understand your current tool's capabilities realistically.
 

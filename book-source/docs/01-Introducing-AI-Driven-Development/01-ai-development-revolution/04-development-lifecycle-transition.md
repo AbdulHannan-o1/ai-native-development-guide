@@ -254,7 +254,7 @@ Your job is to figure out which side of that divide your skills fall on—and if
 
 #### 🤝 Practice Exercise
 
-> **Lifecycle Walkthrough**: Ask your AI: "Walk me through building a simple blog application, but explain what happens at each lifecycle phase (planning, design, implementation, testing, deployment, operations). Where do I make decisions, and where does AI execute?"
+> **Ask your AI**: "Walk me through building a simple blog application, but explain what happens at each lifecycle phase (planning, design, implementation, testing, deployment, operations). Where do I make decisions, and where does AI execute?"
 
 **Goal**: Understand the full cycle, not just coding.
 
