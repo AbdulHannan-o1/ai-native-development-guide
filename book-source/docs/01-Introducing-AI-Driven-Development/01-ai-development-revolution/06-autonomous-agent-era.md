@@ -249,7 +249,7 @@ When mobile apps became mainstream, developers who learned iOS and Android early
 
 The autonomous agent era is creating a similar opportunity window—and it's open right now.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
 **Generation Test**: Ask your AI: "Which generation of AI tool are you? Can you autonomously break down a goal like 'build user authentication,' execute multiple steps, run tests, and iterate until it works? Or do you need me to guide each step?"
 

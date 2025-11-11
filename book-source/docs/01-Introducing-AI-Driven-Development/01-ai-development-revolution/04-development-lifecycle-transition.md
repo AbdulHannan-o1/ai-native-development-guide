@@ -104,7 +104,7 @@ AI is transforming **all** of these phases simultaneously. Let's walk through ea
 
 **What this means for you:** If you're learning AI-driven development, you need to understand how to work **with** AI planning tools to surface requirements, not just write them manually. You need to learn prompt engineering for requirements elicitation, not just documentation formatting.
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > Notice the shift: traditional planning focused on documenting requirements. AI-era planning focuses on asking better questions—letting AI help you discover edge cases and ambiguities before implementation. This is co-learning in action: AI as collaborator, not just transcriber.
 
@@ -252,7 +252,7 @@ The key insight: **The development lifecycle isn't going away. It's being transf
 
 Your job is to figure out which side of that divide your skills fall on—and if they're on the mechanical side, to develop the judgment skills that AI can't automate.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
 **Lifecycle Walkthrough**: Ask your AI: "Walk me through building a simple blog application, but explain what happens at each lifecycle phase (planning, design, implementation, testing, deployment, operations). Where do I make decisions, and where does AI execute?"
 
