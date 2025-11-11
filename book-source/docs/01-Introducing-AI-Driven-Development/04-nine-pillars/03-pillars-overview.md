@@ -152,7 +152,7 @@ We'll explore M-shaped development in detail in Section 5. First, let's understa
 
 #### 🚀 CoLearning Challenge
 
-**Integration Experiment**: Pick ONE pillar you already use (maybe Git or Python). Ask your AI: "I use [pillar] currently. Which OTHER pillar would multiply my effectiveness most if I added it next? Show me a concrete 'before and after' workflow."
+**Integration Experiment**: Pick ONE pillar you already use. Ask your AI: "I use [pillar] currently. Which OTHER pillar would multiply my effectiveness most if I added it next? Show me a concrete 'before and after' workflow."
 
 **What you're practicing**: Strategic pillar adoption through AI guidance. Your AI helps you find the highest-impact next step based on where you already are.
 

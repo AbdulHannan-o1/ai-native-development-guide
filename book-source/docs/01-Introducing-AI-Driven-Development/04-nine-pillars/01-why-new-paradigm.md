@@ -91,9 +91,9 @@ And here's the critical insight: these nine revolutions don't just add up—they
 
 #### 💬 AI Colearning Prompt
 
-> **Explore with your AI**: "I'm looking at these nine revolutions. Which TWO seem like they would multiply each other most powerfully? Walk me through a concrete scenario showing how combining them creates something bigger than their sum."
+> **Explore with your AI**: "The lesson says combining 'natural language programming' and 'exponential learning velocity' creates a 10x leap instead of just 2x. Help me understand WHY these two multiply each other—walk me through what happens when I use both together that wouldn't happen with just one. Use a concrete example from my context [describe: building a web app / learning Python / etc.]."
 
-This isn't just theoretical—your AI partner can help you discover which combinations resonate most with your development style.
+Understanding one multiplication example deeply helps you spot other combinations that compound.
 
 ## AIDD: A System, Not a Toolbox
 
