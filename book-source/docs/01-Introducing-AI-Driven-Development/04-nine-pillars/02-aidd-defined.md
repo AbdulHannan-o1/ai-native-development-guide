@@ -138,7 +138,7 @@ The code quality is the same (or better, because the agent implements all edge c
 
 This is the paradigm shift: **you become the architect, and AI becomes your implementation team**.
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > Sarah's transformation isn't about "getting better at prompts." It's about **redistributing cognitive work**. Her strategic thinking (payment workflow, security requirements, subscription logic) is irreplaceable human expertise. The implementation syntax is valuable but automatable. AIDD matches work to capability—human or AI—based on where each adds most value.
 
@@ -174,15 +174,11 @@ Take a moment to assess your familiarity with this paradigm shift:
 
 There's no right answer here. Whether you're at 1 or 5, this chapter will meet you where you are and help you move forward. The paradigm shift takes time—it's not just learning new tools, it's changing how you think about software development.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-**Self-Assessment Practice**: Ask your AI: "I rated myself [your number] on the paradigm shift scale. Interview me with 3-4 questions to verify if that's accurate. Then tell me: what's ONE concrete behavior that would prove I've moved up one level?"
+**Self-Assessment Practice**: Ask your AI: "I rated myself [your number] on the paradigm shift scale. Interview me with 3-4 questions to verify if that's accurate. Then tell me what one concrete behavior would prove I've moved up one level."
 
 **What you're practicing**: Honest self-assessment through AI partnership. Your AI helps you see gaps between self-perception and actual behavior.
-
-#### ✨ Teaching Tip
-
-The nine characteristics (Specification-Driven, AI-Augmented, etc.) aren't a checklist—they're a **profile**. The more you embody them naturally, the deeper you've internalized AIDD. Check back on this list in 3 months and notice which ones feel automatic.
 
 ---
 

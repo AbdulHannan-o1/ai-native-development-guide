@@ -116,7 +116,7 @@ Marcus, the junior developer outpacing Priya, understood this instinctively. He 
 
 He wasn't using more tools. He was using AI *differently*—as a **system**, not as isolated utilities.
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > Notice Marcus didn't start with mastery—he started with a different **mental model**. The tools came second. This is why the paradigm shift matters more than the toolbox. You can have every AI tool installed and still miss the transformation if you're thinking in the old paradigm.
 
@@ -132,7 +132,7 @@ Here's what happens when you adopt AI tools piecemeal without shifting your ment
 
 This isn't about being elite or special. It's about recognizing that **the rules have changed**, and the old playbook no longer applies.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
 **Quick Diagnostic**: Ask your AI to interview you: "Ask me 5 questions that will reveal whether I'm using AI as a tool or as a system. Based on my answers, tell me ONE specific change I should make this week."
 
@@ -152,10 +152,6 @@ Think beyond just "AI tools got better." Think about:
 
 Write down your thoughts. We'll revisit them at the end of this chapter.
 
-#### ✨ Teaching Tip
-
-The gap between Priya and Marcus isn't about intelligence or experience—it's about **orchestration**. Think of it like the difference between owning kitchen appliances and knowing how to cook a meal. The system is how everything works together.
-
 ---
 
 ## Try With AI
@@ -165,7 +161,7 @@ Use your AI companion tool set up from Chapter 5. If you haven't reached that ch
 ### Prompt 1: Tool vs System Understanding
 
 ```
-The story of Priya and Marcus shows two developers using AI differently—one as a 'tool' and one as a 'system.' Let's explore this together: First, create a simple analogy (NOT from programming) that shows the difference. Then, based on how I describe my current AI usage, tell me honestly: which approach am I using? What would shift me from one to the other?
+The story of Priya and Marcus shows two developers using AI differently: one as a 'tool' and one as a 'system.' Let's explore this together. First, create a simple analogy (not from programming) that shows the difference. Then, based on how I describe my current AI usage, tell me honestly which approach I'm using and what would shift me from one to the other.
 ```
 
 **Expected outcome:** Discovery of where you actually are on the tool→system spectrum through dialogue
@@ -173,7 +169,7 @@ The story of Priya and Marcus shows two developers using AI differently—one as
 ### Prompt 2: Personal Revolution Assessment
 
 ```
-Let's explore these nine revolutions together. I'll describe my situation [beginner / career changer / experienced developer], and I want you to help me discover: which THREE revolutions would transform MY daily work most dramatically? For each one, walk me through a concrete 'before and after' scenario from my actual context.
+Let's explore these nine revolutions together. I'll describe my situation [beginner / career changer / experienced developer], and I want you to help me discover which three revolutions would transform my daily work most dramatically. For each one, walk me through a concrete before-and-after scenario from my actual context.
 ```
 
 **Expected outcome:** Co-discovered understanding of which revolutions matter most for your specific situation

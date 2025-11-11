@@ -150,15 +150,11 @@ You don't need to choose between frontend and backend, between infrastructure an
 
 We'll explore M-shaped development in detail in Section 5. First, let's understand each pillar individually.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-**Integration Experiment**: Pick ONE pillar you already use. Ask your AI: "I use [pillar] currently. Which OTHER pillar would multiply my effectiveness most if I added it next? Show me a concrete 'before and after' workflow."
+**Integration Experiment**: Pick one pillar you already use. Ask your AI: "I use [pillar] currently. Which other pillar would multiply my effectiveness most if I added it next? Show me a concrete before-and-after workflow."
 
 **What you're practicing**: Strategic pillar adoption through AI guidance. Your AI helps you find the highest-impact next step based on where you already are.
-
-#### ✨ Teaching Tip
-
-The "thought experiment" about removing three pillars isn't theoretical—it's diagnostic. Which pillars feel most essential to YOU reveals your current development bottlenecks. Different developers will have different answers based on what they're building.
 
 ---
 

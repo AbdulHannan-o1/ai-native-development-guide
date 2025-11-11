@@ -181,15 +181,11 @@ But here's the uncomfortable question: **Why is this urgent? Why learn all nine 
 
 We'll explore this question in the next lesson.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-**Reality Check Exercise**: Ask your AI: "I've identified MY ideal M-shape [name your two domains]. Now be brutally honest: what are the THREE hardest parts of developing depth in BOTH? What would I be signing up for? Don't sugarcoat it."
+**Reality Check Exercise**: Ask your AI: "I've identified my ideal M-shape [name your two domains]. Now be brutally honest: what are the three hardest parts of developing depth in both? What would I be signing up for? Don't sugarcoat it."
 
 **What you're practicing**: Realistic self-assessment through AI partnership. Your AI helps you see the actual path, not the romanticized version.
-
-#### ✨ Teaching Tip
-
-The profiles shown (Vertical SaaS Builder, Platform Engineer, AI Product Developer) aren't aspirational fantasies—they're **existence proofs**. Real developers are building this way today. The question isn't "Is this possible?" but "Which combination serves the problems I care about solving?"
 
 ---
 

@@ -147,10 +147,6 @@ This helps you see why the interface matters, not just the model.
 
 **Example**: Aisha was initially skeptical about AI-generated code quality. Then she started using TDD with her AI agent. She'd write test cases describing edge cases—empty inputs, malformed data, boundary conditions—and ask the AI to implement code that passed all tests. The AI would generate implementations, run tests, see failures, and iterate until all tests passed. Her confidence soared because she could verify correctness automatically.
 
-#### ✨ Teaching Tip
-
-TDD isn't just "good practice" in AI-native development—it's your **validation layer**. You can't manually verify every line AI generates, but you can verify that generated code passes comprehensive tests. This shifts your focus from "is this code correct?" to "do my tests capture all requirements?"
-
 ## Pillar 7: Specification-Driven Development with SpecKit Plus
 
 **What it is**: A professional methodology where Markdown specifications are the source of truth for all development work. SpecKit Plus provides templates, workflows, and tools for managing specs, plans, and tasks in a structured way that AI agents can execute.

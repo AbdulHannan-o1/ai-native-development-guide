@@ -162,15 +162,11 @@ Before moving forward, take a moment:
 
 Write down your answers. They'll help you track your mindset shift as you progress through the book.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-**Honest Fear Check**: Ask your AI: "I just read about why 'all nine pillars matter.' I'm feeling [overwhelmed / excited / skeptical]. Help me process: what's ONE pillar I could learn FIRST that would give me immediate wins while building toward the complete system? Don't give me the 'right' answer—give me the answer for MY emotional state."
+**Honest Fear Check**: Ask your AI: "I just read about why 'all nine pillars matter.' I'm feeling [overwhelmed / excited / skeptical]. Help me process: what's one pillar I could learn first that would give me immediate wins while building toward the complete system? Don't give me the 'right' answer—give me the answer for my emotional state."
 
 **What you're practicing**: Self-awareness and strategic sequencing through AI partnership. Your AI helps you find the right entry point based on where you actually are emotionally and practically.
-
-#### ✨ Teaching Tip
-
-"Urgency without panic" means recognizing that early adopters have advantage WITHOUT creating artificial pressure. The window is open now—but it's not closing tomorrow. Learn systematically, not frantically. Progress compounds when it's sustainable.
 
 ---
 
