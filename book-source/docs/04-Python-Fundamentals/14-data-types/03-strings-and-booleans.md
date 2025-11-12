@@ -346,15 +346,25 @@ number: int = int("123")        # Success
 
 **Key insight**: When working with type conversion in real programs, you'll need error handling (covered in **Chapter 17** on control flow). For now, understand that conversions can fail if the data doesn't match the target type.
 
+#### 💬 AI Colearning Prompt
+> "Why is an empty string `""` falsy but the string `"0"` (containing the character zero) truthy? How does Python decide what's truthy vs. falsy for different types?"
+
+#### 🎓 Expert Insight
+> In AI-native development, understanding truthy/falsy isn't about memorizing a table—it's about recognizing that Python treats "absence of value" as falsy (`0`, `""`, `None`) and "presence of value" as truthy (any non-zero number, any non-empty string). This semantic pattern makes conditional logic intuitive: "if user_input:" naturally means "if the user typed something."
+
 ## Concept 6: Putting It Together — A Complete Example
 
 Let's combine everything you've learned in this lesson:
 
 ```python
+# DEMO: Interactive input example - requires user interaction
 # Specification: Get user age (as text) and determine if they're a teenager
 
 # String: Accept user input (always arrives as text)
-age_str: str = input("How old are you? ")
+# age_str: str = input("How old are you? ")
+
+# For demonstration, we'll use a hardcoded value
+age_str: str = "15"
 
 # Type conversion: Convert text to a number
 age_int: int = int(age_str)
@@ -489,6 +499,12 @@ This lesson includes code examples created through AI collaboration. Here's the 
 - Examples progress from simple (string creation) to complex (type conversion)
 - No hardcoded secrets or sensitive data
 - Examples are platform-independent (work on Windows, Mac, Linux)
+
+#### 🤝 Practice Exercise
+
+> **Ask your AI**: "Create a function that safely converts a string to an integer. If conversion fails, return None instead of crashing. Include type hints for parameters and return value. Then explain why returning None (rather than raising an error) might be a design choice."
+
+**Expected Outcome**: You'll see how type conversion, None as a placeholder, and type hints work together to create safe, self-documenting code that gracefully handles invalid input.
 
 ---
 

@@ -292,6 +292,12 @@ else:
 
 The `(int, float)` syntax checks if `data` is *either* an int or a float.
 
+#### 💬 AI Colearning Prompt
+> "When would using `int` instead of `float` cause problems in a real program? Give me a scenario where the distinction really matters."
+
+#### 🎓 Expert Insight
+> In AI-native development, choosing int vs. float isn't about memorizing rules—it's about understanding the semantic difference between counting (discrete, exact) and measuring (continuous, approximate). When you specify `count: int = 50`, you're telling AI "this represents a count of discrete items." When you write `temperature: float = 98.6`, you're saying "this is a measurement on a continuous scale." The type communicates intent, not just syntax.
+
 ---
 
 ## Practice Exercise 1: Identifying the Right Type
@@ -357,7 +363,7 @@ print(type(count))
 Create a function that validates numeric input. Use `isinstance()` to check whether a value is a number (int or float) before performing operations.
 
 ```python
-def safe_division(value, divisor: int = 2) -> float:
+def safe_division(value: int | float, divisor: int = 2) -> float | None:
     """
     Safely divide a value only if it's a number.
 
@@ -462,6 +468,12 @@ result = total / price  # 2.0 (int divided by float)
 ```
 
 With type hints and type awareness, you prevent errors and make your code easier to understand.
+
+#### 🤝 Practice Exercise
+
+> **Ask your AI**: "Create a function `calculate_price(quantity: int, unit_price: float) -> float` that calculates total price. Then explain: (1) Why is quantity an int and unit_price a float? (2) What would happen if we made quantity a float? (3) What does the -> float mean?"
+
+**Expected Outcome**: You'll understand how type hints describe function contracts and see how int vs. float choices affect program semantics and validation.
 
 ---
 

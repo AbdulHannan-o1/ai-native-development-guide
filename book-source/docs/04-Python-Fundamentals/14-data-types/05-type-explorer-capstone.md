@@ -361,6 +361,12 @@ Explain the difference and show me an example where it matters.
 
 You keep refining until all success criteria pass and you understand the code fully.
 
+#### 💬 AI Colearning Prompt
+> "In the specification-first workflow, why do we write success criteria BEFORE asking AI to generate code? How does this differ from just saying 'build me a type explorer'?"
+
+#### 🎓 Expert Insight
+> In AI-native development, specifications aren't busywork—they're how you maintain control. When you write "All 5 types demonstrated" as a success criterion BEFORE generation, you've defined how to evaluate AI output. Without specs, you're hoping AI guesses what you want. With specs, you're directing AI toward a defined target. This is the difference between assisted development (AI helps you code) and driven development (AI codes from your specs).
+
 ---
 
 ## Code Walkthrough: Understanding the Key Patterns
@@ -513,6 +519,8 @@ value: None = None
 Your program demonstrates:
 
 ```python
+# Example from earlier in the program
+age: int = 25
 print("Type:", type(age))
 print("Is this an int?", isinstance(age, int))
 ```
@@ -557,6 +565,12 @@ You might notice the program doesn't use functions, loops, or error handling. Th
 - **Error handling** (Chapter 21): Safely handling `try/except`
 
 For now, the sequential structure (top-to-bottom) is perfect for learning type concepts.
+
+#### 🤝 Practice Exercise
+
+> **Ask your AI**: "Review my type explorer code and suggest one improvement that would make it more educational. Then help me implement that improvement with clear explanations. The goal is to teach types better, not just add features."
+
+**Expected Outcome**: You'll practice iterating on working code with AI as a collaborator, experiencing the Specify → Build → Validate → Iterate cycle firsthand while deepening your type system understanding.
 
 ---
 

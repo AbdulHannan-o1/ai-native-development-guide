@@ -219,6 +219,12 @@ tags: set[str] = {"python", "coding", "ai"}
 2. **AI Partnership**: When you ask Claude Code or Gemini for help, the type hints make your intent crystal clear
 3. **Error Prevention**: Type hints help catch mistakes early
 
+#### 💬 AI Colearning Prompt
+> "If I have a collection of user IDs that must be unique, why would I choose `set[int]` over `list[int]`? What operations does set support that list doesn't (and vice versa)?"
+
+#### 🎓 Expert Insight
+> In AI-native development, choosing the right collection type isn't about syntax—it's about communicating data structure intent. When you write `user_ids: set[int]`, you're telling AI (and future maintainers): "these IDs must be unique, order doesn't matter, and membership checking is important." The type hint documents your design decision, enabling better AI suggestions and preventing bugs.
+
 ## Quick Reference: Which Collection Should You Use?
 
 | Collection | Ordered? | Changeable? | Best For | Example |
@@ -312,6 +318,12 @@ These skills come next in:
 When you reach those chapters, you'll return to collections and learn everything you can DO with them.
 
 **For now**, your job is just to **recognize** them and understand their purpose.
+
+#### 🤝 Practice Exercise
+
+> **Ask your AI**: "I need to store student grades for a class. Should I use `list[float]`, `dict[str, float]`, or `tuple[float, ...]`? Create examples of each option and explain when each would be appropriate. Consider: Do I need to look up grades by student name? Will grades change? Is order important?"
+
+**Expected Outcome**: You'll see how collection type choice depends on access patterns (by index vs. by key), mutability requirements, and ordering constraints—not arbitrary preference.
 
 ## Try With AI
 

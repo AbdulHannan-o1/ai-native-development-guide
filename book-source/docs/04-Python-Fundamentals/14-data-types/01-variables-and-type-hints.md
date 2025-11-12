@@ -288,6 +288,12 @@ Name: Alex Age: 25 Student: True
 
 **Note**: In Chapter 16 (Strings and Type Casting), you'll learn more powerful ways to format text output. For now, simple `print()` statements with commas are all you need.
 
+#### 💬 AI Colearning Prompt
+> "Why does Python let me create variables without type hints (like `age = 25`) but this book teaches type hints everywhere? What's the tradeoff?"
+
+#### 🎓 Expert Insight
+> In AI-native development, type hints aren't about making Python happy—they're about making your intent crystal clear to AI collaborators. When you write `user_email: str = "alex@example.com"`, you're not just storing text—you're specifying that this text represents an email address. Clear specifications = powerful AI collaboration.
+
 ## Practice Exercise 1: Create Variables for Your Profile
 
 Create a Python file with variables describing **you**. Use type hints for each:
@@ -380,8 +386,9 @@ print("Speed:", speed, "Alive:", is_alive, "Experience:", experience)
 **Pitfall 1: Forgetting Quotes for Strings**
 
 ```python
+# DEMO: Intentional error example - do not execute
 # WRONG - string needs quotes
-name: str = Alex
+# name: str = Alex
 
 # RIGHT - string has quotes
 name: str = "Alex"
@@ -415,8 +422,9 @@ age: int = 25        # if it's a number
 **Pitfall 4: Using the Wrong Capitalization for Booleans**
 
 ```python
+# DEMO: Intentional error example - do not execute
 # WRONG - lowercase true
-is_student: bool = true
+# is_student: bool = true
 
 # RIGHT - Python uses True and False (uppercase)
 is_student: bool = True
@@ -441,6 +449,12 @@ You're telling any AI collaborator (Claude, Gemini, Copilot):
 When you ask Claude Code "How do I validate this email?" it immediately knows `user_email` is text and suggests string validation. When you ask "How do I add tax to this purchase?" it knows `purchase_amount` is a decimal number and can calculate correctly.
 
 **Type hints are embedded specifications. Clear specifications make AI collaboration more powerful.**
+
+#### 🤝 Practice Exercise
+
+> **Ask your AI**: "Create variables with type hints for a user profile system: name, email, age, account_balance, and is_premium_member. Then explain why you chose each type and what validation rules would apply to each."
+
+**Expected Outcome**: You'll see how type hints communicate intent beyond just "what Python allows"—they describe the semantic meaning of data and enable smarter validation.
 
 ---
 
