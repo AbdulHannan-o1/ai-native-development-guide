@@ -89,7 +89,8 @@ By the end of this lesson, you'll be able to transform user input, format messy 
 A **method** is an action you perform on a string. The syntax is:
 
 ```python
-string.method()
+# SNIPPET (syntax pattern, not executable code)
+text.method()
 ```
 
 For example:
@@ -144,7 +145,7 @@ print(f"isinstance(uppercase, str): {isinstance(uppercase, str)}")  # True
 
 > "Explain why we use `.lower()` to compare user input instead of comparing 'PYTHON' == user_input. Why does case sensitivity matter?"
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > In AI-native development, you don't memorize method names—you understand *intent*. If your goal is "compare user input ignoring case," you ask your AI: "How do I compare ignoring case?" instead of guessing method names.
 
@@ -181,16 +182,12 @@ print(f"Type of words_rejoined: {type(words_rejoined)}")  # <class 'str'>
 
 **Purpose**: Teach `split()` and `join()` together; show they're inverse operations; demonstrate practical parsing
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-Ask your AI Co-Teacher:
-> "Show me examples of splitting a sentence by different delimiters (space, comma, dash). Then explain why we need both split() and join() in programs."
+> **Ask your AI**: "Show me examples of splitting a sentence by different delimiters (space, comma, dash). Then explain why we need both split() and join() in programs and how they work together."
 
 **Expected Outcome**: You'll understand how to parse text (split) and reconstruct it with different formatting (join).
 
-#### ✨ Teaching Tip
-
-> When you encounter CSV or comma-separated data, remember: `.split(",")` breaks it apart, then `.join()` reassembles with different separators. This pattern appears everywhere in data processing.
 
 ## Finding and Replacing: find() and replace()
 
@@ -258,7 +255,7 @@ print(f"isinstance(stripped, str): {isinstance(stripped, str)}")  # True
 
 **Purpose**: Introduce `strip()` family; show practical use (cleaning user input); demonstrate validation using `len()`
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > Whitespace handling is a real-world skill. Users copy-paste with accidental spaces, paste from documents with weird spacing. Understanding `strip()` separates professionals from beginners. Syntax is cheap—recognizing "the user's input has extra spaces" is gold.
 
@@ -304,12 +301,6 @@ print(f"Type: {type(result)}")  # <class 'str'>
 
 **Purpose**: Show method chaining (each method returns string); demonstrate practical text processing pipeline
 
-#### 🚀 CoLearning Challenge
-
-Ask your AI Co-Teacher:
-> "Show me 3 examples of method chaining that clean and format text. For each one, trace through step-by-step what each method does and what the intermediate results are."
-
-**Expected Outcome**: You'll understand that methods are composable and how to design multi-step text transformations.
 
 ## All 7 Essential String Methods Reference
 
@@ -325,9 +316,6 @@ Here's a quick reference showing all essential methods taught in this lesson:
 | `replace()` | Replace substring | (old, new) | string | `"hello".replace("l","r")` → `"herro"` |
 | `strip()` | Remove whitespace | (none) | string | `"  hi  ".strip()` → `"hi"` |
 
-#### ✨ Teaching Tip
-
-> When you need to transform text, think in steps: 1) What's the current state? 2) What do I want to change? 3) Which method does that? Ask your AI to suggest the right method—understanding the pattern matters more than memorizing names.
 
 ## Validation with isinstance() and type()
 

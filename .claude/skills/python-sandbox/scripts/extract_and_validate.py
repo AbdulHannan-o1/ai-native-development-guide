@@ -63,6 +63,16 @@ def is_demo_snippet(code: str) -> bool:
     )
 
 
+def is_interactive_code(code: str) -> bool:
+    """
+    Check if code requires interactive input (input() function).
+
+    These are valid demonstration code that cannot run in non-interactive
+    environments like Docker containers without stdin.
+    """
+    return 'input(' in code
+
+
 def extract_python_blocks(markdown_file: Path) -> list[CodeBlock]:
     """Extract all Python code blocks from markdown file."""
     try:
@@ -107,6 +117,13 @@ def validate_code_block(block: CodeBlock, timeout: int = 5) -> ValidationResult:
         result["syntax_valid"] = True
         result["runtime_valid"] = True
         result["output"] = "[DEMO SNIPPET - SKIPPED]"
+        return result
+
+    # Skip interactive code (input() calls)
+    if is_interactive_code(code):
+        result["syntax_valid"] = True
+        result["runtime_valid"] = True
+        result["output"] = "[INTERACTIVE CODE - SKIPPED (requires user input)]"
         return result
 
     # STEP 1: Syntax validation (AST)

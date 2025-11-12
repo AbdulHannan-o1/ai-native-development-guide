@@ -227,11 +227,9 @@ print(f"Type of receipt: {type(receipt)}")  # <class 'str'>
 
 Understanding this pattern lets you control how numbers appear in your output.
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > In AI-native development, clarity of INTENT is everything. F-strings let you express "what the output should show" directly in code. When you ask AI to format data, you're really asking "Help me express this intent clearly." That's specification thinking—a skill that becomes essential in future chapters.
-
-This is the foundational mindset: don't think "How do I remember the syntax?" Instead think "What should the user see?" and use tools (including AI) to express that intent clearly.
 
 ## Why F-Strings? Comparing Formatting Methods
 
@@ -339,10 +337,9 @@ print(status_message)
 
 The f-string lets you customize output to match intent.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-Ask your AI Co-Teacher:
-> "Show me 5 examples of poorly formatted output and well-formatted output for the same data. What makes the difference? How would f-strings improve each?"
+> **Ask your AI**: "Show me 5 examples of poorly formatted output and well-formatted output for the same data. What makes the difference? How would f-strings improve each? Then explain the principle of 'intent-first' formatting."
 
 **Expected Outcome**: You'll discover that clear formatting helps users understand information better. You'll also practice the skill of "describing intent before implementation"—a core pattern in AI-native development.
 
@@ -406,27 +403,26 @@ print(data_line)  # "Alice           | Age: 25 | Score: 92.5"
 
 **Validation checkpoint**: These examples show real situations where f-strings make your code clearer and your output more user-friendly. Notice how format specifiers like `:.2f` and `:.1f` ensure consistent decimal places across your output.
 
-#### ✨ Teaching Tip
-
-> If you get a TypeError trying to embed a non-string in an f-string (like a list), ask your AI: "How do I convert types inside f-strings?" You might use `str()` to explicitly convert, or extract just the value you need. Understanding when and why conversions are needed teaches you about Python's type system.
 
 ## Common Mistakes and How to Avoid Them
 
 **Mistake 1: Forgetting the `f` prefix**
 
 ```python
+name: str = "Alice"
+
 # ❌ WRONG - This doesn't embed variables, it's just text
 greeting: str = "Hello, {name}!"  # Literally "Hello, {name}!"
 
 # ✓ RIGHT - The f prefix tells Python this is an f-string
-greeting: str = f"Hello, {name}!"  # "Hello, Alice!" (if name = "Alice")
+greeting: str = f"Hello, {name}!"  # "Hello, Alice!"
 ```
 
 **Mistake 2: Using the wrong quotes inside f-strings**
 
 ```python
 # ❌ WRONG - Can't use same quotes inside
-message: str = f"He said "hello""  # Syntax error
+# message: str = f"He said "hello""  # Syntax error
 
 # ✓ RIGHT - Use different quotes or escape characters
 message: str = f'He said "hello"'  # 'He said "hello"'
@@ -435,11 +431,13 @@ message: str = f'He said "hello"'  # 'He said "hello"'
 **Mistake 3: Forgetting the colon for format specifiers**
 
 ```python
+price: float = 19.50
+
 # ❌ WRONG - Format specifier without colon
-price: str = f"${price.2f}"  # Error
+# price_str: str = f"${price.2f}"  # Error
 
 # ✓ RIGHT - Format specifier with colon
-price: str = f"${price:.2f}"  # "$19.50"
+price_str: str = f"${price:.2f}"  # "$19.50"
 ```
 
 ---

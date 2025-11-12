@@ -210,7 +210,7 @@ if cleaned_age.isdigit():
     print(f"Age: {age}")
 ```
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > Errors are information. When a conversion fails with `ValueError`, Python is protecting you from bad data. Instead of fixing errors after they happen, validate FIRST with `.isdigit()`, `.strip()`, or other checks. Ask your AI: "How can I check if a string is valid before converting?" This validation-first approach prevents errors entirely.
 
@@ -256,10 +256,11 @@ print(f"Original: {num} ({type(num).__name__}), Converted: {converted} ({type(co
 
 **Why This Matters**: Numbers can't be concatenated directly with strings (you'd get a TypeError). Converting to strings (or using f-strings, which do it automatically) solves this.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-Ask your AI:
-> "Show me 5 real-world examples where type conversion matters (user input, database queries, calculations). For each, what validation would you do BEFORE conversion?"
+> **Ask your AI**: "Show me 5 real-world examples where type conversion matters (user input, database queries, calculations). For each, what validation would you do BEFORE conversion? Then explain the validation-first pattern and why it prevents errors."
+
+**Expected Outcome**: You understand real-world type conversion scenarios and learn to validate before converting.
 
 ---
 

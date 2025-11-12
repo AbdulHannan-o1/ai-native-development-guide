@@ -193,7 +193,7 @@ print(f"Original preserved: {original == 'Python'}")  # True
 - Confirmed original is unchanged ✓
 - New string contains combined text ✓
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > In AI-native development, you don't memorize the exact error message. Instead, understand the principle: strings are immutable. When you encounter errors like "str object does not support item assignment," ask your AI: "Why can't I change this string?" This reinforces the concept and helps you design better data flows.
 
@@ -264,11 +264,9 @@ print(f"First character: {name[0]}")
 print(f"Last character: {name[-1]}")
 ```
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-Ask your AI Co-Teacher:
-
-> "Show me code that takes a person's name as a string and prints out each character on a separate line. Then explain what position (index) each character is at."
+> **Ask your AI**: "Show me code that takes a person's name as a string and prints out each character on a separate line. Then explain what position (index) each character is at."
 
 **Expected Outcome**: You'll see how indexing and iteration work together, and you'll understand that each position in a string is accessible by its number.
 
@@ -311,9 +309,6 @@ print(greeting)  # "Hello, Bob!"
 
 Later in this chapter, you'll learn **f-strings**, which make this kind of building much easier. But the foundation—understanding concatenation—remains the same.
 
-#### ✨ Teaching Tip
-
-> When building strings with concatenation becomes awkward (many + operators), that's a sign f-strings will help. For now, focus on understanding that `+` combines strings and `*` repeats them. Ask your AI: "Show me different ways to build a greeting from variables" to see alternatives and understand why each exists.
 
 ## Type Validation: Checking for Strings
 
@@ -357,7 +352,7 @@ else:
 
 This pattern—describe intent with type hints (`user_input: str`), then validate at runtime with `isinstance()`—is foundational to AI-native development. It's how you tell Python "I expect this to be a string" and then confirm it before using it.
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > Syntax is cheap—validation is gold. Python syntax for isinstance() is simple, but the mindset is powerful: always validate your data before operating on it. This habit will save you hours debugging mysterious errors where a string operation fails because the variable was actually an integer.
 
@@ -412,13 +407,16 @@ In this section, you'll deepen your understanding of strings by exploring them w
 
 ### Prompt 3: Analyze — "Why Immutability Matters"
 
-> I tried to do this:
-> ```python
-> text = "hello"
-> text[0] = "H"  # Change h to H
-> ```
->
-> But it fails with an error. Why? And how do I actually create "Hello" from "hello"?
+```
+I tried to do this:
+```python
+# EXAMPLE (intentional error to demonstrate immutability)
+text = "hello"
+text[0] = "H"  # Change h to H - This fails!
+```
+
+But it fails with an error. Why? And how do I actually create "Hello" from "hello"?
+```
 
 **Expected Outcome**: You discover why Python makes strings immutable (safety and predictability), learn that operations return new strings (not modifications), and understand the design philosophy behind this choice.
 

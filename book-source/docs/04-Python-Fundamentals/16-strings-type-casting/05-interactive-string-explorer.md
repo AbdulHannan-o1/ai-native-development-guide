@@ -158,7 +158,7 @@ This conversation helps you understand the problem domain before coding.
 10. Displays contact card → Shows all cleaned data formatted nicely
 ```
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > In real programming, you're solving problems for users. The Contact Card Validator solves data quality problems every application faces. You're not just learning string methods—you're learning when to use `strip()` (always for user input), `title()` (for names), and `find()` (for validation). This is professional development: understanding the problem before writing a single line of code.
 
@@ -463,18 +463,16 @@ This is how professional applications validate forms:
 
 Now you validate that your contact validator works correctly with realistic data. Testing means running your code with messy, invalid, and edge-case inputs—just like real users provide.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-Ask your AI Co-Teacher:
-
-> "I've built a Contact Card Validator. Help me test it with these realistic scenarios:
+> **Ask your AI**: "I've built a Contact Card Validator. Help me test it with these realistic scenarios:
 > 1. Name with extra whitespace and wrong capitalization
 > 2. Email missing @ symbol or domain
 > 3. Phone number in different formats (dashes, parentheses, dots)
 > 4. Age as text instead of number, or unrealistic ages (like 999)
 > 5. All fields empty
 >
-> For each, what should my program output? What makes good validation?"
+> For each, what should my program output? What makes good validation? Then explain the clean → validate → convert → use pattern."
 
 **Expected Outcome**: You understand how to validate real user input and predict edge cases your program should handle gracefully.
 
@@ -547,16 +545,6 @@ Expected behavior:
 - Age: Cleans to "30" ✓
 ```
 
-#### ✨ Teaching Tip
-
-> Real applications face messy data constantly. Your validator must handle:
-> - **Whitespace**: Users add spaces everywhere (`" john "`)
-> - **Capitalization**: Users type ALL CAPS or all lowercase
-> - **Format variations**: Phone numbers come in dozens of formats
-> - **Invalid input**: Users ignore instructions ("twenty" instead of "20")
-> - **Edge cases**: Empty fields, extreme values
->
-> When your program doesn't work as expected, ask your AI: "Why did this fail? What validation am I missing?" This is professional development—anticipating problems before they happen.
 
 ---
 
