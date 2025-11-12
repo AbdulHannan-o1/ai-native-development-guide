@@ -55,6 +55,10 @@ differentiation:
 
 # AIDD Defined: A Complete Methodology
 
+**Lesson Video:**
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/EL0CPbh14sY" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 We've established that AIDD is more than a collection of tools—it's a complete system that works together. But what exactly is AIDD? How do we define this new way of building software?
 
 ## The Core Definition

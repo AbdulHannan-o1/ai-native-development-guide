@@ -55,6 +55,10 @@ differentiation:
 
 # Why This Moment Demands a New Paradigm
 
+**Lesson Video:**
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/BDSG_GKjvnM" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Priya is a senior developer at a fintech startup. She's been coding for eight years, and she's good at it. Last year, she started using GitHub Copilot for autocomplete and ChatGPT when she got stuck on tricky problems. Her productivity went up—maybe 20%. She felt like she was "using AI."
 
 But something bothered her. Her junior colleague, Marcus, who joined the team six months ago, was shipping features *faster* than she was. On certain types of tasks—particularly new feature development with well-defined requirements—he could complete work that took her two days in a single day. And his code? It was cleaner, better tested, and more maintainable than hers.

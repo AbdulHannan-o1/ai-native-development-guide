@@ -55,6 +55,10 @@ differentiation:
 
 # The Nine Pillars Detailed—Deep Dive
 
+**Lesson Video:**
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/CvoOeRZ4qjg" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Now that you've seen the nine pillars at a glance, let's explore each one in depth. Understanding what makes each pillar revolutionary—and how they work together—will help you see why this combination creates something unprecedented in software development.
 
 Each pillar removes a specific barrier that has historically limited developers. Together, they create the foundation for the M-Shaped Developer capability we'll explore in the next section.
