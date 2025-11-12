@@ -88,11 +88,13 @@ version: "2.0.0"
 
 # Capstone: Build Your First Project
 
-You've learned Git piece by piece. Now use EVERYTHING together to build a real project.
+You've learned Git piece by piece. Now use EVERYTHING together in a learning project.
 
-**The project**: Python calculator
-**Who writes code**: AI (Gemini CLI)
+**The project**: Python calculator (a learning exercise)
+**Who writes the Python**: AI (Gemini CLI)
 **Your job**: Manage Git, make decisions, review AI's work
+
+Even if you've never programmed, this exercise teaches you how to use Git to protect your learning experiments.
 
 **Time**: 30 minutes
 
@@ -100,14 +102,14 @@ You've learned Git piece by piece. Now use EVERYTHING together to build a real p
 
 ## What You'll Use
 
-Build a calculator project using:
+Build a calculator learning exercise using:
 - ✅ Git (track changes)
-- ✅ Branches (test safely)
+- ✅ Branches (experiment safely)
 - ✅ GitHub (backup online)
 - ✅ Pull Requests (professional workflow)
-- ✅ AI (generates all code)
+- ✅ AI (generates all the Python)
 
-**Important**: You're not learning Python. You're learning to MANAGE a project with Git while AI writes code.
+**Important**: You're not learning Python here. You're learning to MANAGE a project with Git while AI creates the files. This same workflow applies to any learning project.
 
 ---
 
@@ -197,10 +199,12 @@ def divide(a, b):
     return a / b
 ```
 
+**What this means in plain language**: These are 4 simple operations. The first three (add, subtract, multiply) do exactly what their names say. The divide function includes a safety check - if someone tries to divide by zero (which is mathematically impossible), it returns an error message instead of crashing.
+
 **Review the code**:
 - Does it have all 4 functions? ✓
-- Does divide() handle zero? ✓
-- Do you understand what it does? ✓
+- Does divide() handle zero safely? ✓
+- Can you see what each function does? ✓
 
 **You**: "Looks good. Save this file and commit it with message 'Add calculator module'."
 
@@ -260,9 +264,11 @@ def test_divide_by_zero():
     assert divide(10, 0) == 'Error: Cannot divide by zero'
 ```
 
+**What these tests do in plain language**: Each test checks if the calculator functions work correctly. For example, `test_add()` asks "Does 2 + 3 equal 5?" If yes, the test passes. If no, something is wrong. The last test checks that dividing by zero gives an error message instead of crashing.
+
 **Review the tests**:
 - Tests all 4 functions? ✓
-- Tests division by zero? ✓
+- Tests division by zero safety? ✓
 
 **You**: "Good. Save and commit with message 'Add unit tests'."
 
@@ -518,17 +524,17 @@ Verify you completed everything:
 - Git version control
 - Branch-based development
 - Test-driven workflow
-- Code review (reviewing AI output)
+- Review process (checking AI output)
 - GitHub collaboration
 - Pull Request process
 
-**You built**:
-- Working Python calculator
-- Comprehensive test suite
+**You created**:
+- Working Python calculator (learning exercise)
+- Test suite (to verify it works)
 - Professional Git history
 - GitHub portfolio project
 
-**This workflow applies to ALL projects** - web apps, data science, mobile apps, anything. You now have the foundation.
+**This workflow applies to ALL learning projects** - whether you're learning web development, data science, or anything else. The Git workflow stays the same.
 
 ---
 
@@ -564,13 +570,13 @@ Create a PR for each improvement.
 
 ### Build Something New
 
-Use this same workflow to build:
+Use this same workflow for other learning exercises:
 - Todo list app
 - Password generator
 - File organizer
 - Data analyzer
 
-**The workflow stays the same**. Only the code changes.
+**The Git workflow stays the same**. Only the content changes. You're learning to manage projects, not memorize programming.
 
 ---
 
@@ -607,13 +613,13 @@ Ask Gemini CLI in natural language - it handles the details.
 You completed Chapter 8: Git & GitHub for AI-Driven Development.
 
 You can now:
-- ✅ Manage code with Git
-- ✅ Test changes safely with branches
+- ✅ Manage projects with Git
+- ✅ Experiment safely with branches
 - ✅ Backup work on GitHub
 - ✅ Create professional pull requests
-- ✅ Use AI as your coding partner
+- ✅ Use AI as your learning partner
 - ✅ Build portfolio projects
 
-**This is the foundation of professional software development.** Everything else builds on Git + AI + testing.
+**This is the foundation of modern development.** Everything builds on Git + AI + safe experimentation.
 
-Start your next project today. The best way to learn is by building.
+Start your next learning project today. The best way to learn is by doing.

@@ -56,7 +56,9 @@ version: "2.0.0"
 
 Typing Git commands every time is slow. You can't see your changes visually.
 
-**Solution**: An IDE - code editor with Git built in, plus AI help.
+**Solution**: An IDE - a text editor with Git built in, plus AI help.
+
+Even if you've never written code, an IDE helps you see what's changing in your learning exercises.
 
 **Time**: 20 minutes
 
@@ -64,7 +66,7 @@ Typing Git commands every time is slow. You can't see your changes visually.
 
 ## What Is an IDE?
 
-**IDE** = Integrated Development Environment (fancy code editor)
+**IDE** = Integrated Development Environment (fancy text editor for working with files)
 
 **Simple explanation**:
 - Regular text editor = just typing
@@ -73,7 +75,7 @@ Typing Git commands every time is slow. You can't see your changes visually.
 **Why this matters**:
 - See Git changes with colors (green = added, red = removed)
 - Click buttons instead of typing commands
-- AI suggests code as you type
+- AI can help as you work
 - Everything integrated
 
 ---
@@ -273,7 +275,7 @@ Replace command-line with GUI clicks:
 
 ## Step 6: Install AI Coding Assistant (Optional)
 
-Get AI code suggestions as you type.
+Get AI suggestions as you work.
 
 ### Option 1: GitHub Copilot (Recommended)
 
@@ -290,9 +292,9 @@ Get AI code suggestions as you type.
 
 **Test it works**:
 
-Type a comment: `# function to add two numbers`
+Type a comment in any file: `# function to add two numbers`
 
-Copilot suggests code in gray text. Press `Tab` to accept.
+Copilot suggests text in gray. Press `Tab` to accept. You can learn by seeing what it suggests.
 
 ---
 
@@ -341,7 +343,7 @@ Same result, more visual, easier to understand.
 ## Safety Tips
 
 **Always**:
-- Review the diff before staging
+- Review the diff before staging (see what changed)
 - Read what you're committing
 - Write clear commit messages
 - Check which branch you're on (bottom-left)
@@ -349,8 +351,8 @@ Same result, more visual, easier to understand.
 **Never**:
 - Commit without reviewing changes
 - Stage files you don't understand
-- Ignore red errors in your IDE
-- Commit to main without testing
+- Ignore warnings in your IDE
+- Rush through changes without understanding
 
 ---
 

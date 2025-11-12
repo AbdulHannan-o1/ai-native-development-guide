@@ -46,12 +46,14 @@ version: "2.0.0"
 
 ## The Problem
 
-Your AI assistant just changed 50 lines of code. It looks good, but you're not sure if it works. You need answers:
+Your AI assistant just helped you create 50 lines in a learning exercise. It looks good, but you're not sure what happened. You need answers:
 - What exactly changed?
-- Can I test it safely?
-- If it breaks, can I undo it?
+- Can I explore it safely?
+- If something goes wrong, can I undo it?
 
 **This is why you need Git.**
+
+Even if you've never written code before, Git protects your learning experiments.
 
 ---
 
@@ -60,26 +62,26 @@ Your AI assistant just changed 50 lines of code. It looks good, but you're not s
 Git is like an **undo button that never forgets**.
 
 Imagine:
-- You write code
+- You're learning and experimenting
 - You save a snapshot (called a "commit")
-- You make more changes
+- You try something new with AI's help
 - You save another snapshot
-- Something breaks
+- Something doesn't work as expected
 - You go back to any old snapshot instantly
 
-**That's Git.** It's a time machine for your code.
+**That's Git.** It's a time machine for your learning journey.
 
 ---
 
 ## Why AI Makes This Essential
 
-When you code alone, changes happen slowly. You remember what you did.
+When you're learning alone, changes happen slowly. You remember what you tried.
 
-When you work with AI:
+When you learn with AI:
 - Changes happen in seconds
-- AI can modify many files at once
-- Sometimes AI makes mistakes
-- You need a way to undo quickly
+- AI can create or modify many files at once
+- Sometimes experiments don't work out
+- You need a way to undo quickly and try again
 
 **Git gives you that safety.**
 
@@ -89,21 +91,21 @@ When you work with AI:
 
 **Without Git**:
 
-You: "AI, make my code faster"
-AI: Changes 20 lines
-You: Test it... it crashes!
-Problem: You don't remember the original code
+You: "AI, help me try this different approach"
+AI: Changes 20 lines in your learning exercise
+You: Look at it... something seems wrong!
+Problem: You don't remember what it looked like before
 Result: You're stuck
 
 **With Git**:
 
-You: Save current code (commit)
-You: "AI, make my code faster"
-AI: Changes 20 lines
-You: Test it... it crashes!
+You: Save current version (commit)
+You: "AI, help me try this different approach"
+AI: Changes 20 lines in your learning exercise
+You: Look at it... something seems wrong!
 You: "Undo those changes"
 AI: Returns to your saved version
-Result: You're safe
+Result: You're safe to keep learning
 
 ---
 
@@ -125,51 +127,53 @@ Git keeps all your old versions safe.
 
 Git shows you what lines were added or removed.
 
-Before accepting AI's changes, you review them first.
+Before accepting AI's changes, you can review them first.
 
-### 4. Test Changes Safely
+### 4. Experiment Safely
 
-Create a "branch" (a copy of your code). Test AI's changes there.
+Create a "branch" (a copy of your work). Try AI's suggestions there.
 
-If good: Keep them
-If bad: Delete the branch
+If helpful: Keep them
+If not: Delete the branch
 
-Your main code stays untouched.
+Your main work stays untouched.
 
 ### 5. GitHub = Cloud Backup
 
-**GitHub** stores your code online.
+**GitHub** stores your work online.
 
-If your computer breaks, your code is safe.
+If your computer breaks, your learning projects are safe.
 
 ---
 
 ## Real Example
 
-**Situation**: You built a calculator. It works. AI offers to make it "better."
+**Situation**: You're learning with a calculator exercise. It works. AI offers to make it "better."
 
 **You ask AI**: "Show me what you'll change"
 
-**AI shows you**: "I'll replace this:
+**AI shows you**: "I'll replace this simple addition function:
 ```python
 def add(a, b):
     return a + b
 ```
 
-With this:
+With this version using a library called NumPy:
 ```python
 import numpy as np
 def add(a, b):
     return np.add(a, b)
 ```
 
-**You think**: "Hmm, will this work with empty numbers?"
+**What this means in plain language**: The first version adds two numbers directly. The second version uses a special tool (NumPy) to do the same thing.
+
+**You think**: "Hmm, will this work with empty values?"
 
 **You say**: "Test it with empty lists first"
 
 **AI tests**: "Good catch! The NumPy version crashes with empty lists. Let me fix that."
 
-**Result**: Because you asked AI to show and test changes first, you avoided a bug. Git made this workflow possible.
+**Result**: Because you asked AI to show and test changes first, you avoided a problem. Git made this safe exploration possible.
 
 ---
 
@@ -177,12 +181,12 @@ def add(a, b):
 
 With Git + AI, you can:
 - **Experiment freely** - try AI's ideas without fear
-- **Undo mistakes** - go back if something breaks
+- **Undo mistakes** - go back if something doesn't work
 - **Learn safely** - see what changed and understand why
 - **Build confidence** - know you can always recover
 
 Without Git? AI feels risky.
-With Git? AI feels powerful.
+With Git? AI becomes your safe learning partner.
 
 ---
 
@@ -206,8 +210,8 @@ What to expect: Simple explanation without jargon.
 
 Ask your AI:
 ```
-I'm learning to code with AI assistants.
-What are the risks when AI generates code?
+I'm learning with AI assistants.
+What are the risks when AI helps me create files or make changes?
 How does Git help me stay safe?
 Give me a real example.
 ```
