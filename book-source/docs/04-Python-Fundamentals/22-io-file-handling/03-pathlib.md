@@ -185,7 +185,7 @@ print(f"Parent's parent: {config_file.parent.parent}")  # . (current dir)
 
 These properties are useful for extracting information about files without having to manually parse strings.
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > In AI-native development, you don't hardcode paths with backslashes or forward slashes—you use pathlib. The syntax is cheap; understanding that your code must work on Windows, Mac, AND Linux is gold. Your AI can generate paths; your job is specifying the directory structure.
 

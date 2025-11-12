@@ -136,7 +136,7 @@ Now the function says: "I accept any type T, and I return the same type T." When
 **Why Python needs Generics**: Python is dynamically typed at runtime, but professionally-written Python uses static type checking with tools like mypy and Pylance (in your IDE). Generics bridge this gap: they preserve type information for tools while allowing flexible, reusable code.
 
 #### 💬 AI Colearning Prompt
-> "Ask your AI: What's the difference between using Generics and using `Any` type in Python? Show examples of why Generics are better."
+> "What's the difference between using Generics and using `Any` type in Python? Show examples of why Generics provide better type safety and IDE support."
 
 ---
 
@@ -201,8 +201,8 @@ if first_name is not None:
 
 The IDE catches bugs BEFORE you run the code. This is the real value of Generics—not just for runtime, but for your development experience.
 
-#### 🎓 Instructor Commentary
-> Generics preserve type information; `Any` throws it away. Generics = safety, Any = wild west. In professional Python, you almost never use `Any` when Generics are available. The goal: keep the IDE as your co-pilot.
+#### 🎓 Expert Insight
+> In AI-native development, Generics aren't about memorizing syntax—they're about preserving intent. When you write `Stack[User]`, you're telling both humans and AI agents: "This container holds Users." That clarity cascades through your codebase, making AI code generation more accurate and refactoring safer.
 
 ---
 
@@ -243,8 +243,6 @@ The `[T]` goes directly in the function definition. No imports, no separate Type
 
 **For this book, always use PEP 695 syntax.** It's simpler, more readable, and future-proof.
 
-#### ✨ Teaching Tip
-> Always use PEP 695 syntax in Python 3.14+. It's simpler, more readable, and represents the future of Python's type system. If you see legacy `TypeVar` imports in old code, recognize them but write modern code.
 
 ---
 
@@ -297,11 +295,11 @@ if first is not None:
 
 The type checker runs without executing code. It catches the `.upper()` error immediately in your IDE.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-Tell your AI: "Create a generic function `get_last_item[T]` that returns the last element from a list or None if empty. Show me usage examples with both integers and strings, and explain how type information flows through."
+> **Ask your AI**: "Create a generic function `get_last_item[T]` that returns the last element from a list or None if empty. Show usage examples with both integers and strings, and explain how type information flows through the function."
 
-**Expected Outcome**: You'll see a generic function that mirrors `get_first_item` but accesses the last element, demonstrating that the generic pattern works for any container operation.
+**Expected Outcome**: You'll understand how type parameters flow through function signatures and return types, seeing the same generic pattern work for different container operations while maintaining full type safety.
 
 ---
 
@@ -344,8 +342,6 @@ if first is not None:
 
 You see the error in your editor BEFORE running the code. You fix it BEFORE it becomes a production bug. This is the real power—catch mistakes during development, not after deployment.
 
-#### 💬 AI Colearning Prompt
-> "Ask your AI: Create a generic function with a type mismatch bug (where operations don't match the type). Show how an IDE using type hints would catch this error before running."
 
 ---
 

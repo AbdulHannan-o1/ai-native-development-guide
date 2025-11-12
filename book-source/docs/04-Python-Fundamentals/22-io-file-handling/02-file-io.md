@@ -190,7 +190,7 @@ with open("example.txt", 'a', encoding='utf-8') as f:
 # File now contains: "New content\n" + "Appended line\n"
 ```
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > In AI-native development, you don't memorize file mode combinations—you understand your INTENT (create new, append, read, modify). Ask AI: "I want to add lines to an existing file without losing data—which mode?" Your job: specify intent; syntax is cheap.
 

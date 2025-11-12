@@ -150,7 +150,7 @@ except ValueError:
 
 If the user types "hello", the program doesn't crash. Instead, it catches the error and shows a friendly message.
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > In AI-native development, you don't memorize exception types — you understand **when** type conversion fails. Ask your AI: "What exceptions can occur when converting user input?" Your job is designing the validation **strategy** (when to accept input, when to reject it, what error messages to show); syntax is cheap.
 

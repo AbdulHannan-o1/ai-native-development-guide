@@ -156,9 +156,8 @@ except ValidationError as e:
 
 **Key method**: `model_validate_json()` parses JSON directly from a string and validates it in one step. This is faster and cleaner than parsing with `json.loads()` then calling `Recipe(**data)`.
 
-#### ✨ Teaching Tip
-
-Use `model_validate_json()` whenever you have JSON strings from AI or APIs. It combines parsing and validation, and Pydantic's error messages tell you exactly what went wrong.
+#### 🎓 Expert Insight
+> In AI-native development, validation is your contract with uncertainty. AI probabilistically generates output; validation deterministically checks it. This duality—probabilistic generation, deterministic validation—is the foundation of reliable AI systems.
 
 ---
 
@@ -196,10 +195,7 @@ Validation Error Details:
 **The error tells you exactly what's wrong**: Pydantic expected an integer but got a string. This is *actionable feedback*—you can now improve your prompt to guide the LLM.
 
 #### 💬 AI Colearning Prompt
-
-> Ask your AI: "I'm validating LLM outputs with Pydantic. When validation fails with 'Input should be a valid integer', what does that mean? Show me an example of how to improve the prompt to fix it."
-
-This shows you that error messages are learning tools. They tell you what the LLM got wrong so you can ask for it differently next time.
+> "When Pydantic validation fails with 'Input should be a valid integer', what does that tell you about the AI's output? Show examples of prompt improvements that would fix this error."
 
 ---
 
@@ -288,16 +284,12 @@ generate_recipe_attempt_2()
 
 **Why this works**: By explicitly stating "MUST be an integer" and showing an example (30 not "30 minutes"), you guide the LLM to format the data correctly.
 
-#### 🎓 Instructor Commentary
 
-In AI-native development, validation failures are *teaching moments*. Each error tells you how to improve your prompt. This cycle—fail, analyze, improve, retry—is how professional AI systems work. You're not "debugging bad code"; you're iteratively refining your specification (prompt) until the AI understands what you want.
+#### 🤝 Practice Exercise
 
-#### 🚀 CoLearning Challenge
+> **Ask your AI**: "I need to generate a User profile with fields: username (str), email (str), age (int), is_premium (bool). Generate a sample profile as JSON, then validate it with Pydantic. If validation fails, show me the error and how you'd improve the prompt to fix it."
 
-Ask your AI:
-> "I need to generate a User profile with fields: username (str), email (str), age (int), is_premium (bool). Generate a sample profile as JSON, then validate it with Pydantic. If validation fails, show me the error and how you'd improve the prompt to fix it."
-
-**Expected Outcome**: You'll see the full cycle in action—generating, validating, analyzing errors, and iterating on prompts.
+**Expected Outcome**: You'll experience the complete AI-native validation loop: generate → validate → analyze errors → improve prompt → retry. This iterative refinement is how professional AI-native development works.
 
 ---
 
@@ -370,11 +362,6 @@ class Recipe(BaseModel):
 
 When you show this model to an LLM, it sees the examples and is more likely to generate correct data.
 
-#### 💬 AI Colearning Prompt
-
-> Ask your AI: "What are the top 3 validation errors you see when validating LLM-generated outputs? For each error, show me how to prevent it with better prompt engineering or Pydantic Field definitions with examples."
-
-This conversation clarifies how AI systems fail and how to anticipate failures.
 
 ---
 
@@ -441,9 +428,6 @@ async def get_recipe(id: int) -> RecipeOutput:
     return RecipeOutput(id=1, name="Cookies", prep_time_minutes=30)
 ```
 
-#### 🎓 Instructor Commentary
-
-FastAPI + Pydantic = automatic API contracts. You describe your data model; FastAPI validates every request and response. This is how professional Python APIs work—validation is built in, not bolted on. You'll use this pattern extensively when building agent systems in Parts 5 and beyond.
 
 ---
 
@@ -553,13 +537,6 @@ def generate_with_fallback(
     return result
 ```
 
-#### ✨ Teaching Tip
-
-In production, validation failures are EXPECTED. Design for them, don't just crash. Always:
-1. **Log failures** for debugging
-2. **Retry with better prompts** when possible
-3. **Escalate to humans** when AI can't fix it
-4. **Monitor failure rates** to catch systemic problems early
 
 ---
 

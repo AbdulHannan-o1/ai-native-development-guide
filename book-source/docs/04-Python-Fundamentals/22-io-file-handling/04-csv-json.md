@@ -341,7 +341,7 @@ with open(csv_file, 'r', encoding='utf-8') as f:
 
 **Expected Outcome**: You see csv.DictReader is clearer—you use column names instead of remembering positions.
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > In AI-native development, you don't memorize CSV module parameters—you understand your DATA STRUCTURE. Need column access by name? csv.DictReader. Dealing with unheadered data? csv.reader. Your AI generates the boilerplate; your job is specifying your intent.
 

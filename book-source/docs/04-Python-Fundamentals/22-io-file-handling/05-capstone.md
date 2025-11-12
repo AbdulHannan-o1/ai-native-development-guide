@@ -221,7 +221,7 @@ print(f"Data directory: {BASE_DIR.resolve()}")
 - Creates directories only if they don't exist (idempotent)
 - Resolves absolute path to show user exactly where data is stored
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > In AI-native development, you don't debug path errors manually—you design paths clearly at startup. Your job: specify the directory structure. AI can help you verify it's correct with `Path.resolve()`.
 
@@ -783,7 +783,7 @@ if not title or not body:
 - What if someone has 50 notes—does the app still respond quickly? (Yes, file-per-note is efficient)
 - What if you edit a note file manually while the app is running? (Next read will get latest version)
 
-#### 🎓 Instructor Commentary
+#### 🎓 Expert Insight
 
 > In AI-native development, you don't test by hand 50 times—you test strategically. Your AI can help generate test cases: "What edge cases should I test for a note-taking app?" Then you verify each one systematically.
 

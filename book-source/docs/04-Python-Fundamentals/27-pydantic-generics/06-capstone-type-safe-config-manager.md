@@ -158,10 +158,7 @@ Your ConfigManager must:
 ```
 
 #### 💬 AI Colearning Prompt
-
-> Ask your AI: "Compare Pydantic BaseSettings vs manually reading environment variables. What are the tradeoffs of each approach?"
-
-**Expected Outcome**: Explanation showing that manual reading is repetitive and error-prone, while BaseSettings automates the process but requires understanding configuration structure.
+> "Compare Pydantic BaseSettings vs manually reading environment variables with os.getenv(). What are the tradeoffs of each approach?"
 
 ---
 
@@ -173,9 +170,8 @@ Your ConfigManager must:
 
 **Why Generic[T] wrapper?** When you write `config.get("database")`, Python doesn't know what type you're getting back—is it a dict? A DatabaseConfig object? The Generic wrapper lets you specify the return type: `config.get[DatabaseConfig]("database")`, and your IDE gives you perfect autocomplete on all DatabaseConfig fields.
 
-#### 🎓 Instructor Commentary
-
-> In production, configuration errors are some of the most frustrating bugs to debug. A misconfigured database connection string silently causes connection timeouts 3 hours into production. You don't want to learn this lesson the hard way. **Config management is unglamorous but essential—this pattern will save you hours on every project.**
+#### 🎓 Expert Insight
+> In AI-native development, configuration is your specification for deployment. When you use Pydantic for config, you're creating executable documentation: the schema IS the validation IS the type hints. This specification-as-code pattern scales from local development to production without translation layers.
 
 ---
 
@@ -243,11 +239,11 @@ class AppConfig(BaseSettings):
 
 The `env_nested_delimiter` is key: it lets you set nested values from environment variables. `APP_DATABASE__HOST=prod-db.example.com` sets the database's host field without repeating the full path.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-Tell your AI: "Scaffold the three config models (DatabaseConfig, APIConfig, AppConfig) with realistic defaults and validation constraints. Add validation to ensure port is 1-65535, timeout is > 0, and log_level is one of 'DEBUG', 'INFO', 'WARNING', 'ERROR'."
+> **Ask your AI**: "Scaffold the three config models (DatabaseConfig, APIConfig, AppConfig) with realistic defaults and validation constraints. Add validation to ensure port is 1-65535, timeout is > 0, and log_level is one of 'DEBUG', 'INFO', 'WARNING', 'ERROR'."
 
-**Expected Outcome**: Three complete models with Field() constraints and field validators, ready for the next section.
+**Expected Outcome**: You'll see how to structure nested configuration models with comprehensive validation, understanding how Field() constraints and validators work together to enforce business rules at the config layer.
 
 ---
 
@@ -316,9 +312,6 @@ def _parse_value(value: str) -> Any:
     return value
 ```
 
-#### ✨ Teaching Tip
-
-> **Use BaseSettings' env_prefix to namespace environment variables:** `APP_DATABASE_HOST=localhost` is clearer than `DATABASE_HOST`. The `APP_` prefix prevents collisions with unrelated environment variables on your system.
 
 ### Loading from CLI Arguments
 
@@ -519,11 +512,6 @@ db = ConfigValue[DatabaseConfig](config.database)
 actual_db: DatabaseConfig = db.get()
 ```
 
-#### 💬 AI Colearning Prompt
-
-> Ask your AI: "Why is `config.get[DatabaseConfig]('database')` better than `config['database']`? Show the type safety difference and explain how IDE autocomplete works with Generics."
-
-**Expected Outcome**: Clear explanation that Generics provide compile-time type checking and IDE assistance, preventing AttributeError bugs that would otherwise surface at runtime.
 
 ---
 
@@ -606,9 +594,6 @@ def load_config_with_logging(yaml_file: str = "config.yaml") -> AppConfig:
     return config
 ```
 
-#### 🎓 Instructor Commentary
-
-> **Config errors should crash the app at startup, not 3 hours into production.** This is why we validate immediately and provide helpful error messages. In production, your app should refuse to start if the database password is missing or the API timeout is invalid. This "fail fast" philosophy is essential to professional engineering.
 
 ---
 
@@ -709,9 +694,6 @@ def test_cli_overrides_all(temp_yaml_config, monkeypatch):
     assert config.api.timeout == 60
 ```
 
-#### ✨ Teaching Tip
-
-> **Use pytest fixtures to create temporary config files for tests.** The `@pytest.fixture` decorator lets you create test resources (files, data, connections) that are automatically cleaned up afterward. This keeps your tests isolated and prevents leftover files from polluting your system.
 
 ### Testing Validation Errors
 
@@ -855,11 +837,6 @@ pytest tests/ -v --cov=config_manager
 
 Aim for 90%+ test coverage of your ConfigManager code.
 
-#### 🚀 CoLearning Challenge
-
-Tell your AI: "Build a complete, production-ready ConfigManager project. Include: nested config models (DatabaseConfig, APIConfig, AppConfig), YAML + environment + CLI loading with precedence, validation with helpful errors, comprehensive tests, and a demo application. Make it portfolio-worthy—something you'd submit with a GitHub portfolio."
-
-**Expected Outcome**: Complete project with all components working together, tests passing, and a README explaining the architecture.
 
 ---
 

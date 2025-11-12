@@ -187,8 +187,7 @@ price
 Pydantic caught BOTH errors at once. This is powerful—you don't have to debug one error, fix it, then discover another. You see everything that's wrong.
 
 #### 💬 AI Colearning Prompt
-
-> "Ask your AI: What happens if I pass a string to an int field in Pydantic? Show me the validation error and explain what type coercion means."
+> "What happens when you pass a string to an int field in Pydantic? Explain the validation error and what type coercion means."
 
 ---
 
@@ -228,9 +227,8 @@ This gives you:
 - **msg** (message): What's wrong in plain English?
 - **type** (type of error): Was it a type mismatch? A constraint violation? A format issue?
 
-#### 🎓 Instructor Commentary
-
-> Type hints are suggestions; Pydantic makes them laws. In AI-native development, you often receive data from external sources (APIs, AI agents, users). Pydantic ensures that data is valid BEFORE your code tries to use it. This defensive approach prevents subtle bugs that only show up later.
+#### 🎓 Expert Insight
+> In AI-native development, type hints document intent but Pydantic enforces it. When AI agents generate JSON or APIs send data, runtime validation catches mismatches before they corrupt your system. This isn't defensive programming—it's professional practice.
 
 ### Multiple Errors at Once
 
@@ -250,9 +248,6 @@ except ValidationError as e:
         print(f"  - {error['loc'][0]}: {error['msg']}")
 ```
 
-#### ✨ Teaching Tip
-
-> In production code, always wrap Pydantic operations in try/except blocks. Use the error information to provide helpful feedback to users rather than crashing silently. Example: Instead of "Error: validation failed", tell users "Invalid email format. Please use name@domain.com".
 
 ---
 
@@ -332,13 +327,11 @@ except ValidationError as e:
     # authors.1.name: Field required
 ```
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-Ask your AI Co-Teacher:
+> **Ask your AI**: "Create an Author model with name and bio fields. Then create a Book model that contains a single author field (not a list—just one Author). Generate code that creates a Book with a nested Author and demonstrates the validation error when author data is missing."
 
-> "Create an Author model with name and bio fields. Then create a Book model that contains a single author field (not a list—just one Author). Generate code that creates a Book with a nested Author and shows the validation error when author data is missing."
-
-**Expected Outcome**: Working nested model structure, validation demonstrating that missing nested fields are caught.
+**Expected Outcome**: You'll see working nested model structure and understand how Pydantic validates nested fields, catching missing required fields at any level of nesting.
 
 ---
 

@@ -152,10 +152,7 @@ except ValidationError as e:
 5. On invalid data, Pydantic raises `ValidationError` with your custom message
 
 #### 💬 AI Colearning Prompt
-
-> "Show me 3 different ways to validate an email in Pydantic, from simple to complex. Include: 1) basic check for @ symbol, 2) regex pattern matching, and 3) checking against a list of allowed domains."
-
-This prompt helps you see different complexity levels and when each approach makes sense. Simple checks run faster; regex is more comprehensive; domain lists add security.
+> "Show me 3 different ways to validate an email in Pydantic: basic @ symbol check, regex pattern matching, and checking against allowed domains. For each, explain when to use that approach and the tradeoffs."
 
 ### Multiple Validators on One Field
 
@@ -197,9 +194,8 @@ print(user.email)
 
 Each validator sees the output of the previous one. This pattern lets you build validation progressively, with each step handling one concern.
 
-#### 🎓 Instructor Commentary
-
-> In AI-native development, you don't memorize email regex patterns. Your job is understanding YOUR business rules: What makes an email valid for YOUR system? Then you describe that intent to Pydantic (or ask AI to generate the validator). Syntax is cheap; understanding your validation rules is gold.
+#### 🎓 Expert Insight
+> In AI-native development, syntax is cheap—semantics is gold. You don't memorize regex patterns; you understand YOUR business rules and specify them clearly. AI generates the validator code; you validate the logic matches your requirements.
 
 ---
 
@@ -271,9 +267,6 @@ except ValidationError as e:
     # Shows: "string should match regex"
 ```
 
-#### ✨ Teaching Tip
-
-> Start with Field() constraints. Add custom @field_validator ONLY when you need logic. This keeps your code readable and lets Pydantic optimize validation. Common progression: 1) Try Field(), 2) Test with invalid data, 3) If constraints aren't enough, add custom validator.
 
 ### Combining Field Constraints with Custom Validators
 
@@ -370,12 +363,11 @@ except ValidationError as e:
 
 **Key difference**: `@model_validator(mode='after')` runs AFTER all field validators. By the time your model validator runs, you know all fields have passed their individual validations.
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-Ask your AI Co-Teacher:
-> "Create a PasswordChange model where: new_password != old_password, new_password == confirm_password, and new_password must be at least 8 characters AND contain at least one number. Include helpful error messages for each rule."
+> **Ask your AI**: "Create a PasswordChange model where: new_password != old_password, new_password == confirm_password, and new_password must be at least 8 characters AND contain at least one number. Include helpful error messages for each rule."
 
-**Expected Outcome**: A complete PasswordChange model that validates password security AND matching AND difference from current password. You'll see how to combine Field constraints with model validators for comprehensive validation.
+**Expected Outcome**: You'll understand how to combine Field() constraints with @model_validator for comprehensive validation, seeing how different validation layers work together to enforce complex business rules.
 
 ---
 
@@ -495,11 +487,6 @@ print(f"API timeout: {settings.api.timeout_seconds}s")
 # API timeout: 60s
 ```
 
-#### 💬 AI Colearning Prompt
-
-> "Generate an AppSettings model using BaseSettings that reads from environment. Include DatabaseConfig (host, port, username, password), API_KEY (secret field), and DEBUG (bool). Show a complete .env example and how to load it in your application."
-
-This helps you see the complete pattern: model definition → .env file → loading → usage. You'll understand how environment variables flow into typed, validated settings.
 
 ### Secret Fields: Hiding Sensitive Data
 
@@ -520,9 +507,6 @@ api_key = settings.api_key  # Works—you have access
 print(api_key)  # This is YOUR responsibility—you're explicitly accessing it
 ```
 
-#### 🎓 Instructor Commentary
-
-> In production systems, config is the gateway between your code and the real world. Validate it early (BaseSettings does this), use type hints to catch errors, and protect secrets (repr=False). A config error caught at startup beats a crash 3 hours into production.
 
 ---
 

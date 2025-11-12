@@ -198,9 +198,8 @@ if mixed:
     print(mixed.upper())  # Type checking can't catch this—might be int!
 ```
 
-#### 🎓 Instructor Commentary
-
-> Generic classes are blueprints with type parameters. When you write `Stack[int]`, you're creating a different type than `Stack[str]`. Your IDE treats them as completely separate types, catching type mismatches before you run code. This is the power of Generics: not just runtime flexibility, but design-time safety.
+#### 🎓 Expert Insight
+> In AI-native development, generic classes are specifications that scale. When you write `Stack[T]`, you're not writing three separate classes—you're writing one specification that AI can instantiate for any type. This is the future: write the intent once, let AI handle the variations.
 
 ---
 
@@ -285,9 +284,6 @@ print(city)  # Output: San Francisco
 - Methods respect both types: `set(key: K, value: V)`, `get(key: K) -> V | None`
 - Your IDE knows exactly what types to expect at every step
 
-#### ✨ Teaching Tip
-
-> Use descriptive names for type parameters: T for a single generic type, K and V for key-value pairs (standard Python convention), and U/W for additional types if needed. When reading `Cache[K, V]`, anyone familiar with Python conventions immediately understands K is keys and V is values.
 
 ---
 
@@ -345,8 +341,7 @@ class Comparable(Protocol):
 **What's this?** A Protocol doesn't inherit from anything. It just says: "Any type that implements these methods is considered Comparable." It's a structural contract: "acts like a Comparable" rather than "is-a Comparable."
 
 #### 💬 AI Colearning Prompt
-
-> "Ask your AI: What's the difference between a Protocol and an abstract base class (ABC)? When would you use each? Give examples where Protocols are better than inheritance."
+> "What's the difference between a Protocol and an abstract base class (ABC)? When would you use each? Give examples where Protocols are better than inheritance."
 
 ### Using Bounded Generics
 
@@ -428,12 +423,11 @@ if most_expensive:
 - Your IDE validates that the bound is satisfied before running code
 - Custom types automatically work if they implement the methods the Protocol requires
 
-#### 🚀 CoLearning Challenge
+#### 🤝 Practice Exercise
 
-Ask your AI Co-Teacher:
-> "Create a generic `find_min[T: Comparable](items: list[T]) -> T | None` function. Show usage with int, str, and a custom Product class. Explain why the Comparable bound is necessary and what would break without it."
+> **Ask your AI**: "Create a generic `find_min[T: Comparable](items: list[T]) -> T | None` function. Show usage with int, str, and a custom Product class. Explain why the Comparable bound is necessary and what would break without it."
 
-**Expected Outcome**: A working find_min function demonstrating bounded generics across multiple types, with clear explanation of why the bound is required.
+**Expected Outcome**: You'll understand why bounded type variables are necessary when your function performs operations (like comparison) that not all types support, seeing how constraints enable type-safe operations.
 
 ---
 
@@ -516,9 +510,6 @@ render_shape(LegacyShape())  # ✅ Works! (has draw method, no inheritance neede
 - **Works with external types**: Even if a type wasn't designed as Drawable, it works if it has the right methods
 - **Clearer intent**: "acts-like" is more flexible than "is-a"
 
-#### 🎓 Instructor Commentary
-
-> Protocols represent "duck typing formalized." If it walks like a duck and quacks like a duck, Protocols say it IS a duck—without forcing it to inherit from a Duck class. This flexibility is why Protocols are standard in modern Python for Generics. Inheritance is for class hierarchies; Protocols are for specifying behavior.
 
 ### Creating a Custom Protocol
 
