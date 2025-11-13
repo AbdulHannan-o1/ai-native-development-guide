@@ -35,6 +35,4 @@ By the end of this chapter, you'll have:
 
 10. **Complete Extensibility** (Lesson 10) — Plugins as unified containers bundling skills, commands, agents, hooks, and MCP into shareable, discoverable packages
 
-**Total Duration**: 70-85 minutes across 10 progressive lessons
-
-**The Result**: A fully personalized, extensible AI companion ready for sophisticated AI-Driven Development workflows throughout the course
+Let's get a fully personalized, extensible AI companion ready for sophisticated AI-Driven Development workflows throughout the course

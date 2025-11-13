@@ -32,16 +32,6 @@ Before we begin, verify you have the following:
   - Create account at: https://console.anthropic.com
   - Requires payment method for API usage
 
-**3. Node.js 18+ (for NPM installation method)**
-- Check if installed: `node --version`
-- If not installed: https://nodejs.org (download LTS version)
-
----
-
-## Installation: Node.js + NPM
-
-Claude Code installs easily via Node.js package manager (npm). This is the recommended path - it works consistently across Windows, macOS, and Linux.
-
 ---
 
 ## Installation

@@ -118,17 +118,6 @@ This doesn't mean AI writes all your code. It means AI handles the *friction*—
 #### 🎓 Expert Insight
 > In AI-native development, the friction you remove matters more than the features you add. Agentic AI tools like Claude Code don't make you code faster—they make you **think** faster by eliminating context-switching, copy-paste workflows, and repetitive setup. Your job: design solutions; AI's job: handle execution friction.
 
-## Pause and Reflect: Your Comfort Zone
-
-The agentic paradigm requires trust. You're letting AI read your files, propose changes, and (with approval) execute commands.
-
-Reflect on this:
-- What aspects of agentic AI feel exciting to you?
-- What aspects feel uncomfortable or risky?
-- What boundaries would you want to set (e.g., "Claude can read but not write," or "Claude can write but not execute")?
-
-Understanding your comfort level now will help you adopt these tools at a pace that works for you.
-
 ---
 
 ## Try With AI 
