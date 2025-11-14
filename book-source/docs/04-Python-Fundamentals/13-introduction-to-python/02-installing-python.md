@@ -60,8 +60,6 @@ Installation is the bridge between "understanding Python" and "running Python co
 
 Pick the section below that matches your computer:
 
----
-
 ## Windows Installation
 
 ### Step 1: Download Python
