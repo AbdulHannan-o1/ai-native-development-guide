@@ -57,7 +57,7 @@ differentiation:
 
 **Lesson Video:**
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/RZCJTjwZQt4" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/RZCJTjwZQt4" title="The New Wave of AI Coding Agents" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 In 2024, if you wanted AI assistance while coding, you had to choose: Do I use GitHub Copilot in VS Code? Or ChatGPT in a browser? Or Claude in a separate window?
 

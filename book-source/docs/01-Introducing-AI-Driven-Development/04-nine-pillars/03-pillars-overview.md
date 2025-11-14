@@ -57,7 +57,7 @@ differentiation:
 
 **Lesson Video:**
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed//k4WLDHUjzhk" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed//k4WLDHUjzhk" title="The Nine Pillars - Overview and Integration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 You now understand what AI-Driven Development is and why it matters. In the previous section, you learned AIDD's **nine defining characteristics**—the principles that distinguish it from traditional development (Specification-Driven, AI-Augmented, Quality-Gated, etc.).
 

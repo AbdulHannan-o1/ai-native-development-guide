@@ -57,7 +57,7 @@ differentiation:
 
 # The Snakes and Ladders Framework: Why Vertical Markets Beat Head-On Competition
 
-![Snakes and Ladders: AI Market Structure](/img/snakes_ladders.jpg)
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/axivzX3cu9o" title="AI Game of Snakes & Ladders" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Imagine a board game with 100 squares. To win, you climb ladders (shortcuts to higher squares) or slide down snakes (setbacks). In the AI era, billion-dollar companies aren't built by racing directly up the middle of the board. They're built by finding the ladders—hidden competitive advantages that let you skip directly to the top.
 
@@ -100,8 +100,6 @@ The competitors aren't other startups. They're incumbents: Bloomberg in finance,
 #### 🎓 Expert Insight
 
 > This is where the economics get exciting for solo entrepreneurs. You're not competing against other startups for venture funding. You're competing against organizational inertia. Epic Systems has thousands of engineers, but they can't pivot quickly because they have millions of lines of legacy code, regulatory compliance, and risk-averse decision-making. You have zero legacy code. You can rebuild your entire product in a weekend if needed. This agility asymmetry is your competitive advantage.
-
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/axivzX3cu9o" title="AI Game of Snakes & Ladders" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 *The Snakes and Ladders framework shows four competitive layers. The consumer layer is a two-player war. The developer tools, vertical markets, and orchestration layers offer opportunities for solo entrepreneurs.*
 
@@ -168,6 +166,7 @@ The lesson mentions Microsoft's failure with Windows Mobile as a lesson about co
 ```
 
 **Expected outcome**: Pattern recognition: spotting strategic mistakes to avoid in your own journey.
+
 
 
 

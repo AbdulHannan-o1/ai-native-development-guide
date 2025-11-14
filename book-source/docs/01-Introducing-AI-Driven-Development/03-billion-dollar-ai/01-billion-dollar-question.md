@@ -71,16 +71,6 @@ This chapter explains *why* this transformation is happening and how you can pos
 
 ---
 
-## Video Context
-
-Want to see these frameworks in action? Watch our video explorations:
-- 🎥 **English**: https://youtu.be/axivzX3cu9o
-- 🎥 **Urdu/Hindi**: https://youtu.be/u-7uAfDZeFc
-
-These videos walk through real examples of the frameworks you're about to learn.
-
----
-
 ## What's Changing Now
 
 Three forces have converged to create this moment:

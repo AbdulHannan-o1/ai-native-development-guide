@@ -56,7 +56,7 @@ differentiation:
 
 **Lesson Video:**
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/sQqJ8aCInEA" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/sQqJ8aCInEA" title="The Development Lifecycle in Transition" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Most discussions about AI coding focus on one thing: **writing code**. GitHub Copilot autocompletes your functions. Claude Code implements features from specifications. ChatGPT debugs your errors.
 

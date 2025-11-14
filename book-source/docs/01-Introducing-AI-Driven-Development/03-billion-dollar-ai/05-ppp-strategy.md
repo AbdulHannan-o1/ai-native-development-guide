@@ -59,7 +59,7 @@ differentiation:
 
 **Lesson Video:**
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/CIlFrEGvyqg" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/CIlFrEGvyqg" title="The Piggyback Protocol Pivot Strategy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Now you understand the layers (Snakes and Ladders), the economics (super orchestrators), and the architecture (vertical intelligence). The final piece is strategy: How do you actually enter a vertical market and dominate it as a solo entrepreneur?
 

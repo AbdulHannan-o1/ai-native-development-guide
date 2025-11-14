@@ -57,7 +57,7 @@ differentiation:
 
 **Lesson Video:**
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/BLbHFFQYsQg" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/BLbHFFQYsQg" title="The M-Shaped Developer - What AIDD Makes Possible" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 You've just learned about nine foundational pillars that define AI-Driven Development. But here's the transformation they unlock: **the M-Shaped Developer**—a professional who maintains deep expertise across multiple complementary domains, something that was practically impossible before AI augmentation.
 

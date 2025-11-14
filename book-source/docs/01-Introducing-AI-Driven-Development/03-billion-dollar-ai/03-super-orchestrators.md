@@ -57,6 +57,8 @@ differentiation:
 
 # The Economics of Super Orchestrators: Why the 90-10 Rule Changes Everything
 
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/mvJJNuj2c74" title="The Billion Dollar Orchestrator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 To understand why AI-era economics enable unprecedented value-per-person ratios, you need to understand the shift in software production.
 
 For 50 years, software economics followed a pattern: more employees = more value. A single developer produced maybe $50K-$100K in annual revenue. A team of 50 could produce $5M-$10M. The unit economics didn't scale because humans have limited working hours.
@@ -70,8 +72,6 @@ AI changes that equation fundamentally.
 **10% of the work is human judgment**: Deciding *what* problem to solve. Understanding market context. Making strategic calls about prioritization. Building customer relationships. Navigating regulation. This work requires human insight and cannot be delegated to AI.
 
 The stunning insight: as AI improves at the 90%, the 10% becomes infinitely more valuable.
-
-![Proportional diagram showing 90% of software work is mechanical (automated by AI) while 10% requires human judgment, illustrating that human strategic value increases as AI handles implementation](/img/part-1/chapter-3/ninety-ten-economic-split.png)
 
 #### 🎓 Expert Insight
 
@@ -102,8 +102,6 @@ That's $345 million per employee. Again, the economics were shocking because the
 #### 💬 AI Colearning Prompt
 
 > **Explore with your AI**: "The table shows Instagram at $77M per employee, WhatsApp at $345M, and Claude Code potentially higher. Let's dig into the pattern—ask your AI: 'What's the mathematical relationship between value-per-employee and the percentage of work that's automated?' Then challenge it: Are we cherry-picking examples, or is this a real trend? What evidence would prove this ISN'T just survivorship bias?"
-
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/mvJJNuj2c74" title="The Billion Dollar Orchestrator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## The Path from Solo to $10M Annual Revenue
 

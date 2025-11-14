@@ -57,7 +57,7 @@ differentiation:
 
 **Lesson Video:**
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/jbQbx0Lp1iQ" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/jbQbx0Lp1iQ" title="A Moment That Changed Everything" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 In March 2025, Y Combinator managing partner Jared Friedman revealed something remarkable: a quarter of startups in their Winter 2025 batch had codebases that were approximately 95% AI-generated (excluding library imports). As Friedman emphasized, "It's not like we funded a bunch of non-technical founders"—these were technical founders "completely capable of building their own products from scratch" who chose to let AI handle most of the implementation.
 

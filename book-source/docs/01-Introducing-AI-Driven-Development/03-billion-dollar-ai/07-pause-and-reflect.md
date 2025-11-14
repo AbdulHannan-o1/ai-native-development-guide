@@ -59,7 +59,7 @@ differentiation:
 
 **Lesson Video:**
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/0Mi_-ka3aIw" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/0Mi_-ka3aIw" title="Pause and Reflect on Your Strategy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 The frameworks in this chapter—Snakes and Ladders, super orchestrator economics, vertical intelligence, Piggyback Protocol Pivot, three requirements—are tools for strategy, not guarantees of success. Your execution, market timing, and ability to listen to customers matter more than any framework.
 

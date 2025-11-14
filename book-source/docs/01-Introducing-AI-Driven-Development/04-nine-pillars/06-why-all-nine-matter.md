@@ -57,7 +57,7 @@ differentiation:
 
 **Lesson Video:**
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/SU5y0zOrgRc" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/SU5y0zOrgRc" title="Why All Nine Pillars Matter" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 You've seen the M-shaped possibility—developers who master multiple pillars becoming force multipliers. Now let's address the natural question: *Do I really need all nine?*
 
@@ -78,8 +78,6 @@ A developer who masters six of nine pillars is competent. But the three missing 
 | **Real Example** | Developer builds AI feature but needs DevOps help to deploy it (days delay) | Developer ships AI feature from idea to production in hours |
 
 ## Lessons from Technology Shifts
-
-![Historical technology adoption timeline showing three paradigm shifts: Agile methodology in 2000s-2010s, cloud computing in 2010s, and mobile-first in 2010-2015. Each shows early complete adopters thriving, partial adopters struggling, and late adopters facing competitive disadvantage](/img/part-1/chapter-4/technology-adoption-timeline.png)
 
 This pattern isn't new. We've seen it before:
 

@@ -59,7 +59,7 @@ differentiation:
 
 **Lesson Video:**
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/bj5Mc5END0Y" title="The $3 Trillion Developer Economy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/bj5Mc5END0Y" title="From Code Reuse to Vertical Intelligence" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 For decades, software architecture followed principles of code reuse, formalized as DRY (Don't Repeat Yourself) in 1999. The goal was to write code once, reuse it everywhere. Libraries, frameworks, microservices all built on the logic of code reuse.
 
