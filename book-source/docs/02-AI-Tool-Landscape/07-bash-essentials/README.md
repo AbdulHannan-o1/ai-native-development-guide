@@ -12,6 +12,45 @@ title: "Chapter 7: Bash Essentials for AI-Driven Development"
 By understanding your AI's native language, you become an equal partner. You're not following blindly. You're collaborating confidently.
 **This is learning for the AI era.**
 
+---
+
+## Prerequisites
+
+Before starting this chapter, you should have:
+
+- ✅ **Completed Chapter 5** (Claude Code features) or **Chapter 6** (Gemini CLI) — You need access to an AI companion tool
+- ✅ **Access to a terminal** on your computer (macOS Terminal, Linux terminal, or WSL on Windows)
+- ✅ **An AI tool with bash execution**: Claude Code, Gemini CLI, ChatGPT Code Interpreter, Cursor, or similar
+- ✅ **Basic comfort** with typing text commands and copying/pasting
+
+**No prior bash experience required!** This chapter teaches bash through AI collaboration, not memorization.
+
+---
+
+## Bash Version Compatibility
+
+This chapter uses modern bash syntax that works on:
+
+- **macOS 12+**: Bash 3.2 (pre-installed) or Bash 5.x (recommended, via Homebrew)
+- **Linux distributions**: Bash 4.0+ (typically default)
+- **Windows WSL2**: Ubuntu 20.04+ with Bash 5.0+
+
+If a command doesn't work as expected, check your bash version:
+
+```bash
+bash --version
+```
+
+**For macOS users**: The default Bash 3.2 works for this chapter, but upgrading to Bash 5.x provides better compatibility with modern bash features:
+
+```bash
+brew install bash
+```
+
+After installation, you may need to add the new bash to your allowed shells and change your default shell (optional).
+
+---
+
 ## Welcome to Understanding Your AI Companion's Native Language
 
 This chapter **does NOT teach bash as a traditional skill**. Instead, it teaches you to **understand and collaborate with your AI companion** as it uses bash on your behalf.

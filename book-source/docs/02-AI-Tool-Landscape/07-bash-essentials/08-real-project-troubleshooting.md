@@ -43,16 +43,31 @@ cognitive_load:
 
 ## This Lesson Brings Everything Together
 
-You've learned individual concepts:
+You've learned individual bash concepts:
 - How to navigate (paths, directories)
 - How to operate on files safely (5-step pattern)
 - How to configure projects (environment variables)
 - How to install packages (dependencies)
 - How to build complex operations (pipes)
 
-This capstone lesson integrates everything into a realistic workflow. You'll set up a real project with your AI, encounter real errors, and troubleshoot them together.
+This capstone lesson shows you **bash orchestration**—directing your AI to execute complete multi-step workflows through bash commands. You'll supervise project setup, error handling, and troubleshooting, all through bash collaboration.
 
-This is where learning transforms into **capability**. You're not learning bash—you're learning to supervise real project work.
+**This is where learning transforms into capability.** You're not learning Python or any specific language—you're learning to **orchestrate bash workflows** that set up projects, handle configuration, manage dependencies, and debug errors. The Python code in this lesson is secondary; **the bash commands are what you're supervising**.
+
+---
+
+## What is Bash Orchestration?
+
+**Orchestration** means directing multiple bash commands to work together as a coordinated workflow. Instead of running one command at a time, you supervise your AI as it executes:
+
+- **10+ bash commands** to create a complete project structure
+- **Sequential operations** (create folder → enter folder → create files → configure secrets)
+- **Error handling** (when commands fail, understand why and fix it)
+- **Validation steps** (verify each part works before moving to the next)
+
+**In this lesson**, you'll watch a full project setup orchestrated through bash. The project happens to be Python-based, but **the skills you're learning are bash supervision skills**—applicable to any project in any language.
+
+**Key insight**: Professional developers don't manually type 50 bash commands. They direct AI to orchestrate the entire workflow, supervise execution, and validate results. That's what you're learning here.
 
 ---
 
@@ -60,14 +75,14 @@ This is where learning transforms into **capability**. You're not learning bash�
 
 In professional work, this is the pattern:
 
-**Step 1: Set up project** (create structure, install dependencies)
-**Step 2: Encounter an error** (something doesn't work)
-**Step 3: Interpret the error** (understand what went wrong)
-**Step 4: Troubleshoot with AI** (ask questions, follow steps)
-**Step 5: Verify success** (confirm the fix worked)
-**Step 6: Document the solution** (remember what you learned)
+**Step 1: Set up project** (orchestrate structure creation, install dependencies through bash)
+**Step 2: Encounter an error** (something doesn't work—read bash error messages)
+**Step 3: Interpret the error** (understand what bash/system is telling you)
+**Step 4: Troubleshoot with AI** (ask questions, AI adjusts bash commands)
+**Step 5: Verify success** (bash commands confirm the fix worked)
+**Step 6: Document the solution** (remember what bash pattern solved it)
 
-This lesson guides you through all 6 steps.
+This lesson guides you through all 6 steps using bash orchestration.
 
 ---
 
@@ -444,6 +459,52 @@ Each error message is your AI telling you what to fix next.
 
 ---
 
+## The Bash Commands You Just Supervised
+
+In this lesson, you watched bash orchestrate a complete project. Here are the key bash commands that made it happen:
+
+**Project Structure** (bash file operations):
+```bash
+mkdir -p weather-project/{src,tests,data}  # Brace expansion creates 3 folders at once
+cd weather-project                           # Navigate into project
+```
+
+**File Creation** (bash heredocs):
+```bash
+cat > src/main.py << 'EOF'                  # Create file with content
+[Python code here]
+EOF
+```
+
+**Configuration** (bash environment):
+```bash
+cat > .env << 'EOF'                          # Create secrets file
+WEATHER_API_KEY=test-key-12345
+EOF
+
+export $(cat .env | xargs)                   # Load environment variables
+```
+
+**Security** (bash gitignore):
+```bash
+cat > .gitignore << 'EOF'                    # Protect secrets from git
+.env
+__pycache__/
+*.pyc
+EOF
+```
+
+**Validation** (bash checks):
+```bash
+ls -la                                       # Verify structure created
+python3 -m py_compile src/main.py           # Verify syntax valid
+echo $WEATHER_API_KEY                        # Verify environment loaded
+```
+
+**What you learned**: How to supervise AI orchestrating **15+ bash commands** to create a complete project. The Python code was just the payload—**the bash workflow was what you supervised**.
+
+---
+
 ## Try With AI: Real Project Setup and Troubleshooting
 
 Now that you understand the complete project setup workflow, let's apply it with your AI.
@@ -497,6 +558,45 @@ Walk me through:
 Your AI will explain the error, show you the fix, and help you understand why the error occurred. This builds your debugging confidence.
 
 **Key Principle**: Every error is a learning opportunity. Your AI is your guide through the troubleshooting process.
+
+---
+
+## Try With AI: Orchestration at Scale (Advanced)
+
+Now that you've mastered single project setup, try orchestrating bash workflows at scale:
+
+**Prompt 1: Parallel Project Setup**
+```
+Create 3 project directories simultaneously: project-1, project-2, project-3.
+
+In each directory:
+1. Create src/ and tests/ folders
+2. Create a README.md with the project name
+3. Create a .env file template
+4. Create a .gitignore protecting .env
+5. List each directory's structure to verify
+
+What bash commands would you use to do this efficiently?
+```
+
+**What to Expect**: Your AI uses bash loops, brace expansion, or command chaining to create all 3 projects with a few commands instead of repeating 20+ commands manually.
+
+**Prompt 2: Batch File Operations**
+```
+I have 5 Python files in a directory.
+
+Orchestrate this workflow:
+1. Check if each file has valid syntax
+2. Count lines of code in each file
+3. Create a summary report showing file names and line counts
+4. Save the report to project-summary.txt
+
+What bash pipeline would accomplish this?
+```
+
+**What to Expect**: Your AI uses bash tools (`find`, `xargs`, pipes, redirects) to process multiple files automatically in one workflow.
+
+**Key Insight**: Professional developers orchestrate repetitive tasks through bash. Instead of "set up 10 projects manually," you direct AI to create a bash workflow once and execute it 10 times. **This is the power of bash orchestration—and you now have the supervision skills to make it work safely.**
 
 ---
 
