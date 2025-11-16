@@ -1,0 +1,112 @@
+openapi: 3.0.0
+info:
+  title: Highlight AI Dialogue API
+  version: 1.0.0
+  description: API for processing highlighted content with AI guidance.
+
+servers:
+  - url: /api
+    description: Relative path for the FastAPI backend
+
+paths:
+  /ai/highlight:
+    post:
+      summary: Process highlighted content with AI
+      description: Sends highlighted content (text, code, or image) to an AI agent for explanation, implementation guidance, and examples.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIRequest'
+      responses:
+        '200':
+          description: Successful AI response with guidance.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIResponse'
+        '400':
+          description: Bad Request - Invalid input or content type.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - Invalid or missing API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - Default API key limit reached.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - AI service unavailable or other server issue.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    HighlightedContent:
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          enum: [TEXT, CODE, IMAGE]
+          description: Type of the highlighted content.
+        value:
+          type: string
+          description: The actual content. For images, this could be a URL or Base64 string.
+          minLength: 1
+
+    AIRequest:
+      type: object
+      required:
+        - content
+      properties:
+        content:
+          $ref: '#/components/schemas/HighlightedContent'
+        apiKey:
+          type: string
+          nullable: true
+          description: Optional. User's custom API key. If null, default key is used.
+
+    AIResponse:
+      type: object
+      required:
+        - explanation
+      properties:
+        explanation:
+          type: string
+          description: A simple, analogy-based explanation of the highlighted content.
+          minLength: 1
+        implementation:
+          type: string
+          nullable: true
+          description: Step-by-step guidance for implementation, if applicable.
+        example:
+          type: string
+          nullable: true
+          description: Illustrative examples, if applicable.
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          description: A brief error message.
+        details:
+          type: string
+          nullable: true
+          description: More detailed information about the error.

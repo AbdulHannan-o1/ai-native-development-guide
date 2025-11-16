@@ -1,0 +1,82 @@
+/* book-source/src/styles/HighlightDialog.css */
+
+.highlight-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Below popup, above regular content */
+}
+
+.highlight-dialog {
+  background-color: var(--ifm-background-color);
+  border-radius: var(--ifm-border-radius);
+  box-shadow: var(--ifm-global-shadow-md);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* For scrollable content */
+}
+
+.highlight-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.highlight-dialog-header h3 {
+  margin: 0;
+  color: var(--ifm-font-color-base);
+}
+
+.highlight-dialog-close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--ifm-font-color-base);
+}
+
+.highlight-dialog-content {
+  padding: 20px;
+  overflow-y: auto; /* Make content scrollable */
+  flex-grow: 1;
+  color: var(--ifm-font-color-base);
+}
+
+.highlight-dialog-content h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--ifm-color-primary);
+}
+
+.highlight-dialog-content p,
+.highlight-dialog-content pre {
+  background-color: var(--ifm-code-background);
+  padding: 10px;
+  border-radius: var(--ifm-border-radius);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap; /* Preserve whitespace and wrap */
+  word-break: break-word; /* Break long words */
+}
+
+.highlight-dialog-content pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.highlight-dialog-error {
+  color: var(--ifm-color-danger);
+  font-weight: bold;
+}
