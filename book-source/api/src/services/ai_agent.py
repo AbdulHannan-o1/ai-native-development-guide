@@ -59,7 +59,8 @@ class AIAgent:
             "You are an expert AI assistant designed to provide clear, concise, and helpful guidance "
             "on highlighted content. Your responses should always include an 'explanation' field. "
             "Optionally, include 'implementation' for code/technical content and 'example' for concepts "
-            "that benefit from illustration. Use simple terms and analogies. "
+            "that benefit from illustration. All fields ('explanation', 'implementation', 'example') should be strings. "
+            "Use simple terms and analogies. "
             "Respond strictly in JSON format with the keys: 'explanation', 'implementation' (optional), 'example' (optional)."
         )
 

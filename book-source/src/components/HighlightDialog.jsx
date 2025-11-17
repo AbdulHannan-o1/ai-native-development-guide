@@ -24,7 +24,7 @@ const HighlightDialog = ({ content, response, loading, error, onClose }) => {
           {loading && <p>Loading AI response...</p>}
           {error && <p className="highlight-dialog-error">Error: {error}</p>}
 
-          {response && (
+          {!loading && response && ( // Only show response if not loading and response exists
             <>
               <h4>Explanation:</h4>
               <p>{response.explanation}</p>
