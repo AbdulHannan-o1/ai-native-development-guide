@@ -3,12 +3,22 @@ import time
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from .api import highlight
+from fastapi.middleware.cors import CORSMiddleware
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 app.include_router(highlight.router, prefix="/ai", tags=["AI Highlight"])
 

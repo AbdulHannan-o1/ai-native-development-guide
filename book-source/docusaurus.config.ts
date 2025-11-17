@@ -29,6 +29,10 @@ const config: Config = {
   projectName: "ai-native-software-development", // Usually your repo name.
   trailingSlash: false,
 
+  customFields: {
+    backendApiUrl: process.env.DOCUSAURUS_BACKEND_API_URL || 'http://localhost:8000/ai',
+  },
+
   onBrokenLinks: "warn",
 
   // Add Font Awesome for social media icons
@@ -184,6 +188,11 @@ const config: Config = {
           label: "Book",
         },
         {
+          to: "/ai-config",
+          label: "AI Config",
+          position: "left",
+        },
+        {
           href: "https://github.com/panaversity/ai-native-software-development",
           label: "GitHub",
           position: "right",
@@ -202,11 +211,11 @@ const config: Config = {
             },
             {
               label: "Full Curriculum",
-              to: "/docs/preface-agent-native",
+              to: "/", // TODO: Add correct link
             },
             {
               label: "Learning Path",
-              to: "/docs/preface-agent-native",
+              to: "/", // TODO: Add correct link
             },
           ],
         },

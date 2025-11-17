@@ -9,7 +9,7 @@ class AIAgent:
         self.default_client = default_openai_client
 
     async def process_highlighted_content(
-        self, content: HighlightedContent, optional_api_key: Optional[str] = None, model: str = "gemini-pro"
+        self, content: HighlightedContent, optional_api_key: Optional[str] = None, model: str = "gemini-2.5-flash"
     ) -> AIResponse:
         # Determine which client to use
         current_client = self.default_client
@@ -31,6 +31,7 @@ class AIAgent:
             
             # Output Guardrail: Ensure JSON structure is valid and contains 'explanation'
             ai_output = response.choices[0].message.content
+            print(f"AI Output: {ai_output}") # Added log
             
             # Attempt to parse the JSON output
             import json
