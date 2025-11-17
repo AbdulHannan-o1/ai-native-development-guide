@@ -630,10 +630,10 @@ export default function Home(): ReactNode {
       description="Colearning Agentic AI with Python and TypeScript – The AI & Spec Driven Way. Build production-ready intelligent systems."
     >
       <HomepageHeader />
-      <AISpectrumSection />
+      {/* <AISpectrumSection />
       <FeaturesSection />
       <MaturityLevelsSection />
-      <ParadigmShift />
+      <ParadigmShift /> */}
     </Layout>
   );
 }

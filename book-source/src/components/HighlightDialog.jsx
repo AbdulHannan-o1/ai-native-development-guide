@@ -22,7 +22,22 @@ const HighlightDialog = ({ content, response, loading, error, onClose }) => {
           </div>
 
           {loading && <p>Loading AI response...</p>}
-          {error && <p className="highlight-dialog-error">Error: {error}</p>}
+          {error && (
+            <div className="highlight-dialog-error-container">
+              <p className="highlight-dialog-error">
+                Error: {error.detail?.error || 'Failed to get AI response.'}
+              </p>
+              {error.detail?.details === "Default API key limit exceeded. Please provide your own API key." && (
+                <p className="highlight-dialog-error-suggestion">
+                  You've reached the limit for the default API key. Please{' '}
+                  <a href="/ai-config" onClick={onClose}>
+                    set your own API key
+                  </a>{' '}
+                  to continue using the AI feature.
+                </p>
+              )}
+            </div>
+          )}
 
           {!loading && response && ( // Only show response if not loading and response exists
             <>
