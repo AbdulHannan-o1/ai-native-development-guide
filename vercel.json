@@ -2,19 +2,13 @@
   "version": 2,
   "installCommand": "pip install -r api/requirements.txt && pnpm install",
   "buildCommand": "pnpm build",
-  "functions": {
-    "api/src/main.py": {
-      "runtime": "python3.10",
-      "memory": 1024,
-      "maxDuration": 10,
-      "src": "api/src/main.py"
-    }
-  },
-  "routes": [
+  "builds": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/src/main.py"
-    },
+      "src": "api/src/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
     {
       "src": "/(.*)",
       "dest": "build/$1"
