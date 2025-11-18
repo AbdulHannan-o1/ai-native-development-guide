@@ -13,9 +13,9 @@
 
 # TypeScript compiled output (should not be committed)
 docusaurus.config.js
-sidebars.js
-src/**/*.js
-!src/**/*.test.js
+# sidebars.js
+# src/**/*.js
+# !src/**/*.test.js
 
 # Misc
 .DS_Store
