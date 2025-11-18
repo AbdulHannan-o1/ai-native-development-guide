@@ -1,0 +1,50 @@
+/* book-source/src/styles/HighlightPopup.css */
+
+.highlight-popup {
+  background-color: var(--ifm-background-color); /* Docusaurus background */
+  border: 1px solid var(--ifm-color-emphasis-300); /* Docusaurus border color */
+  border-radius: var(--ifm-border-radius);
+  box-shadow: var(--ifm-global-shadow-lw); /* Lightweight shadow */
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-base);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: fixed; /* Will be positioned by JS, but fixed for initial placement */
+  z-index: 10000;
+}
+
+.highlight-popup p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.highlight-popup-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.highlight-popup-actions button {
+  background-color: var(--ifm-color-primary); /* Docusaurus primary button */
+  color: var(--ifm-color-white);
+  border: none;
+  border-radius: var(--ifm-button-border-radius);
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+}
+
+.highlight-popup-actions button:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+.highlight-popup-actions button:last-child {
+  background-color: var(--ifm-color-secondary); /* Docusaurus secondary button */
+}
+
+.highlight-popup-actions button:last-child:hover {
+  background-color: var(--ifm-color-secondary-dark);
+}
