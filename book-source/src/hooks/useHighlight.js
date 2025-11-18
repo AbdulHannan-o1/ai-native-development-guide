@@ -38,23 +38,6 @@ const useHighlight = () => {
     }
   }, [getSelection]);
 
-  const handleShortcut = useCallback((event) => {
-    console.log("useHighlight: Keydown event detected.");
-    // Ctrl+Shift+G
-    if (event.ctrlKey && event.shiftKey && event.key === 'G') {
-      event.preventDefault();
-      console.log("useHighlight: Ctrl+Shift+G shortcut detected.");
-      const content = getSelection();
-      if (content) {
-        setHighlightedContent(content);
-        handleConfirm(content); // Directly confirm and send to AI
-        console.log("useHighlight: Shortcut confirmed, dialog should show.");
-      } else {
-        console.log("useHighlight: Shortcut pressed but no content selected.");
-      }
-    }
-  }, [getSelection, handleConfirm]);
-
   const handleConfirm = useCallback((contentToProcess = highlightedContent) => {
     console.log("useHighlight: handleConfirm called.");
     setIsPopupVisible(false);
@@ -68,7 +51,24 @@ const useHighlight = () => {
     setAiResponse(null); // Reset AI response for new request
     setShowDialog(true); // Show dialog immediately upon confirmation
     console.log("useHighlight: Dialog set to visible, loading started.");
-  }, [highlightedContent]);
+  }, [highlightedContent]); // handleConfirm depends on highlightedContent
+
+  const handleShortcut = useCallback((event) => {
+    console.log("useHighlight: Keydown event detected.");
+    // Ctrl+Shift+G
+    if (event.ctrlKey && event.shiftKey && event.key === 'G') {
+      event.preventDefault();
+      console.log("useHighlight: Ctrl+Shift+G shortcut detected.");
+      const content = getSelection();
+      if (content) {
+        setHighlightedContent(content);
+        handleConfirm(content); // handleConfirm is called here
+        console.log("useHighlight: Shortcut confirmed, dialog should show.");
+      } else {
+        console.log("useHighlight: Shortcut pressed but no content selected.");
+      }
+    }
+  }, [getSelection, handleConfirm]); // handleConfirm is a dependency here
 
   const handleCancel = useCallback(() => {
     console.log("useHighlight: handleCancel called.");
