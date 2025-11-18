@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "installCommand": "ls -R && cd api && pip install -r requirements.txt && cd .. && pnpm install",
-  "buildCommand": "pnpm build",
+  "installCommand": "pip install -r book-source/api/requirements.txt && cd book-source && pnpm install",
+  "buildCommand": "cd book-source && pnpm build",
   "functions": {
     "book-source/api/src/main.py": {
       "runtime": "python3.10",
@@ -19,5 +19,5 @@
       "dest": "build/$1"
     }
   ],
-  "outputDirectory": "build"
+  "outputDirectory": "book-source/build"
 }
