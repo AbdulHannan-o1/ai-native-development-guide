@@ -3,7 +3,7 @@
   "installCommand": "ls -R && cd api && pip install -r requirements.txt && cd .. && pnpm install",
   "buildCommand": "pnpm build",
   "functions": {
-    "api/src/main.py": {
+    "book-source/api/src/main.py": {
       "runtime": "python3.10",
       "memory": 1024,
       "maxDuration": 10
@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "api/src/main.py"
+      "dest": "book-source/api/src/main.py"
     },
     {
       "src": "/(.*)",
