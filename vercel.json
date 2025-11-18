@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "installCommand": "pip install -r book-source/api/requirements.txt && pnpm install --prefix book-source",
-  "buildCommand": "pnpm build --prefix book-source",
+  "installCommand": "ls -R && cd api && pip install -r requirements.txt && cd .. && pnpm install",
+  "buildCommand": "pnpm build",
   "functions": {
-    "book-source/api/src/main.py": {
+    "api/src/main.py": {
       "runtime": "python3.10",
       "memory": 1024,
       "maxDuration": 10
@@ -12,12 +12,12 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "book-source/api/src/main.py"
+      "dest": "api/src/main.py"
     },
     {
       "src": "/(.*)",
-      "dest": "book-source/build/$1"
+      "dest": "build/$1"
     }
   ],
-  "outputDirectory": "book-source/build"
+  "outputDirectory": "build"
 }
