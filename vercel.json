@@ -7,7 +7,7 @@
       "runtime": "python3.10",
       "memory": 1024,
       "maxDuration": 10,
-      "root": "api/"
+      "src": "api/src/main.py"
     }
   },
   "routes": [
