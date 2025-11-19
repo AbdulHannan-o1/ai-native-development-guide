@@ -84,4 +84,3 @@ class AIAgent:
 
 # Global instance for easy access
 ai_agent = AIAgent()
-
