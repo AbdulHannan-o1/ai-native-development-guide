@@ -8,6 +8,7 @@ class HighlightedContent(BaseModel):
 class AIRequest(BaseModel):
     content: HighlightedContent
     api_key: Optional[str] = Field(None, description="Optional. User's custom API key. If None, default key is used.")
+    model: Optional[str] = Field(None, description="Optional. The AI model to use for the request.")
 
 class AIResponse(BaseModel):
     explanation: str = Field(..., min_length=1, description="A simple, analogy-based explanation of the highlighted content.")

@@ -49,7 +49,7 @@ async def highlight_content(request: AIRequest, http_request: Request):
             )
 
     try:
-        response = await ai_agent.process_highlighted_content(request.content, request.api_key)
+        response = await ai_agent.process_highlighted_content(request.content, request.api_key, request.model)
         logger.info(f"AI response generated for {user_id}: {response.explanation[:50]}...")
         return response
     except ValueError as e:

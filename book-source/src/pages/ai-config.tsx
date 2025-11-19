@@ -1,12 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
+
+const GEMINI_MODELS = [
+  'gemini-1.5-flash',
+  'gemini-1.5-pro',
+  // Add other models here when available
+];
 
 function AIConfigPage() {
   const [apiKey, setApiKey] = useState('');
+  const [model, setModel] = useState(GEMINI_MODELS[0]);
 
-  const saveApiKey = () => {
+  useEffect(() => {
+    const savedApiKey = localStorage.getItem('gemini_api_key');
+    if (savedApiKey) {
+      setApiKey(savedApiKey);
+    }
+    const savedModel = localStorage.getItem('gemini_model');
+    if (savedModel && GEMINI_MODELS.includes(savedModel)) {
+      setModel(savedModel);
+    }
+  }, []);
+
+  const saveConfig = () => {
     localStorage.setItem('gemini_api_key', apiKey);
-    alert('API Key saved!');
+    localStorage.setItem('gemini_model', model);
+    alert('Configuration saved!');
   };
 
   return (
@@ -16,9 +35,8 @@ function AIConfigPage() {
           <div className="col col--6 col--offset-3">
             <h1>AI Configuration</h1>
             <p>
-              Please enter your Gemini API key below. This key will be stored in
-              your browser's local storage and will be used to power the AI
-              features of this site.
+              Configure your Gemini API key and select your preferred model. This
+              configuration will be stored in your browser's local storage.
             </p>
             <div className="margin-bottom--lg">
               <label htmlFor="apiKeyInput">Gemini API Key</label>
@@ -31,8 +49,28 @@ function AIConfigPage() {
                 style={{ width: '100%' }}
               />
             </div>
-            <button className="button button--primary" onClick={saveApiKey}>
-              Save API Key
+            <div className="margin-bottom--lg">
+              <label htmlFor="modelSelect">Gemini Model</label>
+              <select
+                id="modelSelect"
+                className="input"
+                value={model}
+                onChange={(e) => setModel(e.target.value)}
+                style={{ width: '100%' }}
+              >
+                {GEMINI_MODELS.map((m) => (
+                  <option key={m} value={m}>
+                    {m}
+                  </option>
+                ))}
+              </select>
+              <p>
+                Note: This is a placeholder list of models. Please provide the
+                full list of models you would like to include.
+              </p>
+            </div>
+            <button className="button button--primary" onClick={saveConfig}>
+              Save Configuration
             </button>
           </div>
         </div>

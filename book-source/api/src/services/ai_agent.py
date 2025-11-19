@@ -31,7 +31,6 @@ class AIAgent:
             
             # Output Guardrail: Ensure JSON structure is valid and contains 'explanation'
             ai_output = response.choices[0].message.content
-            print(f"AI Output: {ai_output}") # Added log
             
             # Attempt to parse the JSON output
             import json
@@ -51,7 +50,6 @@ class AIAgent:
             )
         except Exception as e:
             # Handle potential errors from AI API or JSON parsing
-            print(f"Error processing AI request: {e}")
             raise ValueError(f"Failed to get valid AI response: {e}")
 
     def _construct_prompt(self, content: HighlightedContent) -> list:

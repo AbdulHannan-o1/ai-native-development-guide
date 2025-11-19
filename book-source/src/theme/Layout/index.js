@@ -7,10 +7,8 @@ import aiService from '@site/src/services/aiService'; // Import aiService
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'; // Import useDocusaurusContext
 
 export default function LayoutWrapper(props) {
-  console.log("LayoutWrapper: Component rendered.");
   const { siteConfig } = useDocusaurusContext(); // Get siteConfig from context
   const backendApiUrl = siteConfig.customFields.backendApiUrl; // Access backendApiUrl
-  console.log("LayoutWrapper: backendApiUrl from Docusaurus context:", backendApiUrl);
 
   const {
     highlightedContent,
@@ -34,11 +32,11 @@ export default function LayoutWrapper(props) {
     }
 
     try {
-      const response = await aiService.getAIResponse(contentToProcess, backendApiUrl); // Pass backendApiUrl
+      const selectedModel = localStorage.getItem('gemini_model') || 'gemini-1.5-flash';
+      const response = await aiService.getAIResponse(contentToProcess, backendApiUrl, selectedModel); // Pass backendApiUrl and model
       setAiResponse(response); // This updates the aiResponse
     } catch (err) {
       setError(err); // Pass the full error object
-      console.error("Error in LayoutWrapper calling aiService:", err);
     } finally {
       setLoading(false);
     }
@@ -48,7 +46,6 @@ export default function LayoutWrapper(props) {
   return (
     <>
       <Layout {...props} />
-      {console.log("LayoutWrapper: isPopupVisible:", isPopupVisible, "showDialog:", showDialog)}
       {isPopupVisible && (
         <HighlightPopup
           content={highlightedContent}
