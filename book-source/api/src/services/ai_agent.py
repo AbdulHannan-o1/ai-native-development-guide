@@ -9,7 +9,7 @@ class AIAgent:
         self.default_client = default_openai_client
 
     async def process_highlighted_content(
-        self, content: HighlightedContent, optional_api_key: Optional[str] = None, model: str = "gemini-2.5-flash"
+        self, content: HighlightedContent, optional_api_key: Optional[str] = None, model: str = "gemini-2.5-flash", custom_prompt: Optional[str] = None
     ) -> AIResponse:
         # Determine which client to use
         current_client = self.default_client
@@ -20,7 +20,7 @@ class AIAgent:
                 api_key=optional_api_key,
             )
 
-        prompt_messages = self._construct_prompt(content)
+        prompt_messages = self._construct_prompt(content, custom_prompt)
 
         try:
             response = current_client.chat.completions.create(
@@ -52,15 +52,18 @@ class AIAgent:
             # Handle potential errors from AI API or JSON parsing
             raise ValueError(f"Failed to get valid AI response: {e}")
 
-    def _construct_prompt(self, content: HighlightedContent) -> list:
-        system_message = (
-            "You are an expert AI assistant designed to provide clear, concise, and helpful guidance "
-            "on highlighted content. Your responses should always include an 'explanation' field. "
-            "Optionally, include 'implementation' for code/technical content and 'example' for concepts "
-            "that benefit from illustration. All fields ('explanation', 'implementation', 'example') should be strings. "
-            "Use simple terms and analogies. "
-            "Respond strictly in JSON format with the keys: 'explanation', 'implementation' (optional), 'example' (optional)."
-        )
+    def _construct_prompt(self, content: HighlightedContent, custom_prompt: Optional[str] = None) -> list:
+        if custom_prompt:
+            system_message = custom_prompt
+        else:
+            system_message = (
+                "You are an expert AI assistant designed to provide clear, concise, and helpful guidance "
+                "on highlighted content. Your responses should always include an 'explanation' field. "
+                "Optionally, include 'implementation' for code/technical content and 'example' for concepts "
+                "that benefit from illustration. All fields ('explanation', 'implementation', 'example') should be strings. "
+                "Use simple terms and analogies. "
+                "Respond strictly in JSON format with the keys: 'explanation', 'implementation' (optional), 'example' (optional)."
+            )
 
         user_content_description = f"The user has highlighted the following {content.type.lower()} content:\n\n"
         

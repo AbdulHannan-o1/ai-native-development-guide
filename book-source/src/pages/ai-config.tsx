@@ -12,33 +12,32 @@ const GEMINI_MODELS = [
 ];
 
 function AIConfigPage() {
-  console.log('AIConfigPage: Component rendering...');
   const [apiKey, setApiKey] = useState('');
   const [model, setModel] = useState(GEMINI_MODELS[0]);
-  console.log('AIConfigPage: Initial state - apiKey:', apiKey, 'model:', model);
+  const [customPrompt, setCustomPrompt] = useState('');
 
   useEffect(() => {
-    console.log('AIConfigPage: useEffect running...');
     const savedApiKey = localStorage.getItem('gemini_api_key');
-    console.log('AIConfigPage: Fetched savedApiKey from localStorage:', savedApiKey);
     if (savedApiKey) {
       setApiKey(savedApiKey);
     }
     const savedModel = localStorage.getItem('gemini_model');
-    console.log('AIConfigPage: Fetched savedModel from localStorage:', savedModel);
     if (savedModel && GEMINI_MODELS.includes(savedModel)) {
       setModel(savedModel);
+    }
+    const savedCustomPrompt = localStorage.getItem('gemini_custom_prompt');
+    if (savedCustomPrompt) {
+      setCustomPrompt(savedCustomPrompt);
     }
   }, []);
 
   const saveConfig = () => {
-    console.log('AIConfigPage: saveConfig called. Saving apiKey:', apiKey, 'model:', model);
     localStorage.setItem('gemini_api_key', apiKey);
     localStorage.setItem('gemini_model', model);
+    localStorage.setItem('gemini_custom_prompt', customPrompt);
     alert('Configuration saved!');
   };
 
-  console.log('AIConfigPage: Rendering JSX. Current model state:', model);
   return (
     <Layout title="AI Configuration">
       <div className="container">
@@ -78,6 +77,20 @@ function AIConfigPage() {
               <p>
                 Note: This is a placeholder list of models. Please provide the
                 full list of models you would like to include.
+              </p>
+            </div>
+            <div className="margin-bottom--lg">
+              <label htmlFor="customPromptInput">Custom Prompt (Optional)</label>
+              <textarea
+                id="customPromptInput"
+                className="input"
+                value={customPrompt}
+                onChange={(e) => setCustomPrompt(e.target.value)}
+                style={{ width: '100%', minHeight: '100px' }}
+                placeholder="Enter your custom prompt here. This will be appended to the default agent instruction."
+              />
+              <p className="text--small text--italic">
+                If provided, this prompt will be added to the agent's default instruction.
               </p>
             </div>
             <button className="button button--primary" onClick={saveConfig}>
