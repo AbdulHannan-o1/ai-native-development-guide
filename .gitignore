@@ -49,3 +49,4 @@ htmlcov/
 *.tmp
 *.swp
 Thumbs.db
+.vercel
