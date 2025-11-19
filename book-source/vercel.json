@@ -3,8 +3,7 @@
   "builds": [
     {
       "src": "api/src/main.py",
-      "use": "@vercel/python",
-      "config": { "pip": "api/requirements.txt" }
+      "use": "@vercel/python"
     },
     {
       "src": "package.json",
