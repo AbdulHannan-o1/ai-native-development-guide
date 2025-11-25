@@ -15,6 +15,10 @@ const useHighlight = () => {
       const selectedText = selection.toString().trim();
 
       if (selectedText.length > 0) {
+        // Avoid triggering for clicks on images
+        if (range.startContainer.parentElement.tagName === 'IMG' || range.endContainer.parentElement.tagName === 'IMG') {
+          return null;
+        }
         return { type: 'TEXT', value: selectedText };
       }
     }
@@ -31,6 +35,16 @@ const useHighlight = () => {
       setHighlightedContent(null);
     }
   }, [getSelection]);
+
+  const handleImageClick = useCallback((event) => {
+    if (event.target.tagName === 'IMG') {
+      const imageSrc = event.target.src;
+      if (imageSrc) {
+        setHighlightedContent({ type: 'IMAGE', value: imageSrc });
+        setIsPopupVisible(true);
+      }
+    }
+  }, []);
 
   const handleConfirm = useCallback((contentToProcess = highlightedContent) => {
     setIsPopupVisible(false);
@@ -69,12 +83,16 @@ const useHighlight = () => {
 
   useEffect(() => {
     document.addEventListener('mouseup', handleSelectionChange);
+    document.addEventListener('touchend', handleSelectionChange); // For mobile devices
     document.addEventListener('keydown', handleShortcut);
+    document.addEventListener('click', handleImageClick);
     return () => {
       document.removeEventListener('mouseup', handleSelectionChange);
+      document.removeEventListener('touchend', handleSelectionChange); // For mobile devices
       document.removeEventListener('keydown', handleShortcut);
+      document.removeEventListener('click', handleImageClick);
     };
-  }, [handleSelectionChange, handleShortcut]);
+  }, [handleSelectionChange, handleShortcut, handleImageClick]);
 
   return {
     highlightedContent,

@@ -14,7 +14,9 @@ const HighlightDialog = ({ content, response, loading, error, onClose }) => {
         <div className="highlight-dialog-content">
           <h4>Highlighted Content:</h4>
           <div className="highlight-dialog-highlighted-content">
-            {content.type === 'CODE' ? (
+            {content.type === 'IMAGE' ? (
+              <img src={content.value} alt="Highlighted content" style={{ maxWidth: '100%', height: 'auto' }} />
+            ) : content.type === 'CODE' ? (
               <pre><code>{content.value}</code></pre>
             ) : (
               <p>{content.value}</p>

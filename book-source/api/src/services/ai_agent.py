@@ -65,24 +65,31 @@ class AIAgent:
                 "Respond strictly in JSON format with the keys: 'explanation', 'implementation' (optional), 'example' (optional)."
             )
 
-        user_content_description = f"The user has highlighted the following {content.type.lower()} content:\n\n"
-        
-        if content.type == "TEXT":
-            user_content_description += f"Text: {content.value}"
-        elif content.type == "CODE":
-            user_content_description += f"Code:\n```\n{content.value}\n```"
-        elif content.type == "IMAGE":
-            # For image, the 'value' might be a URL or base64.
-            # The AI model needs to support multimodal input to interpret this.
-            # For text-based models, we might need an image-to-text pre-processor.
-            # Assuming Gemini-pro can handle image descriptions or URLs if passed correctly.
-            user_content_description += f"Image (description/URL): {content.value}"
-        
-        user_content_description += "\nPlease provide an explanation, and if applicable, implementation steps and an example."
+        if content.type == "IMAGE":
+            user_content = [
+                {
+                    "type": "text",
+                    "text": f"The user has highlighted an image. Please provide an explanation, and if applicable, implementation steps and an example for the image at this URL: {content.value}"
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": content.value
+                    }
+                }
+            ]
+        else:
+            user_content_description = f"The user has highlighted the following {content.type.lower()} content:\n\n"
+            if content.type == "TEXT":
+                user_content_description += f"Text: {content.value}"
+            elif content.type == "CODE":
+                user_content_description += f"Code:\n```\n{content.value}\n```"
+            user_content_description += "\nPlease provide an explanation, and if applicable, implementation steps and an example."
+            user_content = user_content_description
 
         return [
             {"role": "system", "content": system_message},
-            {"role": "user", "content": user_content_description},
+            {"role": "user", "content": user_content},
         ]
 
 # Global instance for easy access
